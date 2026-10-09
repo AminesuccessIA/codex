@@ -8,6 +8,7 @@ import { ContactBanner } from './site-footer';
 import { findService, type Service } from '@/lib/services';
 import { solutionCoverage } from '@/lib/solution-catalog';
 import { microsoftProductSources } from '@/lib/microsoft-offers';
+import { ExpertiseVisual, serviceVisualKind } from './expertise-visual';
 export function ServicePage({ service: s }: { service: Service }) {
   const detail = serviceDetails[s.slug];
   const relatedGuides = guides.filter(
@@ -35,6 +36,7 @@ export function ServicePage({ service: s }: { service: Service }) {
             </Button>
           </div>
           <aside className="service-brief">
+            <ExpertiseVisual kind={serviceVisualKind(s.slug)} compact />
             <div className="brief-heading">
               <span className="mono">PÉRIMÈTRE / {s.name.toUpperCase()}</span>
               <Arrow diagonal />

@@ -4,6 +4,7 @@ import { pageMetadata } from '@/lib/site';
 import { InterventionModes } from '@/components/intervention-modes';
 import Link from 'next/link';
 import { Arrow } from '@/components/button';
+import { ExpertiseVisual } from '@/components/expertise-visual';
 export const metadata = pageMetadata(
   'À propos',
   'La Pépiite IT, ESN et intégrateur Microsoft : conseil, consultants au TJM, équipes projet au forfait et services managés pour les entreprises en Europe et Afrique.',
@@ -100,6 +101,7 @@ export default function About() {
             relions à vos usages et à vos priorités.
           </p>
           <Button href="/#expertises">Explorer nos expertises</Button>
+          <ExpertiseVisual />
         </div>
       </section>
       <section className="shell section engagement-section">
