@@ -11,6 +11,7 @@ export const site = {
   description:
     'ESN partenaire Microsoft : conseil, Microsoft 365, Azure, Power BI, Dynamics 365, IA et cybersécurité. Intégration, consultants et services managés.',
   url: canonical.origin,
+  linkedin: 'https://www.linkedin.com/company/la-p%C3%A9piite/',
 };
 export function pageMetadata(
   title: string,

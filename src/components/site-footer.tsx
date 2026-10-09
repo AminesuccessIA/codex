@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Brand } from './site-header';
 import { services } from '@/lib/services';
+import { site } from '@/lib/site';
 import { Button } from './button';
 export function ContactBanner() {
   return (
@@ -64,6 +65,7 @@ export function SiteFooter() {
             <Link href="/references">Références clients</Link>
             <Link href="/cas-d-usage">Cas d’usage</Link>
             <Link href="/contact">Contact</Link>
+            <a href={site.linkedin}>LinkedIn</a>
           </div>
         </div>
         <div className="footer-bottom">

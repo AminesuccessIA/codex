@@ -11,6 +11,7 @@ export function websiteStructuredData() {
         name: site.name,
         legalName: 'LA PEPIITE',
         url: site.url,
+        sameAs: [site.linkedin],
         description: site.description,
         email: 'contact@lapepiite.com',
         address: {
