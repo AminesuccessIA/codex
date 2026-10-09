@@ -27,7 +27,12 @@ export const clientSectors: ClientSector[] = [
       {
         slug: 'luxury-of-retail',
         name: 'Luxury of Retail — groupe L’Oréal',
-        logo: { src: '/clients/loreal.svg', width: 137, height: 36 },
+        logo: {
+          src: '/clients/loreal.svg',
+          width: 137,
+          height: 36,
+          dark: true,
+        },
       },
     ],
   },
