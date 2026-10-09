@@ -18,8 +18,7 @@
     "test:e2e": "playwright test",
     "editorial:check": "node --experimental-strip-types scripts/editorial-check.mjs",
     "editorial:sources": "node --experimental-strip-types scripts/editorial-check.mjs --sources",
-    "editorial:brief": "node --experimental-strip-types scripts/editorial-generate.mjs --brief",
-    "editorial:generate": "node --experimental-strip-types scripts/editorial-generate.mjs"
+    "editorial:brief": "node --experimental-strip-types scripts/editorial-brief.mjs"
   },
   "dependencies": {
     "@fontsource-variable/dm-sans": "^5.3.0",

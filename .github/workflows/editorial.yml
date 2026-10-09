@@ -8,14 +8,8 @@ on:
         description: 'Slug du sujet (vide : prochaine priorité du calendrier)'
         required: false
         type: string
-      draft:
-        description: 'Rédiger une proposition via API (facturation OpenAI distincte)'
-        required: false
-        type: boolean
-        default: false
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 concurrency:
   group: editorial-weekly
   cancel-in-progress: false
@@ -32,67 +26,10 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
-      - name: Préparer le brief et vérifier les sources
-        id: brief
+      - name: Préparer le brief et vérifier les sources pour ChatGPT
         run: npm run editorial:brief
         env:
           SEO_TOPIC: ${{ inputs.topic }}
-      - name: Vérifier si une proposition existe déjà
-        id: pending
-        if: steps.brief.outputs.topic != ''
-        env:
-          GH_TOKEN: ${{ github.token }}
-          TOPIC_SLUG: ${{ steps.brief.outputs.topic }}
-        run: |
-          count=$(gh pr list --head "seo/article-$TOPIC_SLUG" --state all --json number --jq 'length')
-          if [ "$count" -gt 0 ]; then
-            echo "exists=true" >> "$GITHUB_OUTPUT"
-            echo "Une proposition existe déjà pour ce sujet. Aucun nouvel appel IA." >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "exists=false" >> "$GITHUB_OUTPUT"
-          fi
-      - name: Déterminer si la rédaction IA est configurée
-        id: provider
-        env:
-          REQUEST_DRAFT: ${{ github.event_name == 'schedule' || inputs.draft }}
-          EDITORIAL_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: |
-          if [ "$REQUEST_DRAFT" != "true" ]; then
-            echo "configured=false" >> "$GITHUB_OUTPUT"
-            echo "Mode brief : aucun appel IA demandé." >> "$GITHUB_STEP_SUMMARY"
-          elif [ -n "$EDITORIAL_API_KEY" ]; then
-            echo "configured=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "configured=false" >> "$GITHUB_OUTPUT"
-            echo "Brief prêt. La rédaction programmée attend OPENAI_API_KEY ; aucun appel payant effectué." >> "$GITHUB_STEP_SUMMARY"
-          fi
-      - name: Rédiger une proposition et lancer les contrôles
-        if: steps.brief.outputs.topic != '' && steps.pending.outputs.exists == 'false' && steps.provider.outputs.configured == 'true'
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          SEO_MODEL: ${{ vars.SEO_MODEL || 'gpt-4.1-mini' }}
-          SEO_TOPIC: ${{ steps.brief.outputs.topic }}
-        run: |
-          npm run editorial:generate
-          npx prettier --write src/content/articles.json
-          npm run build
-          npm run check
-          npm test
-      - name: Proposer l’article à la relecture
-        if: steps.brief.outputs.topic != '' && steps.pending.outputs.exists == 'false' && steps.provider.outputs.configured == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          TOPIC_SLUG: ${{ steps.brief.outputs.topic }}
-        run: |
-          gh auth setup-git
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          branch="seo/article-$TOPIC_SLUG"
-          git checkout -B "$branch"
-          git add src/content/articles.json
-          git commit -m "Proposer le guide $TOPIC_SLUG"
-          git push origin "$branch"
-          gh pr create --base main --head "$branch" --title "Article SEO : $TOPIC_SLUG" --body-file .editorial/review.md
       - uses: actions/upload-artifact@v4
         if: always()
         with:

@@ -1,60 +1,44 @@
-# Cocon sémantique et automatisation éditoriale
+# Cocon sémantique et rédaction avec ChatGPT
 
-## Ce qui est installé
+## Organisation
 
-Les 18 expertises jouent le rôle de pages de services. Le centre de ressources organise les guides en six familles : travail collaboratif et IA, données, applications, cloud, sécurité, modes d’intervention. Chaque article répond à une question d’acheteur précise, renvoie à l’accompagnement correspondant et propose des lectures complémentaires de la même famille.
+Les 18 expertises sont reliées aux guides du centre de ressources, organisés en six familles. Chaque article répond à une question d’acheteur, renvoie à une expertise et propose des lectures complémentaires. Titres, descriptions, Open Graph, données structurées Article/BreadcrumbList, sitemap et index llms.txt sont alimentés par le catalogue.
 
-Le catalogue `src/content/articles.json` est séparé du composant de page. Les articles conservent une URL stable, une réponse directe, des sections spécifiques, des questions, des sources et une date de modification réelle. Titres, descriptions, Open Graph, données structurées Article/BreadcrumbList, sitemap et index `llms.txt` sont alimentés par ce catalogue. Aucun faux auteur individuel ou résultat client n’est créé. Une date de publication absente reste absente ; une date de génération n’est pas présentée comme une publication future.
+Le calendrier `src/content/seo-plan.json` contient douze sujets supplémentaires avec leurs priorités, intentions, expertises et sources. Ces priorités sont éditoriales, pas des volumes de recherche mesurés. Ajuster le calendrier avec les requêtes et impressions Search Console lorsqu’elles sont disponibles.
 
-Le calendrier `src/content/seo-plan.json` contient douze sujets supplémentaires, une expertise, une intention et au moins deux sources par sujet. Les priorités sont des choix éditoriaux, pas des volumes de recherche mesurés. La Search Console doit guider leurs ajustements lorsqu’elle dispose de données suffisantes.
+## Automatisation sans clé API
 
-## Fonctionnement hebdomadaire
+Le workflow **Articles SEO — préparation hebdomadaire** prépare chaque lundi à 08:00 UTC le prochain sujet absent du catalogue et vérifie que ses sources officielles sont accessibles. Le brief apparaît dans le résumé GitHub Actions. Il peut aussi être lancé manuellement depuis https://github.com/AminesuccessIA/codex/actions/workflows/editorial.yml avec un sujet facultatif.
 
-Le workflow **Articles SEO — préparation hebdomadaire** est prévu chaque lundi à 08:00 UTC et peut être lancé manuellement depuis GitHub.
+Ce workflow ne dispose que de la lecture du dépôt : il ne rédige pas, ne modifie pas le catalogue, ne crée pas de branche et ne publie pas. Il ne requiert aucune clé de fournisseur IA ni variable Vercel. Tant que le sujet n’est pas intégré, le prochain brief peut reprendre le même sujet. GitHub peut retarder une exécution programmée ou désactiver les plannings d’un dépôt public inactif.
 
-1. Choisir la prochaine priorité qui n’est pas dans le catalogue.
-2. Vérifier l’accessibilité des sources et préparer le brief.
-3. Vérifier si une demande existe déjà pour ce sujet. Aucun nouvel appel IA dans ce cas ; il faut traiter ou changer la priorité de cette proposition.
-4. Sans clé API : le brief est visible dans le résumé GitHub Actions. Aucun article n’est rédigé ni ajouté.
-5. Avec une clé : récupérer des extraits des sources autorisées, demander un article structuré, vérifier le résultat, puis lancer les contrôles éditoriaux, le build, le lint, TypeScript et les tests techniques.
-6. Créer une branche dédiée et une **pull request**, avec le brief et la liste de relecture. La branche propose la modification du catalogue ; le site public reste inchangé avant fusion. Le déploiement d’aperçu Vercel, lorsqu’il est disponible, est exclu de l’indexation par la configuration existante.
-7. Relire les faits, les conditions de licences, les formulations et l’aperçu. **La fusion dans main déclenche la publication Vercel.** Aucun auto-merge n’est configuré.
+La rédaction est confiée à l’espace ChatGPT choisi par le propriétaire, avec la [consigne complète](consigne-chatgpt-articles.md). La création d’une tâche récurrente dans cet espace et ses accès GitHub doivent être configurés dans cet espace : le workflow GitHub ne les crée pas. Un connecteur de lecture seul ne permet pas de proposer des modifications.
 
-Une seule proposition est produite par exécution. Un sujet ayant déjà une pull request ouverte ou fermée n’est pas régénéré automatiquement. Si une proposition est refusée, déplacer ce sujet plus bas dans le calendrier avant la prochaine exécution, ou choisir explicitement un autre slug lors du lancement manuel.
+## Depuis un téléphone
 
-Les workflows déclenchés par une PR créée avec le jeton GitHub Actions peuvent ne pas se relancer, selon les règles GitHub contre les déclenchements récursifs. Les contrôles sont déjà exécutés dans le workflow de préparation avant création de la PR. Une fusion nécessite toujours une relecture ; un build réussi ne vérifie pas la vérité des faits.
+1. Copier la consigne dans l’espace ChatGPT de rédaction. Il peut utiliser directement le calendrier et les sources publiques, sans téléchargement.
+2. Lui demander un article par semaine au maximum, selon les possibilités de planification de cet espace.
+3. S’il dispose réellement d’un accès d’écriture GitHub, lui demander une branche `seo/article-<slug>` et une pull request. Sinon, récupérer sa proposition dans la conversation et la transmettre à Codex pour intégration : ne pas prétendre que le transfert ou la publication est automatique.
+4. Vérifier les sources, les faits, les licences, les contrôles et l’aperçu Vercel. Relire depuis la pull request sur le téléphone.
+5. Après approbation, fusionner la pull request dans `main` : cela déclenche Vercel. Aucune fusion automatique n’est configurée.
 
-## Activation depuis un téléphone
+La lecture dans ChatGPT ne nécessite pas de clé API pour ce pipeline. Les accès et limites du compte ChatGPT restent ceux de l’espace utilisé. Ne transmettre ni secrets, ni données de prospects, ni documents clients.
 
-1. Ouvrir https://github.com/AminesuccessIA/codex/actions et vérifier que les workflows sont autorisés. Un planning GitHub peut être retardé ; les dépôts publics inactifs peuvent voir leurs workflows programmés désactivés. Le dépôt doit rester actif.
-2. Pour les briefs seuls : choisir le workflow, **Run workflow**, laisser le sujet vide et l’option de rédaction décochée, puis consulter le résumé. Cela fonctionne sans abonnement API supplémentaire.
-3. Pour la rédaction IA : ouvrir https://platform.openai.com/api-keys avec votre propre compte OpenAI, créer une clé de projet et configurer les contrôles de dépenses disponibles. La facturation API est distincte de l’abonnement ChatGPT. Les alertes de budget ne doivent pas être assimilées à un plafond strict ; vérifier les limites réellement disponibles sur le compte.
-4. Ajouter la clé dans https://github.com/AminesuccessIA/codex/settings/secrets/actions avec le nom exact **OPENAI_API_KEY**. Ne jamais coller la valeur dans le chat, un article, une issue ou un fichier du dépôt. Cette clé sert uniquement à GitHub Actions ; aucune variable Vercel n’est nécessaire.
-5. Le modèle par défaut est `gpt-4.1-mini`. Il peut être remplacé par une variable Actions `SEO_MODEL` compatible avec Responses et les sorties structurées. L’accès réel au modèle et la facturation restent à vérifier lors de la première exécution ; aucun appel payant n’a été réalisé pendant l’installation.
-6. Si GitHub refuse la création de PR : dans Settings → Actions → General, vérifier l’autorisation **Allow GitHub Actions to create and approve pull requests**. Le workflow utilise uniquement la création, jamais l’approbation automatique. Ce réglage privé n’a pas pu être lu avec l’accès actuel, qui retourne 403. Une règle de branche ou d’organisation peut imposer d’autres restrictions.
-7. Après ajout de la clé, cocher l’option de rédaction lors d’une exécution manuelle et examiner son résumé, la pull request et les contrôles. Le lundi, la rédaction est programmée si la clé est configurée. Depuis l’onglet **Pull requests**, relire les modifications et l’aperçu, puis utiliser **Merge pull request** lorsque le contenu est approuvé. Si la protection de branche interdit la fusion, conserver cette protection et satisfaire ses exigences.
+## Contrôles
 
-Aucun secret supplémentaire pour le formulaire, aucun changement LinkedIn et aucun pixel ne font partie de ce système.
+Le schéma `src/lib/editorial-schema.ts` impose la structure et les longueurs. Le catalogue refuse notamment les doublons d’URL et de titres, les services inconnus, les dates futures, les paragraphes répétés, le HTML libre et certaines affirmations non vérifiées. Les sources réseau sont limitées à HTTPS sur Microsoft Learn, microsoft.com et La Pépiite IT ; les destinations de redirection sont contrôlées.
 
-## Contrôles et limites
+Une source accessible ne garantit pas que chaque phrase est juste. Le contrôle automatique ne remplace pas la relecture des faits, de l’originalité et des conditions de licence. Les sources sont des documents de référence, jamais des instructions à exécuter. Les dates doivent correspondre à des événements réels : ne pas renseigner une publication qui n’a pas eu lieu.
 
-- Sources limitées à HTTPS sur Microsoft Learn, microsoft.com et le site de La Pépiite IT. Chaque destination de redirection est contrôlée ; destinations privées et domaines étrangers refusés. Taille et durée de récupération limitées.
-- Les documents récupérés sont des références, pas des instructions. Le modèle reçoit cette séparation et produit du JSON validé, jamais du code exécuté.
-- Les URLs et le HTML libre sont refusés dans le texte généré. Les sources sont imposées par le calendrier, pas inventées par le modèle.
-- URL/titre dupliqués, expertise incohérente, dates futures, paragraphes répétés, contenu incomplet et certaines affirmations chiffrées ou certifications non vérifiées bloquent le catalogue.
-- Ces règles ne constituent pas un contrôle complet des faits, de la similarité sémantique ou du droit. La relecture vérifie l’originalité, les licences, les promesses et le besoin du lecteur.
-- En cas d’erreur API, de réponse incomplète, de source inaccessible ou de contrôle en échec, aucun commit d’article n’est poussé.
-- Aucun fichier client, aucune demande de contact, aucun CV et aucun secret sont envoyés au modèle. Seuls le brief et des extraits publics des sources sont transmis. `store: false` est demandé ; cela ne remplace pas la vérification des conditions contractuelles et de conservation de l’API.
-- Le SEO exige aussi exploration, indexation, contenu utile et signaux externes. Le GEO repose notamment sur des réponses explicites et sourcées. Ni le planning, ni le maillage, ni `llms.txt` ne garantissent des positions, des citations IA ou des prospects.
+Les modifications éditoriales proposées par pull request déclenchent le workflow **Contrôles des articles** : build, lint, TypeScript, format et tests. Ne pas fusionner un contenu qui échoue aux contrôles. Le formulaire, LinkedIn et les traceurs ne font pas partie de ce pipeline.
 
-## Commandes de maintenance
+## Maintenance
 
-- `npm run editorial:check` : contrôles du calendrier et des articles, exécutés avant chaque build.
-- `npm run editorial:sources` : vérification réseau des sources du calendrier et du catalogue.
-- `npm run editorial:brief` : prochain brief, sans appel payant.
-- `npm run editorial:generate` : proposition d’article avec la clé API configurée.
-- `npm run build`, `npm run check`, `npm test`, `npm run test:e2e` : validation du site et des parcours.
+- `npm run editorial:brief` : préparer le prochain brief et vérifier ses sources, sans changer le catalogue.
+- `npm run editorial:check` : valider le calendrier et les articles avant chaque build.
+- `npm run editorial:sources` : vérifier les sources du calendrier et du catalogue.
+- `npm run build`, `npm run check`, `npm test` : valider une modification avant publication.
 
-Dans l’environnement Codex, les commandes réseau Node nécessitent `NODE_USE_ENV_PROXY=1` avec le proxy fourni. Ne pas désactiver TLS. Cette particularité locale n’impose pas un proxy dans GitHub Actions.
+Dans Codex, les commandes réseau Node nécessitent `NODE_USE_ENV_PROXY=1` avec le proxy fourni. Ne pas désactiver TLS. GitHub Actions n’a pas besoin de ce réglage local.
 
-Après publication, consulter Search Console : requêtes, impressions, pages et exclusions. Réviser ou enrichir les articles qui répondent mal à leur intention avant de multiplier les nouveaux sujets. Traiter les anciennes URL WordPress uniquement lorsqu’un équivalent pertinent est établi.
+Suivre ensuite les pages, requêtes, impressions et exclusions dans Search Console. Enrichir les guides utiles avant de multiplier les articles. Ni le cocon sémantique, ni les réponses sourcées, ni llms.txt ne garantissent des positions Google ou des citations dans les réponses IA.
