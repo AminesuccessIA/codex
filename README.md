@@ -1,4 +1,5 @@
 # La Pépiite IT — site vitrine
+Site officiel : https://www.lapepiite.com
 
 Site français de La Pépiite IT, ESN et intégrateur Microsoft. Direction artistique issue de la référence `audit-microsoft.html` : fond minéral, encre sombre, accent citron, DM Sans et Space Grotesk hébergées localement. L’audit Microsoft reste une offre du conseil ; l’accueil couvre tout l’écosystème.
 
