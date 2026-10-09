@@ -1,3 +1,4 @@
+import { ExpertiseVisual } from '@/components/expertise-visual';
 import Link from 'next/link';
 import { Label, Button, Arrow } from '@/components/button';
 import { Ecosystem } from '@/components/ecosystem';
@@ -54,6 +55,7 @@ export default function MicrosoftPartner() {
           <Ecosystem compact />
         </div>
       </section>
+      <ExpertiseVisual kind="accompagnement" fullWidth />
       <section className="partner-position">
         <div className="shell">
           <p className="eyebrow">ESN. INTÉGRATEUR. PARTENAIRE MICROSOFT.</p>
@@ -109,7 +111,7 @@ export default function MicrosoftPartner() {
           ))}
         </div>
       </section>
-      <InterventionModes />
+      <InterventionModes illustrated />
       <section className="shell section partner-resources">
         <div>
           <Label>MICROSOFT · LIENS OFFICIELS</Label>

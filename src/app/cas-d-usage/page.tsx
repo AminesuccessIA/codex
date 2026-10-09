@@ -1,3 +1,4 @@
+import { ExpertiseVisual } from '@/components/expertise-visual';
 import { Label, Button, Arrow } from '@/components/button';
 import { ContactBanner } from '@/components/site-footer';
 import { pageMetadata } from '@/lib/site';
@@ -29,6 +30,7 @@ export default function Projects() {
           projet avec nos équipes.
         </p>
       </section>
+      <ExpertiseVisual kind="accompagnement" fullWidth />
       <section className="shell project-list">
         {useCases.map((p, index) => (
           <article className="project-row" key={p.slug}>

@@ -1,3 +1,4 @@
+import { ExpertiseVisual } from '@/components/expertise-visual';
 import Link from 'next/link';
 import { Label, Arrow } from '@/components/button';
 import { guides } from '@/lib/guides';
@@ -52,6 +53,7 @@ export default function Resources() {
           sources officielles utiles.
         </p>
       </section>
+      <ExpertiseVisual kind="accompagnement" fullWidth />
       <nav
         className="shell resource-topics"
         aria-label="Explorer les guides par sujet"

@@ -1,7 +1,14 @@
 import Link from 'next/link';
 import { Arrow, Label } from './button';
 import { interventionModes } from '@/lib/intervention-modes';
-export function InterventionModes({ compact = false }: { compact?: boolean }) {
+import { ExpertiseVisual } from './expertise-visual';
+export function InterventionModes({
+  compact = false,
+  illustrated = false,
+}: {
+  compact?: boolean;
+  illustrated?: boolean;
+}) {
   return (
     <section
       id="interventions"
@@ -23,24 +30,27 @@ export function InterventionModes({ compact = false }: { compact?: boolean }) {
             : 'Pour les entreprises en Europe et en Afrique. Le contexte technique, les livrables, la disponibilité et les conditions d’intervention sont qualifiés avant proposition.'}
         </p>
       </div>
-      <div className="intervention-list">
-        {interventionModes.map((mode, index) => (
-          <article key={mode.name}>
-            <span className="mono">0{index + 1} /</span>
-            <h3>
-              <Link href={mode.href}>
-                {mode.name}
-                <Arrow diagonal />
-              </Link>
-            </h3>
-            <div>
-              <p>{compact ? mode.summary : mode.detail}</p>
-              {!compact && (
-                <p className="intervention-agreement">{mode.agreement}</p>
-              )}
-            </div>
-          </article>
-        ))}
+      <div className={illustrated ? 'human-interventions-body' : undefined}>
+        {illustrated && <ExpertiseVisual kind="expertise" inline />}
+        <div className="intervention-list">
+          {interventionModes.map((mode, index) => (
+            <article key={mode.name}>
+              {!illustrated && <span className="mono">0{index + 1} /</span>}
+              <h3>
+                <Link href={mode.href}>
+                  {mode.name}
+                  <Arrow diagonal />
+                </Link>
+              </h3>
+              <div>
+                <p>{compact ? mode.summary : mode.detail}</p>
+                {!compact && (
+                  <p className="intervention-agreement">{mode.agreement}</p>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
       {compact && (
         <Link

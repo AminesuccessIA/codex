@@ -1,3 +1,4 @@
+import { ExpertiseVisual } from '@/components/expertise-visual';
 import { Label } from '@/components/button';
 import { ContactForm } from '@/components/contact-form';
 import { pageMetadata } from '@/lib/site';
@@ -59,21 +60,27 @@ export default async function Contact({
         </div>
         <ContactForm initialService={selected} enabled={formIsEnabled()} />
       </section>
-      <section id="donnees" className="shell data-notice">
-        <h2>Une demande professionnelle, un périmètre à définir.</h2>
-        <p>
-          Précisez votre organisation, le contexte technique, le livrable
-          attendu et vos contraintes de calendrier. Le premier échange sert à
-          qualifier le besoin et les conditions d’une éventuelle intervention,
-          avec un périmètre et des responsabilités définis.
-        </p>
-        <p>
-          Les informations sur vos données sont regroupées dans la{' '}
-          <Link href="/politique-de-confidentialite">
-            politique de confidentialité
-          </Link>
-          .
-        </p>
+      <section
+        id="donnees"
+        className="shell data-notice data-notice-illustrated"
+      >
+        <div>
+          <h2>Une demande professionnelle, un périmètre à définir.</h2>
+          <p>
+            Précisez votre organisation, le contexte technique, le livrable
+            attendu et vos contraintes de calendrier. Le premier échange sert à
+            qualifier le besoin et les conditions d’une éventuelle intervention,
+            avec un périmètre et des responsabilités définis.
+          </p>
+          <p>
+            Les informations sur vos données sont regroupées dans la{' '}
+            <Link href="/politique-de-confidentialite">
+              politique de confidentialité
+            </Link>
+            .
+          </p>
+        </div>
+        <ExpertiseVisual kind="accompagnement" inline />
       </section>
     </main>
   );

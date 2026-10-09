@@ -1,3 +1,4 @@
+import { ExpertiseVisual } from '@/components/expertise-visual';
 import { Label } from '@/components/button';
 import { ClientReferences } from '@/components/client-references';
 import { ContactBanner } from '@/components/site-footer';
@@ -30,6 +31,13 @@ export default function References() {
         </p>
       </section>
       <ClientReferences />
+      <section className="shell section">
+        <ExpertiseVisual
+          kind="collaboration"
+          inline
+          sizes="(max-width: 1300px) 90vw, 1224px"
+        />
+      </section>
       <ContactBanner />
     </main>
   );

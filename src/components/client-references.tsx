@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Arrow, Label } from './button';
+import { Arrow } from './button';
 import {
   clientSectors,
   featuredClients,
@@ -39,10 +39,7 @@ export function ClientReferences({ compact = false }: { compact?: boolean }) {
       >
         <div className="client-preview-heading">
           <div>
-            <Label>NOS CLIENTS</Label>
-            <h2 id="client-preview-title">
-              Ils font confiance à La Pépiite IT.
-            </h2>
+            <h2 id="client-preview-title">Ils nous font confiance.</h2>
           </div>
           <Link href="/references" className="text-link">
             Toutes nos références <Arrow diagonal />

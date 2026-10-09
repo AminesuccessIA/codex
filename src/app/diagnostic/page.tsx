@@ -1,3 +1,4 @@
+import { ExpertiseVisual } from '@/components/expertise-visual';
 import { Label } from '@/components/button';
 import { ProjectQualifier } from '@/components/project-qualifier';
 import { pageMetadata } from '@/lib/site';
@@ -63,6 +64,12 @@ export default async function Diagnostic({
           initialService={service}
           source={source}
         />
+      </section>
+      <section
+        className="shell qualification-visual"
+        aria-label="Accompagnement de votre projet"
+      >
+        <ExpertiseVisual kind="collaboration" inline />
       </section>
     </main>
   );

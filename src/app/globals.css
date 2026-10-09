@@ -2293,7 +2293,7 @@ svg {
 .service-outcomes h2 {
   margin-top: 20px;
 }
-.service-method-heading > p:last-child {
+.service-method-heading > p:not(.eyebrow) {
   max-width: 35ch;
   margin-top: 24px;
   font-size: 14px;
@@ -3508,69 +3508,361 @@ svg {
   }
 }
 
-/* Editorial opening: a clear proposition followed by an edge-to-edge image. */
+/* Accueil validé : hiérarchie éditoriale et présence humaine. */
 .home-hero {
-  display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  align-items: end;
-  gap: clamp(36px, 5vw, 80px);
-  padding-block: 64px 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 22px;
+  padding-block: 54px 42px;
+}
+.home-hero .hero-copy {
+  width: 100%;
+}
+.home-hero .eyebrow {
+  justify-content: center;
 }
 .home-hero .hero-copy h1 {
-  font-size: clamp(48px, 4vw, 58px);
-  line-height: 1.06;
+  font-size: clamp(50px, 4.8vw, 68px);
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+  margin-top: 20px;
+}
+.home-hero .hero-copy h1 > span {
+  max-width: none;
+  display: block;
 }
 .home-hero .hero-intro {
-  padding-bottom: 6px;
+  max-width: 760px;
+  padding: 0;
 }
 .home-hero .hero-description {
   margin-top: 0;
+  max-width: none;
+  font-size: 17px;
+  line-height: 1.7;
+}
+.home-hero .hero-actions {
+  justify-content: center;
+  margin-top: 25px;
+  gap: 24px;
+}
+.home-hero .button {
+  min-height: 50px;
+  padding-inline: 24px;
+  font-size: 13px;
+}
+.home-hero .text-link {
+  font-size: 13px;
+  border: 0;
+  padding: 0;
+  margin: 0;
 }
 .home-hero .partner-mention {
   border: 0;
   padding: 0;
   min-height: 0;
-  margin-top: 14px;
   background: transparent;
+  margin: 15px 0 0;
+  display: inline-block;
+  color: #4e6048;
+  font-size: 12px;
+}
+.expertise-visual-full img {
+  aspect-ratio: 2.35;
+  object-fit: cover;
+  object-position: center 45%;
+}
+.client-preview {
+  padding-top: 36px;
+}
+.client-preview-heading {
+  align-items: center;
+  margin-bottom: 24px;
+}
+.client-preview-heading h2 {
+  font-size: 22px;
+  margin: 0;
+  letter-spacing: -0.035em;
+}
+.client-preview-heading .text-link {
+  font-size: 12px;
+}
+.client-preview-grid {
+  gap: 18px;
+}
+.client-preview .client-mark:not(.client-mark-dark) {
+  background: transparent;
+}
+.client-preview .client-mark {
+  height: 82px;
+  padding: 18px;
+}
+.client-preview .client-caption {
+  font-size: 11px;
+  margin-top: 8px;
+}
+.human-media {
+  margin: 0;
+  overflow: hidden;
+}
+.human-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.5;
+  object-fit: cover;
+}
+.human-interventions-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 68px;
+  align-items: start;
+}
+.human-interventions-body .human-media img {
+  aspect-ratio: 1.1;
+  object-position: center;
+}
+.human-interventions-body .intervention-list {
+  display: block;
+}
+.human-interventions-body .intervention-list article {
+  display: block;
+  padding-block: 22px;
+}
+.human-interventions-body .intervention-list article:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+.human-interventions-body .intervention-list h3 {
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+.human-interventions-body .intervention-list p {
+  font-size: 14px;
+  line-height: 1.7;
+}
+.approach-grid {
+  align-items: center;
+}
+.approach-grid .human-media img {
+  aspect-ratio: 1.35;
+}
+.approach-steps.human-method-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px;
+  margin-top: 54px;
+}
+.approach-steps.human-method-steps article {
+  display: block;
+  padding-block: 20px;
+}
+.approach-steps.human-method-steps article:last-child {
+  border-bottom: 0;
+}
+.approach-steps.human-method-steps .mono {
+  display: block;
+  margin-bottom: 15px;
+}
+.approach-steps.human-method-steps h3 {
+  font-size: 19px;
+}
+@media (max-width: 1024px) {
+  .human-interventions-body {
+    gap: 36px;
+  }
 }
 @media (max-width: 850px) {
   .home-hero {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding-block: 44px 38px;
+    gap: 22px;
+    padding-block: 42px 36px;
   }
   .home-hero .hero-copy h1 {
-    font-size: clamp(42px, 7vw, 56px);
+    font-size: 52px;
   }
-  .home-hero .hero-description {
-    max-width: 600px;
-    font-size: 15px;
+  .human-interventions-body {
+    grid-template-columns: 1fr;
   }
-  .home-hero .hero-actions {
-    margin-top: 24px;
+  .human-interventions-body .human-media img {
+    aspect-ratio: 1.7;
   }
-  .expertise-visual-full img {
-    aspect-ratio: 2;
+  .approach-steps.human-method-steps {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 34px;
   }
 }
 @media (max-width: 700px) {
   .home-hero {
-    display: grid;
-    gap: 22px;
-    padding-block: 34px 32px;
+    align-items: start;
+    text-align: left;
+    gap: 20px;
+    padding-block: 30px 28px;
+  }
+  .home-hero .eyebrow {
+    justify-content: start;
   }
   .home-hero .hero-copy h1 {
-    font-size: clamp(40px, 10vw, 52px);
-    margin-top: 20px;
+    font-size: clamp(37px, 9.8vw, 43px);
+    margin-top: 18px;
+    line-height: 1.08;
   }
-  .home-hero .hero-intro {
-    padding-bottom: 0;
+  .home-hero .hero-description {
+    font-size: 16px;
+    line-height: 1.6;
   }
   .home-hero .hero-actions {
-    gap: 20px;
+    align-items: center;
+    justify-content: start;
+    gap: 19px;
+    margin-top: 22px;
+  }
+  .home-hero .hero-actions .button {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .home-hero .hero-actions .text-link {
+    font-size: 12px;
   }
   .expertise-visual-full img {
     aspect-ratio: 1.5;
     object-fit: contain;
+  }
+  .client-preview {
+    padding-top: 30px;
+  }
+  .client-preview-heading {
+    gap: 14px;
+    align-items: start;
+    margin-bottom: 20px;
+  }
+  .client-preview-heading h2 {
+    font-size: 22px;
+  }
+  .client-preview-grid {
+    gap: 18px 16px;
+  }
+  .client-preview .client-mark {
+    height: 72px;
+    padding: 14px;
+  }
+  .human-interventions-body .human-media img {
+    aspect-ratio: 1.5;
+  }
+  .human-interventions-body {
+    gap: 28px;
+  }
+  .approach-grid .human-media img {
+    aspect-ratio: 1.5;
+  }
+  .human-interventions-body .intervention-list h3 {
+    font-size: 20px;
+  }
+}
+
+/* Pages internes : même rythme, contenus et parcours propres à chaque offre. */
+.inner-hero-grid {
+  gap: clamp(36px, 6vw, 86px);
+}
+.inner-hero h1,
+.editorial-hero h1,
+.lead-page h1 {
+  font-size: clamp(42px, 4.3vw, 62px);
+  line-height: 1.1;
+}
+.inner-hero .hero-description,
+.editorial-hero .hero-description {
+  max-width: 660px;
+  font-size: 17px;
+  line-height: 1.7;
+}
+.service-brief {
+  background: transparent;
+  border: 0;
+  border-left: 1px solid var(--line);
+  padding-block: 0;
+}
+.service-method-heading .human-media {
+  margin-top: 30px;
+}
+.guide-article > .human-media {
+  margin-block: 30px;
+}
+.guide-article > .human-media img {
+  aspect-ratio: 2;
+}
+.data-notice-illustrated {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.qualification-visual {
+  padding-block: 0 64px;
+}
+.qualification-visual .human-media {
+  max-width: 720px;
+  margin-inline: auto;
+}
+@media (max-width: 850px) {
+  .inner-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .service-brief {
+    border-left: 0;
+    padding: 0;
+  }
+  .brief-heading,
+  .brief-title,
+  .brief-bottom,
+  .brief-technologies .mono {
+    display: none;
+  }
+  .brief-technologies {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .brief-technologies > div {
+    border: 0;
+    padding: 5px 10px;
+    background: #edf0e8;
+    font-size: 12px;
+  }
+  .data-notice-illustrated {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+@media (max-width: 700px) {
+  .inner-hero h1,
+  .editorial-hero h1,
+  .lead-page h1 {
+    font-size: clamp(35px, 9.4vw, 40px);
+    line-height: 1.12;
+  }
+  .inner-hero .hero-description,
+  .editorial-hero .hero-description {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .inner-hero {
+    padding-bottom: 32px;
+  }
+  .editorial-hero {
+    padding-bottom: 36px;
+  }
+  .inner-hero .button {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .guide-article > .human-media img {
+    aspect-ratio: 1.5;
+  }
+  .service-method-heading .human-media {
+    margin-top: 24px;
   }
 }

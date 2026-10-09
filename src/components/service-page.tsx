@@ -132,6 +132,14 @@ export function ServicePage({ service: s }: { service: Service }) {
             Le calendrier et les accès sont convenus au cadrage. Chaque étape
             prévoit une validation avec vos interlocuteurs.
           </p>
+          <ExpertiseVisual
+            kind={
+              serviceVisualKind(s.slug) === 'accompagnement'
+                ? 'collaboration'
+                : 'accompagnement'
+            }
+            inline
+          />
         </div>
         <ol className="method-list">
           {detail.method.map(([title, description], index) => (

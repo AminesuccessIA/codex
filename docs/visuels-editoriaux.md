@@ -17,3 +17,23 @@ La sélection par expertise est centralisée dans `serviceVisualKind`. Le schém
 À la suite de la relecture mobile, les cadres, les ombres et les légendes décoratives ont été retirés. L’accueil sépare le message commercial de l’image pleine largeur. La ligne répétant les services et le bandeau technologique redondant ont été supprimés. Sur les expertises, l’illustration est indépendante de la fiche de périmètre.
 
 La méthode de contrôle repose sur la hiérarchie (une proposition et un CTA principal), la suppression des répétitions, une grille stable, le cadrage sans perte de contenu essentiel et la vérification dans un navigateur à 360, 390, 768, 1024 et 1440 pixels. Les règles du composant Image de la documentation Next.js installée ont été consultées. Le dépôt public Microsoft Fluent UI a été consulté comme référence de système de composants ; aucune bibliothèque ni mise en page n’en a été copiée.
+
+## Direction humaine validée et publiée
+
+L’équipe a validé l’accueil présenté dans `/downloads/apercu-accueil.html`, puis autorisé sa publication et sa déclinaison sur les pages internes. Les trois nouveaux visuels sont des illustrations originales générées, montrant des professionnels fictifs ; ils ne doivent jamais être présentés comme des portraits de salariés, de clients ou de consultants identifiés.
+
+- `collaboration-projet.webp` : collaboration et cadrage des projets Microsoft.
+- `expertise-infrastructure.webp` : expertise technique, infrastructure et renfort des équipes.
+- `accompagnement-microsoft.webp` : mise en œuvre, adoption et transmission aux équipes.
+
+Les trois fichiers locaux mesurent 1 440 × 960 pixels, entre 95 et 125 Ko. Ils remplacent les illustrations techniques dans les pages commerciales. L’accueil utilise trois images distinctes ; les expertises associent une ouverture adaptée à leur sujet à une seconde illustration de méthode. Les pages institutionnelles, le catalogue, les scénarios et les ressources reprennent la même direction, avec une composition adaptée au rôle de chaque page. Les pages légales conservent leur format documentaire.
+
+Le composant utilise `next/image`, des dimensions réservées, des tailles responsive correspondant aux colonnes et une priorité limitée au visuel principal de l’accueil. Aucun chargement externe d’images, traceur ou dépendance supplémentaire n’est ajouté. Le formulaire et son traitement demeurent hors périmètre ; les visuels de Contact et Diagnostic sont placés après le parcours principal.
+
+La maquette autonome reste accessible à son adresse de revue, exclue de l’indexation. Elle représente la proposition validée et ne remplace pas les composants Next.js de production.
+
+### Recette de la déclinaison
+
+Build et TypeScript validés, lint sans avertissement et format vérifié. Les 21 tests navigateur existants passent : 37 pages aux largeurs 360, 390, 768, 1 024 et 1 440 px, menus, FAQ, liens internes, canoniques et données structurées. Une seconde passe charge et décode les images des 37 pages à 390 et 1 440 px ; 32 contrôles axe sur 16 pages représentatives ne signalent aucune violation des règles WCAG A/AA examinées. Ces contrôles ne constituent pas une certification de conformité complète. Les captures des ouvertures et de la méthode ont été relues dans Chromium.
+
+Le diff confirme l’absence de modification des composants de formulaire, de qualification, de l’API de contact et des paramètres de conformité. Les scénarios de test ne démontrent pas une réception réelle d’e-mail.

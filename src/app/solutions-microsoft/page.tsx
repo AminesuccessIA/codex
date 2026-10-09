@@ -1,3 +1,4 @@
+import { ExpertiseVisual } from '@/components/expertise-visual';
 import Link from 'next/link';
 import { Label, Button, Arrow } from '@/components/button';
 import { SolutionDirectory } from '@/components/solution-directory';
@@ -41,6 +42,7 @@ export default function MicrosoftSolutions() {
           <Button href="/contact">Définir votre périmètre</Button>
         </div>
       </section>
+      <ExpertiseVisual kind="collaboration" fullWidth />
       <nav
         className="shell solution-jump-links"
         aria-label="Familles de solutions Microsoft"

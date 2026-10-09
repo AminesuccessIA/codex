@@ -1,22 +1,32 @@
 import Image from 'next/image';
 
 const visuals = {
-  cloud: {
-    src: '/images/architecture-cloud.webp',
-    alt: 'Illustration de socles cloud, applications et données reliés dans une architecture commune.',
+  collaboration: {
+    src: '/images/collaboration-projet.webp',
+    alt: 'Illustration : trois professionnels échangent sur un projet informatique.',
   },
-  data: {
-    src: '/images/data-automatisation.webp',
-    alt: 'Illustration de données structurées circulant entre plusieurs couches applicatives.',
+  accompagnement: {
+    src: '/images/accompagnement-microsoft.webp',
+    alt: 'Illustration : deux professionnels travaillent ensemble sur une solution informatique.',
   },
-  security: {
-    src: '/images/identites-securite.webp',
-    alt: 'Illustration d’un socle technique entouré de couches de protection et de points d’accès contrôlés.',
+  expertise: {
+    src: '/images/expertise-infrastructure.webp',
+    alt: 'Illustration : une professionnelle intervient sur une infrastructure de datacenter.',
   },
 };
 
 export function serviceVisualKind(service: string): keyof typeof visuals {
-  if (['cybersecurite', 'intune'].includes(service)) return 'security';
+  if (
+    [
+      'azure-cloud',
+      'cybersecurite',
+      'intune',
+      'support-services-manages',
+      'windows-365',
+      'azure-devops',
+    ].includes(service)
+  )
+    return 'expertise';
   if (
     [
       'copilot-ia',
@@ -29,30 +39,38 @@ export function serviceVisualKind(service: string): keyof typeof visuals {
       'business-central',
     ].includes(service)
   )
-    return 'data';
-  return 'cloud';
+    return 'accompagnement';
+  return 'collaboration';
 }
 
 export function ExpertiseVisual({
-  kind = 'cloud',
+  kind = 'collaboration',
   hero = false,
   fullWidth = false,
+  inline = false,
+  sizes,
 }: {
   kind?: keyof typeof visuals;
   hero?: boolean;
   fullWidth?: boolean;
+  inline?: boolean;
+  sizes?: string;
 }) {
   const visual = visuals[kind];
   return (
     <figure
-      className={`expertise-visual${hero ? ' expertise-visual-hero' : ''}${fullWidth ? ' expertise-visual-full' : ''}`}
+      className={
+        inline
+          ? 'human-media'
+          : `expertise-visual${hero ? ' expertise-visual-hero' : ''}${fullWidth ? ' expertise-visual-full' : ''}`
+      }
     >
       <Image
         src={visual.src}
         alt={visual.alt}
         width={1440}
         height={960}
-        sizes={fullWidth ? '100vw' : '(max-width: 700px) 90vw, 48vw'}
+        sizes={sizes ?? (fullWidth ? '100vw' : '(max-width: 850px) 90vw, 48vw')}
         preload={hero}
       />
     </figure>

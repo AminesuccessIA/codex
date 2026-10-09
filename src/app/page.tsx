@@ -10,27 +10,26 @@ export default function Home() {
     <main id="contenu">
       <section className="home-hero shell">
         <div className="hero-copy">
-          <Label>ESN & INTÉGRATEUR MICROSOFT</Label>
-          <Link href="/partenaire-microsoft" className="partner-mention">
-            Partenaire Microsoft
-          </Link>
+          <Label>ESN & INTÉGRATEUR</Label>
           <h1>
-            Conseil. Intégration.
-            <span>Expertise Microsoft.</span>
+            Vos projets Microsoft.
+            <span>Vos équipes renforcées.</span>
           </h1>
         </div>
         <div className="hero-intro">
           <p className="hero-description">
-            La Pépiite IT, ESN et intégrateur Microsoft, accompagne vos projets
-            et renforce vos équipes : conseil, intégration, consultants et
-            services managés, du cadrage à l’exploitation.
+            Intégration Microsoft, renfort de consultants et services managés :
+            nous accompagnons vos projets, du cadrage à l’exploitation.
           </p>
           <div className="hero-actions">
-            <Button href="/diagnostic?source=/">Parler de votre projet</Button>
+            <Button href="/diagnostic?source=/">Parlons de votre projet</Button>
             <Link className="text-link" href="#expertises">
               Explorer nos expertises <Arrow />
             </Link>
           </div>
+          <Link href="/partenaire-microsoft" className="partner-mention">
+            Partenaire Microsoft
+          </Link>
         </div>
       </section>
       <ExpertiseVisual hero fullWidth />
@@ -110,17 +109,15 @@ export default function Home() {
           Découvrir toutes les solutions Microsoft <Arrow diagonal />
         </Link>
       </section>
-      <InterventionModes compact />
+      <InterventionModes compact illustrated />
       <section className="approach-section">
         <div className="shell approach-grid">
           <div>
             <Label>NOTRE APPROCHE</Label>
             <h2>
-              Le bon choix technique
+              Du cadrage
               <br />
-              commence par
-              <br />
-              <span>la bonne question.</span>
+              <span>au transfert aux équipes.</span>
             </h2>
             <p>
               Nous partons de votre organisation, de vos usages et de vos
@@ -131,33 +128,34 @@ export default function Home() {
               Découvrir notre accompagnement
             </Button>
           </div>
-          <div className="approach-steps">
-            {[
-              [
-                '01',
-                'Comprendre avant de proposer',
-                'Besoins métiers, environnement existant, dépendances : poser le périmètre et les critères de réussite.',
-              ],
-              [
-                '02',
-                'Concevoir pour intégrer',
-                'Relier les choix techniques à vos identités, vos données, vos applications et vos exigences de sécurité.',
-              ],
-              [
-                '03',
-                'Livrer pour être exploité',
-                'Prévoir la recette, la documentation, l’adoption et le transfert aux équipes qui feront vivre le service.',
-              ],
-            ].map(([n, t, d]) => (
-              <article key={n}>
-                <span className="mono">{n}</span>
-                <div>
-                  <h3>{t}</h3>
-                  <p>{d}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+          <ExpertiseVisual kind="accompagnement" inline />
+        </div>
+        <div className="shell approach-steps human-method-steps">
+          {[
+            [
+              '01',
+              'Comprendre avant de proposer',
+              'Besoins métiers, environnement existant, dépendances : poser le périmètre et les critères de réussite.',
+            ],
+            [
+              '02',
+              'Concevoir pour intégrer',
+              'Relier les choix techniques à vos identités, vos données, vos applications et vos exigences de sécurité.',
+            ],
+            [
+              '03',
+              'Livrer pour être exploité',
+              'Prévoir la recette, la documentation, l’adoption et le transfert aux équipes qui feront vivre le service.',
+            ],
+          ].map(([n, t, d]) => (
+            <article key={n}>
+              <span className="mono">{n}</span>
+              <div>
+                <h3>{t}</h3>
+                <p>{d}</p>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
       <section className="section shell focus-section">
