@@ -15,12 +15,11 @@ export default function Home() {
             Partenaire Microsoft
           </Link>
           <h1>
-            Conseil.
-            <br />
-            Intégration.
-            <br />
+            Conseil. Intégration.
             <span>Expertise Microsoft.</span>
           </h1>
+        </div>
+        <div className="hero-intro">
           <p className="hero-description">
             La Pépiite IT, ESN et intégrateur Microsoft, accompagne vos projets
             et renforce vos équipes : conseil, intégration, consultants et
@@ -32,27 +31,9 @@ export default function Home() {
               Explorer nos expertises <Arrow />
             </Link>
           </div>
-          <div className="hero-note">
-            <span className="short-rule" /> Conseil · Intégration · Cloud · IA ·
-            Services managés
-          </div>
         </div>
-        <ExpertiseVisual hero />
       </section>
-      <div className="shell">
-        <div className="technology-strip">
-          <span>
-            UN ÉCOSYSTÈME.
-            <br />
-            PLUSIEURS LEVIERS.
-          </span>
-          <p>Microsoft 365</p>
-          <p>Azure</p>
-          <p>Copilot</p>
-          <p>Power Platform</p>
-          <p>Entra ID</p>
-        </div>
-      </div>
+      <ExpertiseVisual hero fullWidth />
       <ClientReferences compact />
       <section id="expertises" className="section shell">
         <div className="section-heading">

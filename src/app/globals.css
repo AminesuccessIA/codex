@@ -312,18 +312,9 @@ svg {
   font-size: 11px;
   margin-top: 3px;
 }
-.home-hero {
-  display: grid;
-  grid-template-columns: 1.12fr 1fr;
-  align-items: center;
-  gap: 70px;
-  padding-block: 82px 72px;
-}
 .expertise-visual {
   margin: 28px 0 0;
   overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 8px;
   background: #f5f4ef;
 }
 .expertise-visual img {
@@ -331,30 +322,14 @@ svg {
   width: 100%;
   height: auto;
 }
-.expertise-visual figcaption {
-  padding: 18px 22px;
-  border-top: 1px solid var(--line);
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  color: var(--muted);
-}
-.expertise-visual-hero {
+.expertise-visual-full {
+  width: 100%;
   margin: 0;
-  box-shadow: 0 18px 55px #1123260a;
 }
-.expertise-visual-hero img {
-  aspect-ratio: 1.5;
-  object-fit: contain;
-}
-.expertise-visual-compact {
-  margin: calc(-1 * var(--brief-padding)) calc(-1 * var(--brief-padding)) 26px;
-  border: 0;
-  border-bottom: 1px solid #d9e0ce;
-  border-radius: 0;
-}
-.expertise-visual-compact img {
+.expertise-visual-full img {
   aspect-ratio: 2;
   object-fit: cover;
+  object-position: center;
 }
 .hero-copy h1 {
   margin-top: 24px;
@@ -376,19 +351,6 @@ svg {
   gap: 24px;
   margin-top: 32px;
   flex-wrap: wrap;
-}
-.hero-note {
-  font-size: 10px;
-  color: var(--muted);
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-top: 29px;
-}
-.short-rule {
-  width: 23px;
-  height: 1px;
-  background: #809071;
 }
 .ecosystem-visual {
   background: var(--dark);
@@ -543,26 +505,6 @@ svg {
 }
 .visual-foot > span:last-child {
   color: var(--lime);
-}
-.technology-strip {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  border-block: 1px solid var(--line);
-  padding-block: 27px;
-}
-.technology-strip > span {
-  color: var(--muted);
-  font-size: 8px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-}
-.technology-strip > p {
-  font-family: var(--font-display);
-  font-size: 17px;
-  font-weight: 500;
-  letter-spacing: -0.03em;
 }
 .section-heading {
   display: grid;
@@ -1345,9 +1287,6 @@ svg {
   color: #5a722c;
 }
 @media (min-width: 1450px) {
-  .home-hero {
-    gap: 85px;
-  }
   .hero-copy h1 {
     font-size: 76px;
   }
@@ -1365,13 +1304,6 @@ svg {
   .nav-contact {
     padding: 12px 14px;
     gap: 12px;
-  }
-  .home-hero {
-    gap: 35px;
-    padding-block: 65px;
-  }
-  .home-hero h1 {
-    font-size: 58px;
   }
   .section-heading,
   .approach-grid,
@@ -1418,9 +1350,6 @@ svg {
   .contact-form {
     padding: 26px;
   }
-  .hero-note {
-    font-size: 9px;
-  }
 }
 @media (max-width: 850px) {
   .nav-shell {
@@ -1439,26 +1368,11 @@ svg {
   .nav-link {
     font-size: 11px;
   }
-  .home-hero {
-    gap: 27px;
-    grid-template-columns: 1fr 1fr;
-  }
-  .home-hero h1 {
-    font-size: 48px;
-  }
   .hero-description {
     font-size: 14px;
   }
   .hero-actions {
     gap: 14px;
-  }
-  .hero-note {
-    line-height: 1.7;
-    align-items: start;
-  }
-  .hero-note .short-rule {
-    margin-top: 9px;
-    flex-shrink: 0;
   }
   .system-map {
     height: 330px;
@@ -1512,12 +1426,6 @@ svg {
   }
   .section-heading > p {
     font-size: 13px;
-  }
-  .technology-strip > p {
-    font-size: 14px;
-  }
-  .technology-strip {
-    gap: 12px;
   }
   .directory-row {
     grid-template-columns: 0.9fr 1.1fr;
@@ -1753,16 +1661,6 @@ svg {
   .mega-links small {
     font-size: 11px;
   }
-  .home-hero {
-    display: block;
-    padding-block: 45px 40px;
-  }
-  .home-hero h1 {
-    font-size: clamp(43px, 8.8vw, 61px);
-    letter-spacing: -0.055em;
-    margin-top: 22px;
-    max-width: 560px;
-  }
   .hero-description {
     font-size: 15px;
     margin-top: 23px;
@@ -1777,10 +1675,6 @@ svg {
     min-height: 48px;
     padding: 13px 18px;
     gap: 22px;
-  }
-  .hero-note {
-    margin-top: 24px;
-    font-size: 9px;
   }
   .ecosystem-visual {
     margin-top: 36px;
@@ -1829,22 +1723,6 @@ svg {
   .visual-foot {
     font-size: 9px;
     padding: 15px 20px;
-  }
-  .technology-strip {
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 15px 26px;
-    padding-block: 24px;
-  }
-  .technology-strip > span {
-    width: 100%;
-    font-size: 8px;
-  }
-  .technology-strip > span > br {
-    display: none;
-  }
-  .technology-strip > p {
-    font-size: 15px;
   }
   .section {
     padding-block: 64px;
@@ -2179,9 +2057,6 @@ svg {
   .shell {
     padding-inline: 18px;
   }
-  .home-hero h1 {
-    font-size: 43px;
-  }
   .hero-actions {
     gap: 15px;
   }
@@ -2232,9 +2107,6 @@ svg {
   }
   .visual-base > span:last-child {
     font-size: 7px;
-  }
-  .hero-note {
-    font-size: 8px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -3636,12 +3508,69 @@ svg {
   }
 }
 
-@media (max-width: 700px) {
-  .expertise-visual-hero {
-    margin-top: 36px;
+/* Editorial opening: a clear proposition followed by an edge-to-edge image. */
+.home-hero {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  align-items: end;
+  gap: clamp(36px, 5vw, 80px);
+  padding-block: 64px 56px;
+}
+.home-hero .hero-copy h1 {
+  font-size: clamp(48px, 4vw, 58px);
+  line-height: 1.06;
+}
+.home-hero .hero-intro {
+  padding-bottom: 6px;
+}
+.home-hero .hero-description {
+  margin-top: 0;
+}
+.home-hero .partner-mention {
+  border: 0;
+  padding: 0;
+  min-height: 0;
+  margin-top: 14px;
+  background: transparent;
+}
+@media (max-width: 850px) {
+  .home-hero {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-block: 44px 38px;
   }
-  .expertise-visual figcaption {
-    padding: 15px 18px;
-    font-size: 10px;
+  .home-hero .hero-copy h1 {
+    font-size: clamp(42px, 7vw, 56px);
+  }
+  .home-hero .hero-description {
+    max-width: 600px;
+    font-size: 15px;
+  }
+  .home-hero .hero-actions {
+    margin-top: 24px;
+  }
+  .expertise-visual-full img {
+    aspect-ratio: 2;
+  }
+}
+@media (max-width: 700px) {
+  .home-hero {
+    display: grid;
+    gap: 22px;
+    padding-block: 34px 32px;
+  }
+  .home-hero .hero-copy h1 {
+    font-size: clamp(40px, 10vw, 52px);
+    margin-top: 20px;
+  }
+  .home-hero .hero-intro {
+    padding-bottom: 0;
+  }
+  .home-hero .hero-actions {
+    gap: 20px;
+  }
+  .expertise-visual-full img {
+    aspect-ratio: 1.5;
+    object-fit: contain;
   }
 }

@@ -36,7 +36,6 @@ export function ServicePage({ service: s }: { service: Service }) {
             </Button>
           </div>
           <aside className="service-brief">
-            <ExpertiseVisual kind={serviceVisualKind(s.slug)} compact />
             <div className="brief-heading">
               <span className="mono">PÉRIMÈTRE / {s.name.toUpperCase()}</span>
               <Arrow diagonal />
@@ -56,6 +55,7 @@ export function ServicePage({ service: s }: { service: Service }) {
           </aside>
         </div>
       </section>
+      <ExpertiseVisual kind={serviceVisualKind(s.slug)} fullWidth />
       <nav className="shell service-toc" aria-label="Sommaire de l’expertise">
         <a href="#enjeu">Votre enjeu</a>
         <a href="#intervention">Accompagnement</a>
