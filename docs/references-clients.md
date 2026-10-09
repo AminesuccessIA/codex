@@ -31,9 +31,12 @@ Les fichiers sont hébergés localement. Les SVG externes ont été contrôlés 
 | schola-nova        | /clients/schola-nova.webp       | https://scholanova-group.org/wp-content/uploads/2022/04/doc-logo-200x63.png                                                       |
 | talis              | /clients/talis.svg              | https://www.talis.community/wp-content/themes/adaka-theme/dist/images/logo-talis.svg                                              |
 
+## Précision Luxury of Retail
+
+Le propriétaire a confirmé le rattachement à L’Oréal. La référence porte la mention « Luxury of Retail — groupe L’Oréal » et utilise le logo officiel L’Oréal Groupe extrait de son en-tête : https://www.loreal.com/en/france/pages/group/luxury-of-retail/. Fichier local : `/clients/loreal.svg`. Aucun contenu de mission ou résultat n’a été ajouté.
+
 ## Noms affichés sans logo
 
-- Luxury of Retail : identité confirmée sur le site L’Oréal, mais aucun fichier de logo identifié avec certitude.
 - CFA Codis : le domaine officiel redirige désormais vers IGENSIA Alternance ; le logo historique de CFA Codis n’a pas pu être récupéré et validé. Le logo IGENSIA n’est pas substitué arbitrairement.
 - Majobi : orthographe « Majoby » également présente dans la capture ; correspondance avec majoby.fr à confirmer.
 - LSL Learning : aucun site ou fichier de logo vérifié.
