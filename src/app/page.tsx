@@ -4,6 +4,7 @@ import { Ecosystem } from '@/components/ecosystem';
 import { ContactBanner } from '@/components/site-footer';
 import { services } from '@/lib/services';
 import { InterventionModes } from '@/components/intervention-modes';
+import { ClientReferences } from '@/components/client-references';
 export default function Home() {
   return (
     <main id="contenu">
@@ -50,6 +51,7 @@ export default function Home() {
           <p>Entra ID</p>
         </div>
       </div>
+      <ClientReferences compact />
       <section id="expertises" className="section shell">
         <div className="section-heading">
           <div>

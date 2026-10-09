@@ -119,6 +119,14 @@ export function SiteHeader() {
           </div>
           <Link
             className="nav-link"
+            href="/references"
+            onClick={close}
+            aria-current={pathname === '/references' ? 'page' : undefined}
+          >
+            Références
+          </Link>
+          <Link
+            className="nav-link"
             href="/cas-d-usage"
             onClick={close}
             aria-current={pathname === '/cas-d-usage' ? 'page' : undefined}

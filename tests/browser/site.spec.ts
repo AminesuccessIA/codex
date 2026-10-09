@@ -4,13 +4,14 @@ const paths = [
   '/',
   ...services.map((s) => '/' + s.slug),
   '/cas-d-usage',
+  '/references',
   '/mentions-legales',
   '/politique-de-confidentialite',
   '/a-propos',
   '/contact',
 ];
 for (const width of [360, 390, 768, 1024, 1440]) {
-  test(`14 pages: layout, navigation and SEO at ${width}px`, async ({
+  test(`15 pages: layout, navigation and SEO at ${width}px`, async ({
     page,
   }) => {
     await page.setViewportSize({ width, height: 1000 });
@@ -123,7 +124,7 @@ test('API rejects bad data, foreign origins and oversized bodies', async ({
     ).status(),
   ).toBe(413);
   const sitemap = await request.get('/sitemap.xml');
-  expect((await sitemap.text()).match(/<loc>/g)?.length).toBe(14);
+  expect((await sitemap.text()).match(/<loc>/g)?.length).toBe(15);
   expect((await request.get('/unknown-page')).status()).toBe(404);
 });
 test('all internal links on all pages resolve', async ({ page, request }) => {
@@ -279,4 +280,34 @@ test('enabled contact confirms only successful responses and preserves failed su
   await page.getByRole('button', { name: 'Envoyer ma demande' }).click();
   await expect(page.getByRole('status')).toContainText('bien été transmise');
   await expect(page.getByLabel('Votre nom')).toHaveValue('');
+});
+
+test('confirmed client references load local logos and preserve exclusions', async ({
+  page,
+}) => {
+  await page.goto('/references');
+  await expect(page.locator('.client-sector')).toHaveCount(6);
+  await expect(page.locator('.client-reference')).toHaveCount(18);
+  await expect(page.locator('main')).toContainText('Monoprix');
+  await expect(page.locator('main')).toContainText('LSL Learning');
+  for (const excluded of ['Monabanq', 'CD95', 'collèges du Val']) {
+    await expect(page.locator('main')).not.toContainText(excluded);
+  }
+  const logos = page.locator('.client-mark img');
+  expect(await logos.count()).toBeGreaterThanOrEqual(14);
+  for (const logo of await logos.all()) {
+    await logo.scrollIntoViewIfNeeded();
+    await expect(logo).toHaveAttribute('src', /^\/clients\//);
+    await expect
+      .poll(() =>
+        logo.evaluate((element) => (element as HTMLImageElement).naturalWidth),
+      )
+      .toBeGreaterThan(0);
+  }
+  await page.goto('/');
+  await expect(page.locator('.client-preview .client-reference')).toHaveCount(
+    6,
+  );
+  await page.getByRole('link', { name: 'Toutes nos références' }).click();
+  await expect(page).toHaveURL(/references/);
 });
