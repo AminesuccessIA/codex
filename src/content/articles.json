@@ -292,5 +292,100 @@
       }
     ],
     "seoTitle": "Sécuriser Microsoft 365 : identités et terminaux"
+  },
+  {
+    "slug": "licences-power-bi-auteurs-lecteurs",
+    "service": "power-bi",
+    "cluster": "data",
+    "category": "DONNÉES & PILOTAGE",
+    "title": "Licences Power BI : distinguer auteurs, lecteurs et capacités",
+    "seoTitle": "Licences Power BI : Pro, PPU ou capacité Fabric ?",
+    "description": "Choisissez les licences Power BI selon vos auteurs, lecteurs et modes de diffusion : Pro, PPU, capacité Fabric, permissions et contrôles avant achat.",
+    "answer": "Pour choisir les licences Power BI, distinguez les auteurs qui publient, les lecteurs qui consultent et la capacité qui héberge le contenu. Pro couvre le partage courant ; un espace PPU exige PPU pour ses utilisateurs. Fabric F64 ou supérieur permet la lecture avec une licence gratuite, sous conditions d’accès. Le choix se valide sur votre scénario de diffusion.",
+    "sections": [
+      {
+        "title": "Définir les utilisateurs avant de comparer les licences",
+        "paragraphs": [
+          "Un rapport prêt à présenter ne signifie pas que tous ses destinataires pourront l’ouvrir. La question d’achat commence par les usages : qui publie, qui consulte, qui crée de nouveaux rapports à partir du modèle et qui administre l’espace ? Un auteur et un lecteur ne demandent pas nécessairement les mêmes droits.",
+          "Construisez une matrice avec les populations internes, les invités éventuels, les espaces concernés et les fonctionnalités attendues. Vérifiez aussi les licences effectivement affectées dans votre environnement : un abonnement Microsoft 365 ne suffit pas, à lui seul, à établir les droits Power BI de chaque collaborateur."
+        ],
+        "checklist": [
+          "Recenser les auteurs, les lecteurs et les administrateurs.",
+          "Préciser la diffusion : application Power BI, lien ou consultation dans Teams."
+        ]
+      },
+      {
+        "title": "Pro, PPU et Fabric : trois décisions différentes",
+        "paragraphs": [
+          "Power BI Pro est une licence individuelle pour publier et partager dans le service. Dans un espace de travail Pro, les destinataires ont besoin de Pro ou PPU. Power BI Premium par utilisateur, ou PPU, ajoute des fonctionnalités Premium ; le contenu d’un espace PPU exige une licence PPU pour chaque utilisateur qui y accède.",
+          "Une capacité Microsoft Fabric fournit des ressources d’hébergement et de traitement aux espaces qui lui sont affectés. À partir de F64, des lecteurs disposant d’une licence gratuite peuvent consulter le contenu avec les autorisations appropriées. Sous F64, les lecteurs Power BI ont encore besoin de Pro ou PPU, hors essais temporaires. Les auteurs qui publient dans un espace partagé conservent leur besoin de Pro ou PPU.",
+          "PPU ne fournit pas de capacité Fabric pour les traitements autres que Power BI. Le seuil F64 est une condition de licence pour la lecture gratuite, pas une preuve que la capacité sera bien dimensionnée ni qu’elle sera économiquement préférable."
+        ],
+        "checklist": []
+      },
+      {
+        "title": "Comparer deux scénarios de diffusion concrets",
+        "paragraphs": [
+          "Exemple hypothétique : une équipe publie des rapports pour un groupe limité de responsables, sans fonctionnalité Premium nécessaire. Comparez d’abord une organisation en Pro pour les auteurs et les lecteurs. Si une fonctionnalité réservée à PPU devient indispensable, vérifiez son intérêt et l’équipement de tous les destinataires de l’espace PPU.",
+          "Autre scénario : quelques auteurs diffusent à une population étendue. Comparez les licences individuelles avec une capacité Fabric permettant la lecture gratuite. Intégrez les usages simultanés, l’actualisation, les volumes, l’administration et les autres traitements prévus. Sans ces hypothèses et des conditions commerciales vérifiées, aucun seuil de rentabilité ne peut être affirmé.",
+          "Pour éviter un accès bloqué, vérifiez aussi le modèle sémantique, c’est-à-dire les données, relations et mesures utilisées par le rapport. Pour la lecture gratuite, placer seulement le rapport sur une capacité éligible ne suffit pas si son modèle reste dans un espace non éligible."
+        ],
+        "checklist": []
+      },
+      {
+        "title": "Séparer droit de licence et permission sur les données",
+        "paragraphs": [
+          "La licence autorise un usage du produit ; les permissions déterminent les contenus accessibles. Un lien envoyé dans Teams ne remplace ni la licence requise ni l’autorisation sur le rapport. Distinguez la consultation, le repartage et l’autorisation de création sur le modèle, appelée Build dans la documentation Microsoft.",
+          "La sécurité au niveau des lignes, ou RLS, filtre les données selon l’utilisateur ou son rôle. Dans un espace de travail, elle s’applique au rôle Visionneuse et ne restreint pas les administrateurs, membres ou contributeurs. Testez donc avec un vrai compte lecteur. Masquer une colonne ou une page du rapport ne constitue pas une protection des données.",
+          "Pour un destinataire externe, qualifiez l’invitation Microsoft Entra B2B, les paramètres du tenant, les autorisations et les droits de licence. La fonction Publier sur le web rend le contenu public sans authentification : elle ne convient pas à la diffusion de données internes confidentielles."
+        ],
+        "checklist": []
+      },
+      {
+        "title": "Valider le choix avec un pilote et des livrables",
+        "paragraphs": [
+          "Avant l’achat, préparez un pilote représentatif : un auteur publie, un lecteur ouvre l’application, un responsable consulte uniquement son périmètre et un invité teste son accès si ce scénario est retenu. Contrôlez le résultat attendu, les demandes de mise à niveau et l’accès au modèle. Une licence d’essai ne prouve pas les droits disponibles après son expiration.",
+          "Le dossier de décision doit conserver la matrice utilisateurs-licences, l’affectation des espaces, les hypothèses de charge, les permissions et les résultats de recette. Comparez les conditions d’engagement et les fonctionnalités effectivement nécessaires avant de retenir une option.",
+          "La Pépiite IT, ESN et partenaire Microsoft, accompagne les projets Power BI, notamment la publication et la gouvernance. Pour cadrer votre diffusion, préparez vos populations, vos licences affectées et un rapport représentatif. Ces éléments permettent de discuter du périmètre d’intégration et des règles d’accès à valider."
+        ],
+        "checklist": [
+          "Documenter le scénario retenu et les alternatives écartées.",
+          "Faire valider les accès par les responsables métier et IT."
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "question": "Une licence Pro suffit-elle pour partager à tous les salariés ?",
+        "answer": "Non. Dans un espace Pro, les destinataires doivent disposer de Pro ou PPU. La lecture avec une licence gratuite suppose une capacité éligible, les permissions nécessaires et un rapport ainsi qu’un modèle hébergés conformément à ces conditions."
+      },
+      {
+        "question": "Une licence PPU permet-elle aux lecteurs gratuits de consulter ?",
+        "answer": "Non, pas dans un espace PPU : chaque destinataire doit disposer de PPU. Cette licence individuelle ne remplace pas une capacité Fabric F64 ou supérieure pour organiser une diffusion à des lecteurs gratuits."
+      },
+      {
+        "question": "Faut-il choisir F64 dès que le nombre de lecteurs augmente ?",
+        "answer": "Pas automatiquement. Comparez les licences individuelles, la charge, les fonctionnalités, l’exploitation et les conditions commerciales. F64 ouvre un droit de lecture gratuite sous conditions ; le dimensionnement et l’intérêt économique demandent une analyse distincte."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Licences Power BI",
+        "url": "https://learn.microsoft.com/fr-fr/power-bi/fundamentals/service-features-license-type"
+      },
+      {
+        "label": "Diffusion Power BI",
+        "url": "https://learn.microsoft.com/fr-fr/power-bi/collaborate-share/service-share-dashboards"
+      },
+      {
+        "label": "Microsoft Learn — Licences et capacités Microsoft Fabric",
+        "url": "https://learn.microsoft.com/fr-fr/fabric/enterprise/licenses"
+      },
+      {
+        "label": "Microsoft Learn — Sécurité au niveau des lignes Power BI",
+        "url": "https://learn.microsoft.com/fr-fr/fabric/security/service-admin-row-level-security"
+      }
+    ],
+    "updatedAt": "2026-10-09"
   }
 ]
