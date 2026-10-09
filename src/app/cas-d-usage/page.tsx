@@ -3,15 +3,15 @@ import { ContactBanner } from '@/components/site-footer';
 import { pageMetadata } from '@/lib/site';
 import Link from 'next/link';
 export const metadata = pageMetadata(
-  'Réalisations & projets',
+  'Cas d’usage',
   'Découvrez les types de projets Microsoft que vous pouvez cadrer avec La Pépiite IT : collaboration, cloud, automatisation et sécurité.',
-  '/realisations',
+  '/cas-d-usage',
 );
 export default function Projects() {
   return (
     <main id="contenu">
       <section className="shell editorial-hero">
-        <Label>RÉALISATIONS & PROJETS</Label>
+        <Label>CAS D’USAGE</Label>
         <h1>
           Des contextes différents.
           <br />

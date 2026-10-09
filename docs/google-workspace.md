@@ -21,7 +21,7 @@ Utiliser vos propres identifiants dans le Playground est essentiel : ne pas util
 
 | Nom exact                    | Type                         | Valeur ou action                                                                 |
 | ---------------------------- | ---------------------------- | -------------------------------------------------------------------------------- |
-| `NEXT_PUBLIC_SITE_URL`       | Variable non secrète         | `https://lapepiite.com`                                                          |
+| `NEXT_PUBLIC_SITE_URL`       | Variable non secrète         | `https://www.lapepiite.com`                                                      |
 | `CONTACT_TO_EMAIL`           | Variable non secrète         | `contact@lapepiite.com`                                                          |
 | `CONTACT_FROM_EMAIL`         | Variable non secrète         | `contact@lapepiite.com` si cette boîte est autorisée ; sinon expéditeur autorisé |
 | `GOOGLE_OAUTH_CLIENT_ID`     | Variable non secrète serveur | Identifiant du client OAuth Web Google                                           |

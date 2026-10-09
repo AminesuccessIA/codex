@@ -16,6 +16,9 @@ export default defineConfig({
     url: 'http://127.0.0.1:3100',
     reuseExistingServer: false,
     env: {
+      CONTACT_FORM_ENABLED: 'false',
+      CONTACT_PRIVACY_APPROVED: 'false',
+      CONTACT_EMAIL_VERIFIED: 'false',
       GOOGLE_OAUTH_CLIENT_ID: '',
       GOOGLE_OAUTH_CLIENT_SECRET: '',
       GOOGLE_OAUTH_REFRESH_TOKEN: '',

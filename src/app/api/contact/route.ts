@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { contactSchema } from '@/lib/contact';
 import { deliverContact } from '@/lib/contact-delivery';
+import { formIsEnabled } from '@/lib/compliance';
 import { site } from '@/lib/site';
 export const runtime = 'nodejs';
 export async function POST(request: Request) {
@@ -38,6 +39,11 @@ export async function POST(request: Request) {
   } catch {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
   }
+  if (!formIsEnabled())
+    return NextResponse.json(
+      { error: 'Contact form is not enabled' },
+      { status: 503, headers: { 'Cache-Control': 'no-store' } },
+    );
   const parsed = contactSchema.safeParse(payload);
   if (!parsed.success)
     return NextResponse.json(

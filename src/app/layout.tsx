@@ -28,8 +28,20 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'fr_FR',
     url: '/',
+    images: [
+      {
+        url: '/social-card.png',
+        width: 1200,
+        height: 630,
+        alt: 'La Pépiite IT — Expertise Microsoft',
+      },
+    ],
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: !['preview', 'development'].includes(process.env.VERCEL_ENV || ''),
+    follow: true,
+  },
+  twitter: { card: 'summary_large_image', images: ['/social-card.png'] },
 };
 export default function RootLayout({
   children,

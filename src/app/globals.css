@@ -2237,3 +2237,116 @@ svg {
     grid-template-columns: 1fr;
   }
 }
+
+/* Compliance and editorial additions retain the existing visual system. */
+.legal-page {
+  padding-block: 35px 90px;
+  max-width: 1050px;
+}
+.legal-page h1 {
+  font-size: clamp(36px, 5vw, 58px);
+  margin-top: 22px;
+  overflow-wrap: anywhere;
+}
+.legal-warning {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #cfdbc0;
+  background: #edf2e5;
+  font-size: 13px;
+}
+.legal-warning p {
+  margin-top: 8px;
+}
+.legal-content {
+  margin-top: 40px;
+}
+.legal-content section {
+  padding-block: 26px;
+  border-top: 1px solid var(--line);
+}
+.legal-content h2 {
+  font-size: 26px;
+  margin-bottom: 17px;
+}
+.legal-content p {
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.legal-content a,
+.privacy-notice a,
+.data-notice a,
+.form-status a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.legal-content dl {
+  margin-block: 22px 0;
+}
+.legal-content dl > div {
+  display: grid;
+  grid-template-columns: 1fr 1.7fr;
+  gap: 25px;
+  border-top: 1px solid var(--line);
+  padding-block: 15px;
+  font-size: 13px;
+}
+.legal-content dt {
+  font-weight: 600;
+}
+.legal-content dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.legal-placeholder {
+  color: #744b1c;
+}
+.contact-fields {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.privacy-notice {
+  margin-top: 22px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.service-example {
+  color: var(--muted);
+  max-width: 850px;
+  padding: 18px 0 27px;
+  font-size: 14px;
+}
+.faq-items {
+  min-width: 0;
+}
+.faq-items details + details {
+  border-top: 0;
+}
+.engagement-section > div > p + p {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.footer-bottom a {
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+}
+@media (max-width: 700px) {
+  .legal-page {
+    padding-block: 28px 60px;
+  }
+  .legal-content dl > div {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+  .legal-content h2 {
+    font-size: 24px;
+  }
+  .footer-bottom a {
+    min-height: 44px;
+  }
+}

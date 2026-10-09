@@ -1,8 +1,10 @@
+import { serviceDetails } from '@/lib/service-details';
 import Link from 'next/link';
 import { Button, Label, Arrow } from './button';
 import { ContactBanner } from './site-footer';
 import { findService, type Service } from '@/lib/services';
 export function ServicePage({ service: s }: { service: Service }) {
+  const detail = serviceDetails[s.slug];
   return (
     <main id="contenu">
       <section className="shell inner-hero">
@@ -53,17 +55,17 @@ export function ServicePage({ service: s }: { service: Service }) {
           <div className="section-heading">
             <div>
               <Label>NOTRE INTERVENTION</Label>
-              <h2>
-                Un périmètre précis.
-                <br />
-                <span>Une trajectoire partagée.</span>
-              </h2>
+              <h2>{detail.scopeTitle}</h2>
             </div>
             <p>
               Les axes d’intervention sont définis au cadrage, selon votre
               existant, vos ressources et vos priorités.
             </p>
           </div>
+          <p className="service-example">
+            {detail.example} Ce scénario illustre un besoin possible ; il ne
+            décrit pas une mission réalisée.
+          </p>
           <div className="scope-list">
             {s.scope.map(([title, description], i) => (
               <article key={title}>
@@ -78,11 +80,7 @@ export function ServicePage({ service: s }: { service: Service }) {
       <section className="shell section deliverables-section">
         <div>
           <Label>CE QUI RESTE ENTRE VOS MAINS</Label>
-          <h2>
-            Un projet livré.
-            <br />
-            <span>Et documenté.</span>
-          </h2>
+          <h2>{detail.deliverablesTitle}</h2>
           <p>
             Les livrables et leurs critères de validation sont convenus au
             démarrage de la mission.
@@ -132,13 +130,22 @@ export function ServicePage({ service: s }: { service: Service }) {
           <Label>QUESTION DE CADRAGE</Label>
           <h2>Avant de commencer.</h2>
         </div>
-        <details>
-          <summary>
-            {s.question}
-            <span aria-hidden="true">+</span>
-          </summary>
-          <p>{s.answer}</p>
-        </details>
+        <div className="faq-items">
+          <details>
+            <summary>
+              {s.question}
+              <span aria-hidden="true">+</span>
+            </summary>
+            <p>{s.answer}</p>
+          </details>
+          <details>
+            <summary>
+              {detail.secondQuestion}
+              <span aria-hidden="true">+</span>
+            </summary>
+            <p>{detail.secondAnswer}</p>
+          </details>
+        </div>
       </section>
       <section className="shell related-section">
         <p className="eyebrow">LES SUJETS SE CONNECTENT</p>

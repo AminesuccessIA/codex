@@ -93,6 +93,60 @@ export default function About() {
           <Button href="/#expertises">Explorer nos expertises</Button>
         </div>
       </section>
+      <section className="shell section engagement-section">
+        <div>
+          <Label>QUALIFIER AVANT DE S’ENGAGER</Label>
+          <h2>
+            Un besoin d’entreprise.
+            <br />
+            <span>Une prochaine étape précise.</span>
+          </h2>
+        </div>
+        <div>
+          <p>
+            DSI, responsables informatiques et interlocuteurs métiers peuvent
+            présenter leur besoin, le périmètre technique et les contraintes du
+            projet. Le premier échange permet de vérifier l’adéquation de
+            l’expertise et de définir le livrable attendu.
+          </p>
+          <p>
+            Assistance technique de consultants au TJM, équipe projet au
+            forfait, intégration et services managés : les responsabilités,
+            l’organisation, les horaires et les modalités contractuelles sont
+            définis dans la proposition. Nous nous adressons aux entreprises en
+            Europe et en Afrique. Les conditions d’intervention sur site, les
+            horaires et les disponibilités sont qualifiés avant tout engagement.
+          </p>
+          <Button href="/contact">Qualifier votre besoin</Button>
+        </div>
+      </section>
+      <section className="shell section engagement-section">
+        <div>
+          <Label>EXPERTISE TECHNIQUE</Label>
+          <h2>
+            Un besoin ciblé.
+            <br />
+            <span>Les compétences adaptées.</span>
+          </h2>
+        </div>
+        <div>
+          <p>
+            Les domaines de profils techniques mobilisables couvrent l’IA, la
+            cybersécurité, le cloud, les datacenters et les réseaux. Présentez
+            la technologie, le niveau d’expertise recherché et les contraintes
+            de votre environnement pour qualifier votre besoin de renfort ou de
+            mise à disposition de consultants.
+          </p>
+          <p>
+            En assistance technique, le TJM et la durée encadrent
+            l’intervention. Au forfait, le périmètre, les livrables et les
+            critères de recette sont convenus. Le profil, sa disponibilité et le
+            mode d’intervention sont vérifiés avant proposition. Aucun CV,
+            parcours individuel ou certification n’est publié sans validation.
+          </p>
+          <Button href="/contact">Échanger sur un besoin d’expertise</Button>
+        </div>
+      </section>
       <ContactBanner />
     </main>
   );

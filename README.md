@@ -35,13 +35,13 @@ npm start
 | Cybersécurité               | `/cybersecurite`            |
 | Conseil & Intégration       | `/conseil-integration`      |
 | Support et services managés | `/support-services-manages` |
-| Réalisations                | `/realisations`             |
+| Cas d’usage                 | `/cas-d-usage`              |
 | À propos                    | `/a-propos`                 |
 | Contact                     | `/contact`                  |
 
 Les huit pages de services sont pré-générées avec `src/app/[service]/page.tsx`. Le contenu métier est dans `src/lib/services.ts`. Les pages institutionnelles disposent de compositions distinctes. Les liens de prise de contact pré-sélectionnent le service.
 
-Chaque page possède un titre, une description et une URL canonique. Sitemap des douze pages, robots, favicon SVG. Le domaine de référence est `https://lapepiite.com` ; `NEXT_PUBLIC_SITE_URL` permet de le remplacer. Les références clients, certifications, résultats et engagements de disponibilité ne sont pas inventés. Les scénarios de la page Réalisations sont explicitement présentés comme des projets possibles, pas comme des missions réalisées.
+Chaque page possède un titre, une description et une URL canonique. Sitemap des douze pages commerciales ; les deux pages légales y sont ajoutées après validation. Robots, favicon SVG et image de partage locale. Le domaine de référence est `https://www.lapepiite.com` ; `NEXT_PUBLIC_SITE_URL` permet de le remplacer. Les références clients, certifications, résultats et engagements de disponibilité ne sont pas inventés. Les scénarios de la page Cas d’usage sont explicitement présentés comme des projets possibles, pas comme des missions réalisées.
 
 ## Réception des contacts sans CRM
 
@@ -53,7 +53,7 @@ Le transport prévu est l’API Gmail de Google Workspace via OAuth 2.0 (HTTPS).
 
 Voir [Configuration Google Workspace et WordPress](docs/google-workspace.md) pour les étapes précises.
 
-Variables publiques/non secrètes : `GOOGLE_OAUTH_CLIENT_ID`, `CONTACT_FROM_EMAIL=contact@lapepiite.com`, `CONTACT_TO_EMAIL=contact@lapepiite.com`, `NEXT_PUBLIC_SITE_URL=https://lapepiite.com`. Le client ID reste côté serveur malgré son caractère non secret.
+Variables publiques/non secrètes : `GOOGLE_OAUTH_CLIENT_ID`, `CONTACT_FROM_EMAIL=contact@lapepiite.com`, `CONTACT_TO_EMAIL=contact@lapepiite.com`, `NEXT_PUBLIC_SITE_URL=https://www.lapepiite.com`. Le client ID reste côté serveur malgré son caractère non secret.
 
 Secrets serveur : `GOOGLE_OAUTH_CLIENT_SECRET` et `GOOGLE_OAUTH_REFRESH_TOKEN`, à renseigner uniquement dans les paramètres sécurisés. Autoriser `oauth2.googleapis.com` et `gmail.googleapis.com`. Supprimer l’ancienne exigence `EMAIL_PROVIDER_KEY` dans les paramètres ; elle n’est plus lue. La liste réseau personnalisée n’a plus besoin de `api.resend.com`.
 
@@ -73,8 +73,12 @@ Dans cet environnement, Chromium est déjà installé :
 PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium npm run test:e2e
 ```
 
-Les tests démarrent leur propre serveur de production sur le port 3100 et l’arrêtent ensuite. Ils vérifient les douze pages à 360, 390, 768, 1024 et 1440 px, l’absence de débordement horizontal, les métadonnées, la navigation mobile, les liens internes, la sélection du service, les erreurs réelles de formulaire et une confirmation simulée. Les captures sont écrites dans `test-results/`, ignoré par Git.
+Les tests démarrent leur propre serveur de production sur le port 3100 et l’arrêtent ensuite. Ils vérifient les quatorze pages à 360, 390, 768, 1024 et 1440 px, l’absence de débordement horizontal, les métadonnées, la navigation mobile, les liens internes, la sélection du service, le verrouillage du formulaire, les erreurs API et les redirections. Les captures sont écrites dans `test-results/`, ignoré par Git.
 
 ## Avant mise en production
 
 Activer et vérifier la réception e-mail, fournir les mentions légales et la politique de confidentialité (identité légale, responsable de traitement, finalités, base légale, destinataires, conservation et exercice des droits). Le texte d’information actuel annonce les éléments encore manquants. Ajouter une limitation de débit durable et adaptée à l’hébergeur : le champ piège et le contrôle d’origine ne suffisent pas contre le spam automatisé. Aucune référence client ni badge de partenariat ne doit être publié sans preuve et autorisation. Ne pas considérer cette préparation comme un déploiement sur le domaine.
+
+## Audit de finalisation
+
+Voir [le bilan et les réglages bloquants](docs/audit-finalisation.md). Les pages légales sont des brouillons explicites et non indexables tant que les informations manquantes ne sont pas validées. Le formulaire est fermé par défaut : aucune modification de ce dépôt ne constitue une vérification de réception Gmail ou une publication sur Vercel.

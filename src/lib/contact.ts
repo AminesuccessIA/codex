@@ -16,6 +16,5 @@ export const contactSchema = z.object({
     .optional()
     .default(''),
   message: z.string().trim().min(10).max(5000),
-  consent: z.literal(true),
   website: z.string().max(0),
 });

@@ -290,9 +290,10 @@ export const services: Service[] = [
       'Feuille de route et critères de recette',
       'Documentation et transfert de compétences',
     ],
-    question: 'L’audit Microsoft est-il un préalable obligatoire ?',
+    question:
+      'Proposez-vous aussi un renfort d’expertise ou une équipe projet ?',
     answer:
-      'Non. C’est une offre de diagnostic adaptée à certains contextes : licences, adoption, sécurité ou préparation à Copilot. Un projet déjà cadré peut commencer par une mission d’intégration ou d’expertise ciblée.',
+      'Oui : assistance technique et mise à disposition de consultants au TJM, équipe projet au forfait et intégration. Le profil, la disponibilité et les responsabilités sont qualifiés avant proposition. L’audit Microsoft reste une offre de diagnostic facultative, pas un préalable systématique.',
     related: ['azure-cloud', 'power-platform', 'licences'],
   },
   {

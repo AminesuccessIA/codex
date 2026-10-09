@@ -7,7 +7,6 @@ const contact = {
   company: 'Test',
   service: 'azure-cloud',
   message: 'Demande avec accents : intégration.\nBcc: attacker@example.com',
-  consent: true,
 };
 const config = {
   googleClientId: 'test-client',

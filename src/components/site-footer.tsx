@@ -55,7 +55,7 @@ export function SiteFooter() {
           <div className="footer-company">
             <p className="eyebrow">LA PÉPIITE IT</p>
             <Link href="/a-propos">À propos</Link>
-            <Link href="/realisations">Réalisations</Link>
+            <Link href="/cas-d-usage">Cas d’usage</Link>
             <Link href="/contact">Contact</Link>
           </div>
         </div>
@@ -64,7 +64,10 @@ export function SiteFooter() {
           <span>
             Microsoft et ses produits sont des marques de Microsoft Corporation.
           </span>
-          <Link href="/contact#donnees">Informations sur vos données</Link>
+          <Link href="/mentions-legales">Mentions légales</Link>
+          <Link href="/politique-de-confidentialite">
+            Politique de confidentialité
+          </Link>
         </div>
       </div>
     </footer>

@@ -119,11 +119,11 @@ export function SiteHeader() {
           </div>
           <Link
             className="nav-link"
-            href="/realisations"
+            href="/cas-d-usage"
             onClick={close}
-            aria-current={pathname === '/realisations' ? 'page' : undefined}
+            aria-current={pathname === '/cas-d-usage' ? 'page' : undefined}
           >
-            Réalisations
+            Cas d’usage
           </Link>
           <Link
             className="nav-link"

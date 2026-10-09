@@ -3,12 +3,14 @@ import { services } from '../../src/lib/services';
 const paths = [
   '/',
   ...services.map((s) => '/' + s.slug),
-  '/realisations',
+  '/cas-d-usage',
+  '/mentions-legales',
+  '/politique-de-confidentialite',
   '/a-propos',
   '/contact',
 ];
 for (const width of [360, 390, 768, 1024, 1440]) {
-  test(`12 pages: layout, navigation and SEO at ${width}px`, async ({
+  test(`14 pages: layout, navigation and SEO at ${width}px`, async ({
     page,
   }) => {
     await page.setViewportSize({ width, height: 1000 });
@@ -26,7 +28,7 @@ for (const width of [360, 390, 768, 1024, 1440]) {
       ).toBe(true);
       expect(
         await page.locator('link[rel="canonical"]').getAttribute('href'),
-      ).toBe('https://lapepiite.com' + (path === '/' ? '' : path));
+      ).toBe('https://www.lapepiite.com' + (path === '/' ? '' : path));
       await expect(page.locator('meta[name="description"]')).toHaveAttribute(
         'content',
         /.+/,
@@ -60,46 +62,45 @@ test('mobile menu opens, navigates and closes; keyboard escape works', async ({
   await expect(menu).toHaveAttribute('aria-expanded', 'false');
   await expect(menu).toBeFocused();
 });
-test('contact service is preselected and real unconfigured API never claims delivery', async ({
+test('closed contact never collects data or claims delivery', async ({
   page,
+  request,
 }) => {
   await page.goto('/contact?service=azure-cloud');
   await expect(page.locator('select[name=service]')).toHaveValue('azure-cloud');
-  await page.getByLabel('Votre nom').fill('Utilisateur test');
-  await page.getByLabel('E-mail professionnel').fill('test@example.com');
-  await page
-    .getByLabel('Votre contexte et votre besoin')
-    .fill('Demande de test uniquement, aucun envoi réel.');
-  await page.locator('input[name=consent]').check();
-  await page.getByRole('button', { name: 'Envoyer ma demande' }).click();
-  await expect(page.getByRole('status')).toContainText('contact@lapepiite.com');
-  await expect(page.getByLabel('Votre nom')).toHaveValue('Utilisateur test');
+  await expect(page.getByLabel('Votre nom')).toBeDisabled();
+  await expect(
+    page.getByRole('button', { name: 'Envoyer ma demande' }),
+  ).toBeDisabled();
+  await expect(page.locator('input[name=consent]')).toHaveCount(0);
+  await expect(page.locator('main')).toContainText('contact@lapepiite.com');
+  const response = await request.post('/api/contact', {
+    data: {
+      name: 'Test',
+      email: 'test@example.com',
+      service: 'azure-cloud',
+      message: 'Test sans envoi réel',
+      website: '',
+    },
+  });
+  expect(response.status()).toBe(503);
 });
-test('client shows confirmation only after successful delivery response (simulated)', async ({
-  page,
-}) => {
-  await page.route('**/api/contact', (route) =>
-    route.fulfill({
-      status: 200,
-      contentType: 'application/json',
-      body: JSON.stringify({ ok: true }),
-    }),
+test('legal drafts and legacy URL are explicit', async ({ page, request }) => {
+  await page.goto('/mentions-legales');
+  await expect(page.locator('main')).toContainText('LA PEPIITE');
+  await expect(page.locator('main')).toContainText('À compléter');
+  await expect(page.locator('meta[name=robots]')).toHaveAttribute(
+    'content',
+    /noindex/,
   );
-  await page.goto('/contact');
-  await page.getByLabel('Votre nom').fill('Utilisateur test');
-  await page.getByLabel('E-mail professionnel').fill('test@example.com');
-  await page
-    .getByLabel('Votre contexte et votre besoin')
-    .fill('Test de confirmation simulée.');
-  await page.locator('input[name=consent]').check();
-  await page.getByRole('button', { name: 'Envoyer ma demande' }).click();
-  await expect(page.getByRole('status')).toContainText('bien été transmise');
-  await expect(page.getByLabel('Votre nom')).toHaveValue('');
+  const response = await request.get('/realisations', { maxRedirects: 0 });
+  expect(response.status()).toBe(308);
+  expect(response.headers().location).toContain('/cas-d-usage');
 });
 test('API rejects bad data, foreign origins and oversized bodies', async ({
   request,
 }) => {
-  expect((await request.post('/api/contact', { data: {} })).status()).toBe(400);
+  expect((await request.post('/api/contact', { data: {} })).status()).toBe(503);
   expect(
     (
       await request.post('/api/contact', {

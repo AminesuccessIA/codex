@@ -1,6 +1,8 @@
 import { Label } from '@/components/button';
 import { ContactForm } from '@/components/contact-form';
 import { pageMetadata } from '@/lib/site';
+import Link from 'next/link';
+import { formIsEnabled } from '@/lib/compliance';
 import { services } from '@/lib/services';
 export const metadata = pageMetadata(
   'Contact',
@@ -55,20 +57,22 @@ export default async function Contact({
             confidentiel dans ce formulaire.
           </p>
         </div>
-        <ContactForm initialService={selected} />
+        <ContactForm initialService={selected} enabled={formIsEnabled()} />
       </section>
       <section id="donnees" className="shell data-notice">
-        <h2>À propos de vos données</h2>
+        <h2>Une demande professionnelle, un périmètre à définir.</h2>
         <p>
-          Les champs demandés servent à qualifier votre demande et à préparer
-          une réponse. Aucun outil publicitaire ni traceur d’audience n’est
-          installé sur ce site.
+          Précisez votre organisation, le contexte technique, le livrable
+          attendu et vos contraintes de calendrier. Le premier échange sert à
+          qualifier le besoin et les conditions d’une éventuelle intervention,
+          sans engagement de disponibilité.
         </p>
         <p>
-          Le service de réception doit être activé avant l’ouverture commerciale
-          du formulaire. Les informations légales du responsable de traitement,
-          les destinataires, la durée de conservation et le contact pour exercer
-          vos droits restent à compléter avant mise en production.
+          Les informations sur vos données sont regroupées dans la{' '}
+          <Link href="/politique-de-confidentialite">
+            politique de confidentialité
+          </Link>
+          .
         </p>
       </section>
     </main>

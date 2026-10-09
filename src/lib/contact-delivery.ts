@@ -4,7 +4,6 @@ export type Contact = {
   company: string;
   service: string;
   message: string;
-  consent: true;
 };
 export type DeliveryConfig = {
   webhook?: string;
@@ -20,7 +19,7 @@ function safeAddress(value: string) {
   return /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(value);
 }
 function messageText(contact: Contact) {
-  return `Nom : ${contact.name}\nEntreprise : ${contact.company || 'Non précisée'}\nE-mail : ${contact.email}\nSujet : ${contact.service || 'À définir ensemble'}\n\n${contact.message}\n\nAccord pour le traitement de la demande : oui`;
+  return `Nom : ${contact.name}\nEntreprise : ${contact.company || 'Non précisée'}\nE-mail : ${contact.email}\nSujet : ${contact.service || 'À définir ensemble'}\n\n${contact.message}`;
 }
 export async function deliverContact(
   contact: Contact,
