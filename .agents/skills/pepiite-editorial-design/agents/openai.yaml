@@ -1,0 +1,8 @@
+interface:
+  display_name: Design éditorial épuré
+  short_description: Composer des pages sobres, lisibles et responsive.
+  default_prompt:
+    Utilise $pepiite-editorial-design pour analyser puis améliorer la
+    composition des pages concernées, en préservant l’identité actuelle.
+policy:
+  allow_implicit_invocation: true

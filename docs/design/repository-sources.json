@@ -1,0 +1,166 @@
+{
+  "reviewedAt": "2026-10-09",
+  "scope": "Source inspection, not conversion benchmarking",
+  "sources": [
+    {
+      "repo": "shadcn-ui/ui",
+      "sha": "2d3f1cd436b18ea12f24130de4df781355925b08",
+      "path": "apps/v4/registry/new-york-v4/ui/button.tsx",
+      "sha256": "79dd6f75f8136394442202d6b8b922fb269eaad0a5dba579397c9d5b41f893bb",
+      "canonicalRepository": "shadcn-ui/ui",
+      "url": "https://github.com/shadcn-ui/ui/blob/2d3f1cd436b18ea12f24130de4df781355925b08/apps/v4/registry/new-york-v4/ui/button.tsx"
+    },
+    {
+      "repo": "shadcn-ui/ui",
+      "sha": "2d3f1cd436b18ea12f24130de4df781355925b08",
+      "path": "apps/v4/registry/new-york-v4/ui/field.tsx",
+      "sha256": "4a4d17fcb933513f637f9f7e2daf5d8348f7de086b29738337dec7e6dd1819a0",
+      "canonicalRepository": "shadcn-ui/ui",
+      "url": "https://github.com/shadcn-ui/ui/blob/2d3f1cd436b18ea12f24130de4df781355925b08/apps/v4/registry/new-york-v4/ui/field.tsx"
+    },
+    {
+      "repo": "shadcn-ui/ui",
+      "sha": "2d3f1cd436b18ea12f24130de4df781355925b08",
+      "path": "apps/v4/registry/new-york-v4/blocks/signup-01/components/signup-form.tsx",
+      "sha256": "66e9677501203baace836d1ebf497484cdddedaa5d2e096fb4b1195c2d978bb0",
+      "canonicalRepository": "shadcn-ui/ui",
+      "url": "https://github.com/shadcn-ui/ui/blob/2d3f1cd436b18ea12f24130de4df781355925b08/apps/v4/registry/new-york-v4/blocks/signup-01/components/signup-form.tsx"
+    },
+    {
+      "repo": "shadcn-ui/ui",
+      "sha": "2d3f1cd436b18ea12f24130de4df781355925b08",
+      "path": "apps/v4/content/docs/components/radix/typography.mdx",
+      "sha256": "004334b84613b6d9611cc2876e077c6a026b1f23703c3b385d49ff178b227f2c",
+      "canonicalRepository": "shadcn-ui/ui",
+      "url": "https://github.com/shadcn-ui/ui/blob/2d3f1cd436b18ea12f24130de4df781355925b08/apps/v4/content/docs/components/radix/typography.mdx"
+    },
+    {
+      "repo": "microsoft/fluentui",
+      "sha": "6e52576d457f0ca13225ea2712e0db7bd1c27e28",
+      "path": "packages/tokens/src/global/spacings.ts",
+      "sha256": "63a64eba054236a88c80293f3128f89e988f22da90e7b4637a53ad92a89f9c2d",
+      "canonicalRepository": "microsoft/fluentui",
+      "url": "https://github.com/microsoft/fluentui/blob/6e52576d457f0ca13225ea2712e0db7bd1c27e28/packages/tokens/src/global/spacings.ts"
+    },
+    {
+      "repo": "microsoft/fluentui",
+      "sha": "6e52576d457f0ca13225ea2712e0db7bd1c27e28",
+      "path": "packages/react-components/react-button/library/src/components/Button/useButtonStyles.styles.ts",
+      "sha256": "138f529dff51dc5e483e03ee0ee3e83b42dd18f009a8344843f99236aef6cd5e",
+      "canonicalRepository": "microsoft/fluentui",
+      "url": "https://github.com/microsoft/fluentui/blob/6e52576d457f0ca13225ea2712e0db7bd1c27e28/packages/react-components/react-button/library/src/components/Button/useButtonStyles.styles.ts"
+    },
+    {
+      "repo": "microsoft/fluentui",
+      "sha": "6e52576d457f0ca13225ea2712e0db7bd1c27e28",
+      "path": "packages/react-components/react-button/library/src/components/Button/useButton.ts",
+      "sha256": "f015086671b2d980f22392d8da47e42c8a0c1c31d514a0ee8d77cdee776534ce",
+      "canonicalRepository": "microsoft/fluentui",
+      "url": "https://github.com/microsoft/fluentui/blob/6e52576d457f0ca13225ea2712e0db7bd1c27e28/packages/react-components/react-button/library/src/components/Button/useButton.ts"
+    },
+    {
+      "repo": "adobe/react-spectrum",
+      "sha": "740c6c5c4a717ca8c82fc4d15d199f6166cd42dc",
+      "path": "packages/react-aria-components/src/Button.tsx",
+      "sha256": "b8f4fb4b83e8c046c873c8dba8e3c7fe728b41f24bbfa4bd459e1db3e1ddbd5f",
+      "canonicalRepository": "adobe/react-spectrum",
+      "url": "https://github.com/adobe/react-spectrum/blob/740c6c5c4a717ca8c82fc4d15d199f6166cd42dc/packages/react-aria-components/src/Button.tsx"
+    },
+    {
+      "repo": "adobe/react-spectrum",
+      "sha": "740c6c5c4a717ca8c82fc4d15d199f6166cd42dc",
+      "path": "packages/react-aria/src/focus/useFocusRing.ts",
+      "sha256": "192e09030119828004098d6ba57f0b3b7db4badeeb2e541e325d537cbe138935",
+      "canonicalRepository": "adobe/react-spectrum",
+      "url": "https://github.com/adobe/react-spectrum/blob/740c6c5c4a717ca8c82fc4d15d199f6166cd42dc/packages/react-aria/src/focus/useFocusRing.ts"
+    },
+    {
+      "repo": "adobe/react-spectrum",
+      "sha": "740c6c5c4a717ca8c82fc4d15d199f6166cd42dc",
+      "path": "packages/react-aria/src/interactions/usePress.ts",
+      "sha256": "afcc52502d3ba663c2cb3bff0fb53c4260e4f10042cb082213ab212eb4983812",
+      "canonicalRepository": "adobe/react-spectrum",
+      "url": "https://github.com/adobe/react-spectrum/blob/740c6c5c4a717ca8c82fc4d15d199f6166cd42dc/packages/react-aria/src/interactions/usePress.ts"
+    },
+    {
+      "repo": "tailwindlabs/headlessui",
+      "sha": "eea57cf46fd6767ed1059012f7073b88eb159fba",
+      "path": "packages/@headlessui-react/src/components/dialog/dialog.tsx",
+      "sha256": "73da98373f4458d897c8e99b3b4a0da45a40b96bc3ccf6ffde03d4eaa50c64c8",
+      "canonicalRepository": "tailwindlabs/headlessui",
+      "url": "https://github.com/tailwindlabs/headlessui/blob/eea57cf46fd6767ed1059012f7073b88eb159fba/packages/@headlessui-react/src/components/dialog/dialog.tsx"
+    },
+    {
+      "repo": "tailwindlabs/headlessui",
+      "sha": "eea57cf46fd6767ed1059012f7073b88eb159fba",
+      "path": "packages/@headlessui-react/src/components/focus-trap/focus-trap.tsx",
+      "sha256": "e48272f9763b9bfe141277c0871d9c756eaf9b8febf1efa76692c61f0696b75e",
+      "canonicalRepository": "tailwindlabs/headlessui",
+      "url": "https://github.com/tailwindlabs/headlessui/blob/eea57cf46fd6767ed1059012f7073b88eb159fba/packages/@headlessui-react/src/components/focus-trap/focus-trap.tsx"
+    },
+    {
+      "repo": "alphagov/govuk-frontend",
+      "sha": "dacc29dd045c8c3e2d7245616215da6515b8b5ab",
+      "path": "packages/govuk-frontend/src/govuk/components/button/button.mjs",
+      "sha256": "8cb326f480cd5348a0b64c766fafa512ee7a399a7d9f2313c763e9bf4fcb08ff",
+      "canonicalRepository": "alphagov/govuk-frontend",
+      "url": "https://github.com/alphagov/govuk-frontend/blob/dacc29dd045c8c3e2d7245616215da6515b8b5ab/packages/govuk-frontend/src/govuk/components/button/button.mjs"
+    },
+    {
+      "repo": "alphagov/govuk-frontend",
+      "sha": "dacc29dd045c8c3e2d7245616215da6515b8b5ab",
+      "path": "packages/govuk-frontend/src/govuk/components/error-summary/error-summary.mjs",
+      "sha256": "c33e8efe670f610af581794b0ccb450a58ca80150ac999d02f8cc9f6e3841412",
+      "canonicalRepository": "alphagov/govuk-frontend",
+      "url": "https://github.com/alphagov/govuk-frontend/blob/dacc29dd045c8c3e2d7245616215da6515b8b5ab/packages/govuk-frontend/src/govuk/components/error-summary/error-summary.mjs"
+    },
+    {
+      "repo": "alphagov/govuk-frontend",
+      "sha": "dacc29dd045c8c3e2d7245616215da6515b8b5ab",
+      "path": "packages/govuk-frontend/src/govuk/components/error-summary/template.njk",
+      "sha256": "976726d782067c8ccd7bfbaa0e1f2e10fe932838e83cc3ed78acc1f813373359",
+      "canonicalRepository": "alphagov/govuk-frontend",
+      "url": "https://github.com/alphagov/govuk-frontend/blob/dacc29dd045c8c3e2d7245616215da6515b8b5ab/packages/govuk-frontend/src/govuk/components/error-summary/template.njk"
+    },
+    {
+      "repo": "alphagov/govuk-frontend",
+      "sha": "dacc29dd045c8c3e2d7245616215da6515b8b5ab",
+      "path": "packages/govuk-frontend/src/govuk/helpers/_spacing.scss",
+      "sha256": "4dd7ad30df3b83781b3ec9f8ef72737c46bad14999b27a7312f1c267466f85f3",
+      "canonicalRepository": "alphagov/govuk-frontend",
+      "url": "https://github.com/alphagov/govuk-frontend/blob/dacc29dd045c8c3e2d7245616215da6515b8b5ab/packages/govuk-frontend/src/govuk/helpers/_spacing.scss"
+    },
+    {
+      "repo": "calcom/cal.com",
+      "sha": "54343aa685ae8f33159d2f485ec4a57bad5c574a",
+      "path": "packages/features/bookings/Booker/README.md",
+      "sha256": "312c07099816ae938ce102aa331f6d0f09035f6c02bba603cf166ae659b8a496",
+      "canonicalRepository": "calcom/cal.diy",
+      "url": "https://github.com/calcom/cal.diy/blob/54343aa685ae8f33159d2f485ec4a57bad5c574a/packages/features/bookings/Booker/README.md"
+    },
+    {
+      "repo": "calcom/cal.com",
+      "sha": "54343aa685ae8f33159d2f485ec4a57bad5c574a",
+      "path": "packages/features/bookings/Booker/hooks/useBookingForm.ts",
+      "sha256": "ecf029b9e65fd1c305758be34e86c08f7b183fff76398ab978efb5d22fa215ee",
+      "canonicalRepository": "calcom/cal.diy",
+      "url": "https://github.com/calcom/cal.diy/blob/54343aa685ae8f33159d2f485ec4a57bad5c574a/packages/features/bookings/Booker/hooks/useBookingForm.ts"
+    },
+    {
+      "repo": "calcom/cal.com",
+      "sha": "54343aa685ae8f33159d2f485ec4a57bad5c574a",
+      "path": "packages/features/bookings/Booker/store.ts",
+      "sha256": "1df7eb00c3cd247b60e455ecf471bf23e6be1e7e796bf268303151dac774830e",
+      "canonicalRepository": "calcom/cal.diy",
+      "url": "https://github.com/calcom/cal.diy/blob/54343aa685ae8f33159d2f485ec4a57bad5c574a/packages/features/bookings/Booker/store.ts"
+    },
+    {
+      "repo": "calcom/cal.com",
+      "sha": "54343aa685ae8f33159d2f485ec4a57bad5c574a",
+      "path": "apps/web/modules/bookings/components/Booker.tsx",
+      "sha256": "568ca2af4f206121c41b976b7374dca547b49e21192dd69d7529dac014c771b7",
+      "canonicalRepository": "calcom/cal.diy",
+      "url": "https://github.com/calcom/cal.diy/blob/54343aa685ae8f33159d2f485ec4a57bad5c574a/apps/web/modules/bookings/components/Booker.tsx"
+    }
+  ]
+}

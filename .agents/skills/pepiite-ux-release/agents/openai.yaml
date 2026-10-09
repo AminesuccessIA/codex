@@ -1,0 +1,8 @@
+interface:
+  display_name: Recette UX avant livraison
+  short_description: Vérifier le rendu, les interactions et la livraison.
+  default_prompt:
+    Utilise $pepiite-ux-release pour contrôler la modification actuelle
+    et distinguer les résultats réellement testés des vérifications restantes.
+policy:
+  allow_implicit_invocation: true

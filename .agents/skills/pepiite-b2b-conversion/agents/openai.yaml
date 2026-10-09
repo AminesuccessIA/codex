@@ -1,0 +1,8 @@
+interface:
+  display_name: Conversion B2B
+  short_description: Clarifier les offres et les parcours de prospects.
+  default_prompt:
+    Utilise $pepiite-b2b-conversion pour auditer les parcours et appliquer
+    les améliorations autorisées, sans inventer de preuves ni de réception de demande.
+policy:
+  allow_implicit_invocation: true
