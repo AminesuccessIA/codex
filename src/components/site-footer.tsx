@@ -57,6 +57,8 @@ export function SiteFooter() {
           <div className="footer-company">
             <p className="eyebrow">LA PÉPIITE IT</p>
             <Link href="/a-propos">À propos</Link>
+            <Link href="/partenaire-microsoft">Partenaire Microsoft</Link>
+            <Link href="/solutions-microsoft">Solutions Microsoft</Link>
             <Link href="/references">Références clients</Link>
             <Link href="/cas-d-usage">Cas d’usage</Link>
             <Link href="/contact">Contact</Link>

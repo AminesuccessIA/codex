@@ -5,13 +5,15 @@ const paths = [
   ...services.map((s) => '/' + s.slug),
   '/cas-d-usage',
   '/references',
+  '/solutions-microsoft',
+  '/partenaire-microsoft',
   '/mentions-legales',
   '/politique-de-confidentialite',
   '/a-propos',
   '/contact',
 ];
 for (const width of [360, 390, 768, 1024, 1440]) {
-  test(`15 pages: layout, navigation and SEO at ${width}px`, async ({
+  test(`${paths.length} pages: layout, navigation and SEO at ${width}px`, async ({
     page,
   }) => {
     await page.setViewportSize({ width, height: 1000 });
@@ -124,7 +126,7 @@ test('API rejects bad data, foreign origins and oversized bodies', async ({
     ).status(),
   ).toBe(413);
   const sitemap = await request.get('/sitemap.xml');
-  expect((await sitemap.text()).match(/<loc>/g)?.length).toBe(15);
+  expect((await sitemap.text()).match(/<loc>/g)?.length).toBe(paths.length);
   expect((await request.get('/unknown-page')).status()).toBe(404);
 });
 test('all internal links on all pages resolve', async ({ page, request }) => {
@@ -310,4 +312,58 @@ test('confirmed client references load local logos and preserve exclusions', asy
   );
   await page.getByRole('link', { name: 'Toutes nos références' }).click();
   await expect(page).toHaveURL(/references/);
+});
+
+test('Microsoft catalog connects every offer and official partner resources', async ({
+  page,
+}) => {
+  await page.goto('/solutions-microsoft');
+  await expect(page.locator('.solution-family')).toHaveCount(5);
+  for (const service of services) {
+    await expect(
+      page
+        .locator('.solution-family-links')
+        .getByRole('link', { name: service.name, exact: false }),
+    ).toHaveAttribute('href', '/' + service.slug);
+  }
+  await page.goto('/partenaire-microsoft');
+  await expect(page.locator('main')).toContainText('PARTENAIRE MICROSOFT');
+  await expect(
+    page
+      .locator('.partner-resource-links')
+      .getByRole('link', { name: 'Le programme partenaires Microsoft' }),
+  ).toHaveAttribute(
+    'href',
+    'https://learn.microsoft.com/fr-fr/partner-center/membership/mpn-overview',
+  );
+  await expect(page.locator('main')).not.toContainText(
+    /Gold|Solutions Partner|certifiés|24\/7/,
+  );
+});
+
+test('expanded Microsoft menu remains usable on mobile and desktop', async ({
+  page,
+}) => {
+  for (const width of [390, 768, 1440]) {
+    await page.setViewportSize({ width, height: 844 });
+    await page.goto('/');
+    if (width === 390)
+      await page.getByRole('button', { name: 'Menu', exact: true }).click();
+    await page.getByRole('button', { name: 'Nos expertises' }).click();
+    await page
+      .locator('#expertise-menu')
+      .getByRole('link', { name: 'Power BI', exact: true })
+      .click();
+    await expect(page).toHaveURL(/power-bi/);
+    await expect(page.locator('#expertise-menu')).not.toBeVisible();
+    if (width === 390)
+      await page.getByRole('button', { name: 'Menu', exact: true }).click();
+    await page.getByRole('button', { name: 'Nos expertises' }).click();
+    const support = page
+      .locator('#expertise-menu')
+      .getByRole('link', { name: 'Support & services managés', exact: true });
+    await support.focus();
+    await page.keyboard.press('Enter');
+    await expect(page).toHaveURL(/support-services-manages/);
+  }
 });

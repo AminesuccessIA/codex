@@ -1,3 +1,4 @@
+import { microsoftServices } from './microsoft-offers';
 export type Service = {
   slug: string;
   name: string;
@@ -208,7 +209,7 @@ export const services: Service[] = [
     question: 'Une application low-code peut-elle être maintenue durablement ?',
     answer:
       'Oui, si sa gouvernance est prévue dès le départ : environnements séparés, versionnement, propriétaire identifié et documentation. Les licences et les limites des connecteurs sont également à vérifier au cadrage.',
-    related: ['copilot-ia', 'microsoft-365', 'conseil-integration'],
+    related: ['power-apps', 'power-automate', 'power-bi'],
   },
   {
     slug: 'cybersecurite',
@@ -332,6 +333,7 @@ export const services: Service[] = [
       'Les horaires, délais de prise en charge et engagements sont définis selon le périmètre et formalisés dans le contrat. La proposition précise les engagements applicables à votre environnement.',
     related: ['microsoft-365', 'azure-cloud', 'cybersecurite'],
   },
+  ...microsoftServices,
 ];
 export const findService = (slug: string) =>
   services.find((service) => service.slug === slug);

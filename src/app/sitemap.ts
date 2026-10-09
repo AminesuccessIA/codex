@@ -7,6 +7,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...services.map((s) => s.slug),
     'cas-d-usage',
     'references',
+    'solutions-microsoft',
+    'partenaire-microsoft',
     'a-propos',
     'contact',
     'mentions-legales',

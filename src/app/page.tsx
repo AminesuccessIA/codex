@@ -11,7 +11,9 @@ export default function Home() {
       <section className="home-hero shell">
         <div className="hero-copy">
           <Label>ESN & INTÉGRATEUR MICROSOFT</Label>
-          <p className="partner-mention">Partenaire Microsoft</p>
+          <Link href="/partenaire-microsoft" className="partner-mention">
+            Partenaire Microsoft
+          </Link>
           <h1>
             Conseil.
             <br />
@@ -84,6 +86,17 @@ export default function Home() {
             },
             {
               id: '03',
+              name: 'Data & gestion d’entreprise',
+              text: 'Piloter l’activité et relier les processus métiers.',
+              slugs: [
+                'power-bi',
+                'microsoft-fabric',
+                'dynamics-365',
+                'business-central',
+              ],
+            },
+            {
+              id: '04',
               name: 'Conseil & continuité',
               text: 'Décider, intégrer et préparer l’exploitation.',
               slugs: ['conseil-integration', 'support-services-manages'],
@@ -112,6 +125,9 @@ export default function Home() {
             </div>
           ))}
         </div>
+        <Link href="/solutions-microsoft" className="text-link catalog-link">
+          Découvrir toutes les solutions Microsoft <Arrow diagonal />
+        </Link>
       </section>
       <InterventionModes compact />
       <section className="approach-section">

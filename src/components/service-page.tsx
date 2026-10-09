@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { Button, Label, Arrow } from './button';
 import { ContactBanner } from './site-footer';
 import { findService, type Service } from '@/lib/services';
+import { solutionCoverage } from '@/lib/solution-catalog';
+import { microsoftProductSources } from '@/lib/microsoft-offers';
 export function ServicePage({ service: s }: { service: Service }) {
   const detail = serviceDetails[s.slug];
   return (
@@ -80,6 +82,19 @@ export function ServicePage({ service: s }: { service: Service }) {
               </article>
             ))}
           </div>
+          {solutionCoverage[s.slug] && (
+            <div className="solution-coverage">
+              <p className="eyebrow">LES PRODUITS ET USAGES ASSOCIÉS</p>
+              <div>
+                {solutionCoverage[s.slug].map(([name, description]) => (
+                  <article key={name}>
+                    <h3>{name}</h3>
+                    <p>{description}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
       <section id="livrables" className="shell section deliverables-section">
@@ -227,6 +242,16 @@ export function ServicePage({ service: s }: { service: Service }) {
               </Link>
             );
           })}
+        </div>
+        <div className="solution-resource-line">
+          <Link href="/solutions-microsoft">
+            Toutes les solutions Microsoft <Arrow />
+          </Link>
+          {microsoftProductSources[s.slug] && (
+            <a href={microsoftProductSources[s.slug]}>
+              Documentation officielle Microsoft <Arrow diagonal />
+            </a>
+          )}
         </div>
       </section>
       <ContactBanner />

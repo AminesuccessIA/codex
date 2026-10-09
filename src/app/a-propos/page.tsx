@@ -2,6 +2,8 @@ import { Label, Button } from '@/components/button';
 import { ContactBanner } from '@/components/site-footer';
 import { pageMetadata } from '@/lib/site';
 import { InterventionModes } from '@/components/intervention-modes';
+import Link from 'next/link';
+import { Arrow } from '@/components/button';
 export const metadata = pageMetadata(
   'À propos',
   'La Pépiite IT, ESN et intégrateur Microsoft : conseil, consultants au TJM, équipes projet au forfait et services managés pour les entreprises en Europe et Afrique.',
@@ -24,6 +26,12 @@ export default function About() {
           Notre rôle : relier les besoins de votre organisation aux choix
           techniques, puis à leur mise en œuvre.
         </p>
+        <Link
+          href="/partenaire-microsoft"
+          className="text-link about-partner-link"
+        >
+          Notre accompagnement Microsoft <Arrow diagonal />
+        </Link>
       </section>
       <section className="about-manifesto">
         <div className="shell section">

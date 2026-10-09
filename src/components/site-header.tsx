@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { services } from '@/lib/services';
+import { solutionGroups } from '@/lib/solution-catalog';
 import { Arrow } from './button';
 export function Brand() {
   return (
@@ -96,23 +97,47 @@ export function SiteHeader() {
               <div className="mega-intro">
                 <span className="eyebrow">L’ÉCOSYSTÈME MICROSOFT</span>
                 <p>Du conseil à l’exploitation.</p>
-                <Link href="/#expertises" onClick={close}>
+                <Link href="/solutions-microsoft" onClick={close}>
                   Toutes nos expertises <Arrow />
                 </Link>
+                <Link href="/partenaire-microsoft" onClick={close}>
+                  Partenaire Microsoft <Arrow diagonal />
+                </Link>
               </div>
-              <div className="mega-links">
-                {services.map((s) => (
-                  <Link
-                    href={'/' + s.slug}
-                    key={s.slug}
-                    onClick={close}
-                    aria-current={
-                      pathname === '/' + s.slug ? 'page' : undefined
-                    }
-                  >
-                    <span>{s.name}</span>
-                    <small>{s.short}</small>
+              <div className="mega-groups">
+                <div className="mega-catalog-links">
+                  <Link href="/solutions-microsoft" onClick={close}>
+                    Toutes les solutions Microsoft <Arrow />
                   </Link>
+                  <Link href="/partenaire-microsoft" onClick={close}>
+                    Partenaire Microsoft <Arrow diagonal />
+                  </Link>
+                </div>
+                {solutionGroups.map((group) => (
+                  <section
+                    className="mega-group"
+                    key={group.id}
+                    aria-label={group.name}
+                  >
+                    <h3>{group.name}</h3>
+                    {group.slugs.map((slug) => {
+                      const s = services.find(
+                        (service) => service.slug === slug,
+                      )!;
+                      return (
+                        <Link
+                          href={'/' + s.slug}
+                          key={s.slug}
+                          onClick={close}
+                          aria-current={
+                            pathname === '/' + s.slug ? 'page' : undefined
+                          }
+                        >
+                          <span>{s.name}</span>
+                        </Link>
+                      );
+                    })}
+                  </section>
                 ))}
               </div>
             </div>

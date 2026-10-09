@@ -1,21 +1,20 @@
-export const serviceDetails: Record<
-  string,
-  {
-    scopeIntro: string;
-    methodTitle: string;
-    method: [string, string][];
-    benefitsTitle: string;
-    benefits: string[];
-    roadmap: [string, string][];
-    additionalQuestion: string;
-    additionalAnswer: string;
-    scopeTitle: string;
-    deliverablesTitle: string;
-    example: string;
-    secondQuestion: string;
-    secondAnswer: string;
-  }
-> = {
+import { microsoftServiceDetails } from './microsoft-offers';
+export type ServiceDetail = {
+  scopeIntro: string;
+  methodTitle: string;
+  method: [string, string][];
+  benefitsTitle: string;
+  benefits: string[];
+  roadmap: [string, string][];
+  additionalQuestion: string;
+  additionalAnswer: string;
+  scopeTitle: string;
+  deliverablesTitle: string;
+  example: string;
+  secondQuestion: string;
+  secondAnswer: string;
+};
+export const serviceDetails: Record<string, ServiceDetail> = {
   'microsoft-365': {
     scopeIntro:
       'Teams, SharePoint et OneDrive se travaillent ensemble : organisation des espaces, partage des documents et accompagnement des utilisateurs.',
@@ -375,4 +374,5 @@ export const serviceDetails: Record<
     secondAnswer:
       'Les horaires, le périmètre technique, les exclusions, les droits d’administration, les canaux de demande et les engagements applicables. Ces éléments formalisent les engagements convenus avec vos équipes.',
   },
+  ...microsoftServiceDetails,
 };

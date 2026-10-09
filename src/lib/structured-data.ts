@@ -49,3 +49,51 @@ export function serviceStructuredData(service: Service) {
     ],
   };
 }
+
+export function contentPageStructuredData(name: string, path: string) {
+  const url = `${site.url}${path}`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': `${url}#page`,
+        name,
+        url,
+        inLanguage: 'fr-FR',
+        about: { '@id': organizationId },
+        isPartOf: { '@id': `${site.url}/#website` },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Accueil', item: site.url },
+          { '@type': 'ListItem', position: 2, name, item: url },
+        ],
+      },
+    ],
+  };
+}
+
+export function collectionStructuredData(
+  name: string,
+  path: string,
+  items: Service[],
+) {
+  const data = contentPageStructuredData(name, path);
+  return {
+    ...data,
+    '@graph': [
+      ...data['@graph'],
+      {
+        '@type': 'ItemList',
+        itemListElement: items.map((service, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: service.name,
+          url: `${site.url}/${service.slug}`,
+        })),
+      },
+    ],
+  };
+}
