@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Label, Button, Arrow } from '@/components/button';
 import { StructuredData } from '@/components/structured-data';
@@ -13,14 +14,27 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
-}) {
+}): Promise<Metadata> {
   const guide = findGuide((await params).slug);
   if (!guide) notFound();
-  return pageMetadata(
+  const metadata = pageMetadata(
     guide.title,
     guide.description,
     '/ressources/' + guide.slug,
   );
+  return {
+    ...metadata,
+    authors: [{ name: site.name, url: site.url + '/a-propos' }],
+    publisher: site.name,
+    openGraph: {
+      ...metadata.openGraph,
+      type: 'article',
+      publishedTime: guidePublicationDate,
+      modifiedTime: guidePublicationDate,
+      authors: [site.url + '/a-propos'],
+      section: guide.category,
+    },
+  };
 }
 export default async function GuidePage({
   params,

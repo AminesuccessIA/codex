@@ -1,4 +1,5 @@
 import { StructuredData } from './structured-data';
+import { guides } from '@/lib/guides';
 import { serviceStructuredData } from '@/lib/structured-data';
 import { serviceDetails } from '@/lib/service-details';
 import Link from 'next/link';
@@ -9,6 +10,11 @@ import { solutionCoverage } from '@/lib/solution-catalog';
 import { microsoftProductSources } from '@/lib/microsoft-offers';
 export function ServicePage({ service: s }: { service: Service }) {
   const detail = serviceDetails[s.slug];
+  const relatedGuides = guides.filter(
+    (guide) =>
+      guide.service === s.slug ||
+      (guide.service === 'business-central' && s.slug === 'dynamics-365'),
+  );
   return (
     <main id="contenu">
       <StructuredData data={serviceStructuredData(s)} />
@@ -246,6 +252,15 @@ export function ServicePage({ service: s }: { service: Service }) {
             );
           })}
         </div>
+        {relatedGuides.length > 0 && (
+          <div className="solution-resource-line">
+            {relatedGuides.map((guide) => (
+              <Link key={guide.slug} href={'/ressources/' + guide.slug}>
+                Guide pratique : {guide.title} <Arrow />
+              </Link>
+            ))}
+          </div>
+        )}
         <div className="solution-resource-line">
           <Link href="/solutions-microsoft">
             Toutes les solutions Microsoft <Arrow />

@@ -1,5 +1,5 @@
 import { test, expect, type Page } from '@playwright/test';
-import { guides } from '../../src/lib/guides';
+import { guides, guidePublicationDate } from '../../src/lib/guides';
 async function qualify(page: Page) {
   await page
     .locator('#project-context')
@@ -78,6 +78,13 @@ test('guides have article metadata, sources and qualified conversion links; disc
 }) => {
   for (const guide of guides) {
     await page.goto('/ressources/' + guide.slug);
+    await expect(page.locator('meta[property="og:type"]')).toHaveAttribute(
+      'content',
+      'article',
+    );
+    await expect(
+      page.locator('meta[property="article:published_time"]'),
+    ).toHaveAttribute('content', guidePublicationDate);
     const graphs = await page
       .locator('script[type="application/ld+json"]')
       .evaluateAll((els) =>
@@ -93,6 +100,12 @@ test('guides have article metadata, sources and qualified conversion links; disc
     ).toHaveCount(1);
     for (const source of guide.sources)
       await expect(page.locator(`a[href="${source.url}"]`)).toHaveCount(1);
+  }
+  for (const guide of guides) {
+    await page.goto('/' + guide.service);
+    await expect(
+      page.locator(`a[href="/ressources/${guide.slug}"]`),
+    ).toHaveCount(1);
   }
   const file = await request.get('/downloads/checklist-projet-microsoft.pdf');
   expect(file.status()).toBe(200);

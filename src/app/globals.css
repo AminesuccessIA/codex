@@ -3000,6 +3000,8 @@ svg {
 }
 .related-section .solution-resource-line a {
   flex: none;
+  max-width: 100%;
+  min-width: 0;
   border: 0;
   padding: 8px 0;
   font-size: 12px;
