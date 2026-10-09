@@ -3484,3 +3484,116 @@ svg {
     border-bottom: 0;
   }
 }
+.resource-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 36px;
+  margin-bottom: 52px;
+}
+.resource-topics a {
+  font-size: 12px;
+  border: 1px solid var(--line);
+  padding: 10px 14px;
+  transition: background 0.2s;
+}
+.resource-topics a:hover {
+  background: #e9eee1;
+}
+.resource-cluster {
+  padding-bottom: 52px;
+  scroll-margin-top: 115px;
+}
+.resource-cluster-heading {
+  border-top: 1px solid var(--line);
+  padding-top: 26px;
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.resource-cluster-heading h2 {
+  font-size: 28px;
+}
+.resource-cluster-heading p {
+  font-size: 14px;
+  color: var(--muted);
+}
+.resource-cluster .guide-list {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.resource-cluster .guide-list article {
+  border-top: 0;
+  padding-top: 0;
+}
+.guide-list h3 {
+  font-size: 28px;
+  line-height: 1.2;
+}
+.guide-list h3 a {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: start;
+}
+.guide-related ul {
+  list-style: none;
+  padding: 0;
+}
+.guide-related li {
+  border-bottom: 1px solid var(--line);
+  padding-block: 16px;
+}
+.guide-related a {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  font-size: 17px;
+}
+@media (max-width: 700px) {
+  .resource-cluster-heading {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .guide-list h3 {
+    font-size: 26px;
+  }
+  .resource-topics {
+    margin-bottom: 36px;
+  }
+  .guide-related a {
+    font-size: 16px;
+  }
+}
+@media (min-width: 701px) {
+  .resource-cluster .guide-list:has(> article:only-child) {
+    display: block;
+  }
+  .resource-cluster .guide-list > article:only-child {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 50px;
+    row-gap: 14px;
+  }
+  .resource-cluster .guide-list > article:only-child > .eyebrow {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .resource-cluster .guide-list > article:only-child > h3 {
+    grid-column: 1;
+    grid-row: 2 / span 2;
+  }
+  .resource-cluster .guide-list > article:only-child > p:not(.eyebrow) {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    margin-top: 0;
+  }
+  .resource-cluster .guide-list > article:only-child > .text-link {
+    grid-column: 2;
+    grid-row: 3;
+    justify-self: start;
+    margin-top: 8px;
+  }
+}

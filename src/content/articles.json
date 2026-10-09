@@ -1,0 +1,296 @@
+[
+  {
+    "slug": "power-automate-choisir-premier-processus",
+    "title": "Power Automate : choisir un premier processus à automatiser",
+    "description": "Choisir un processus Power Automate : règles métier, données, exceptions, connecteurs, licences et recette avant la mise en production.",
+    "answer": "Un premier projet Power Automate gagne à couvrir un processus fréquent, compréhensible et porté par un responsable métier. Le choix dépend des règles, des données disponibles et de la manière de traiter les exceptions. Le flux doit ensuite être testé avec les comptes, les connecteurs et les conditions d’exploitation prévus.",
+    "service": "power-automate",
+    "cluster": "applications",
+    "category": "APPLICATIONS & PROCESSUS",
+    "updatedAt": "2026-10-09",
+    "publishedAt": "2026-10-09",
+    "sections": [
+      {
+        "title": "Partir du travail réellement effectué",
+        "paragraphs": [
+          "Une demande d’achat, une validation documentaire ou une notification après mise à jour peuvent constituer un premier périmètre. Avant de construire le flux, décrivez ce qui déclenche le travail, qui intervient et quel état marque la fin du processus. Un exemple de dossier permet de confronter les règles écrites à la pratique.",
+          "Un processus qui change chaque semaine demande d’abord un travail de clarification. Pour comparer les candidats, regardez la fréquence, le nombre d’intervenants, la disponibilité des données et la difficulté des exceptions. Le responsable métier doit pouvoir expliquer les arbitrages et valider la façon dont une demande est traitée."
+        ],
+        "checklist": [
+          "Identifier le déclencheur, le responsable et les destinataires.",
+          "Décrire un parcours courant et une exception représentative.",
+          "Retenir un périmètre dont les règles peuvent être validées."
+        ]
+      },
+      {
+        "title": "Définir les données et les accès",
+        "paragraphs": [
+          "Le flux lit et écrit dans des systèmes précis : une liste SharePoint, une application métier, un fichier ou une base. Pour chaque opération, identifiez le propriétaire de la donnée, les champs nécessaires et le compte utilisé. Les connexions doivent être préparées pour le mode d’exploitation choisi.",
+          "Une clé métier stable aide à retrouver une demande et à éviter de créer deux fois le même enregistrement. Examinez également les changements de propriétaire, les départs de collaborateurs et les autorisations des destinataires. Ces choix influencent la continuité du flux autant que sa logique de traitement."
+        ],
+        "checklist": [
+          "Inventorier les systèmes et les connecteurs.",
+          "Définir les identifiants et les données obligatoires.",
+          "Valider les permissions avec les responsables concernés."
+        ]
+      },
+      {
+        "title": "Prévoir les décisions et les exceptions",
+        "paragraphs": [
+          "Une approbation peut être acceptée, refusée ou laissée sans réponse. Le processus doit préciser la suite pour chaque situation : relance, escalade, retour au demandeur ou clôture. Une donnée manquante ou un destinataire absent doit aussi aboutir à un état compréhensible par les équipes.",
+          "Les reprises techniques méritent un scénario de test. Si une action a déjà été exécutée avant un échec, la relance doit préserver la cohérence des données. Documentez les opérations qui peuvent être rejouées, les vérifications nécessaires et le rôle de la personne autorisée à reprendre un traitement."
+        ],
+        "checklist": [
+          "Décrire refus, délais, erreurs et reprises.",
+          "Tester la cohérence après une exécution partielle.",
+          "Associer chaque anomalie à une personne ou un circuit de prise en charge."
+        ]
+      },
+      {
+        "title": "Vérifier les licences et les limites du périmètre",
+        "paragraphs": [
+          "Le choix des connecteurs et des fonctionnalités doit être rapproché des licences applicables. Les conditions varient selon les produits, les usages et les modalités d’exécution. L’identification des auteurs, utilisateurs et systèmes impliqués permet de préparer cette vérification avant de retenir une architecture.",
+          "Les limites d’exécution et de requêtes doivent également être examinées avec la fréquence attendue, le volume des données et les dépendances externes. Une preuve de concept valide la logique ; la préparation de la production doit inclure les conditions de charge et les contraintes des services connectés."
+        ],
+        "checklist": [
+          "Documenter les usages et les hypothèses de volume.",
+          "Vérifier les conditions des connecteurs et licences retenus.",
+          "Évaluer les limites avec le périmètre réel du projet."
+        ]
+      },
+      {
+        "title": "Livrer un flux exploitable",
+        "paragraphs": [
+          "La recette doit couvrir un dossier courant, les refus, les données invalides, les accès et les reprises. Conservez des exemples dont le résultat attendu est connu du métier. La personne qui reçoit le livrable doit pouvoir vérifier la logique, reconnaître une anomalie et retrouver les informations utiles.",
+          "Le dossier de livraison comprend la description du processus, les connexions, les responsabilités et la procédure de support. Prévoyez les alertes, la lecture de l’historique et les modalités d’évolution. Avec La Pépiite IT, le cadrage relie ces livrables au périmètre d’intégration et au mode d’accompagnement choisi."
+        ],
+        "checklist": [
+          "Faire valider les cas de recette par le métier.",
+          "Identifier le propriétaire technique et le responsable métier.",
+          "Documenter supervision, reprise et conditions d’évolution."
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "question": "Comment sélectionner le premier flux ?",
+        "answer": "Comparez les processus selon leur fréquence, la stabilité des règles, les données disponibles et la complexité des exceptions. Retenez un périmètre dont un responsable métier peut valider les cas de recette et les conditions de fonctionnement."
+      },
+      {
+        "question": "Peut-on automatiser une étape impliquant une validation humaine ?",
+        "answer": "Oui. Une validation peut faire partie du processus, avec ses responsables, ses délais et ses suites en cas de refus ou d’absence de réponse. Les notifications, les accès et la traçabilité doivent être vérifiés dans le périmètre retenu."
+      },
+      {
+        "question": "Quels livrables demander à l’intégrateur ?",
+        "answer": "Demandez une description du processus, la configuration des connexions et permissions, les cas de recette, les procédures de reprise et les responsabilités de support. Le niveau de documentation est convenu selon le périmètre et les contraintes d’exploitation."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Microsoft Learn — Démarrer avec Power Automate",
+        "url": "https://learn.microsoft.com/fr-fr/power-automate/getting-started"
+      },
+      {
+        "label": "Microsoft Learn — Limites et configuration des flux",
+        "url": "https://learn.microsoft.com/fr-fr/power-automate/limits-and-config"
+      }
+    ],
+    "seoTitle": "Power Automate : choisir un processus"
+  },
+  {
+    "slug": "assistance-technique-ou-projet-forfait",
+    "title": "Consultant au TJM ou projet au forfait : choisir le mode d’intervention",
+    "description": "Comparez assistance technique au TJM et projet au forfait : responsabilités, périmètre, livrables, recette et organisation avec La Pépiite IT.",
+    "answer": "Le choix entre assistance technique et projet au forfait dépend de ce que votre organisation souhaite piloter. En assistance technique, un consultant renforce une équipe sur une mission et une durée convenues. Un projet au forfait organise la réalisation d’un périmètre, avec livrables et critères de recette définis dans la proposition.",
+    "service": "conseil-integration",
+    "cluster": "intervention",
+    "category": "EXPERTISE & PROJETS",
+    "updatedAt": "2026-10-09",
+    "publishedAt": "2026-10-09",
+    "sections": [
+      {
+        "title": "Identifier la responsabilité à confier",
+        "paragraphs": [
+          "Votre équipe peut avoir besoin d’une compétence précise pour une migration, une intégration ou une phase de consolidation. Si elle conserve la conduite du projet et l’arbitrage du travail, l’assistance technique permet de cadrer un renfort autour d’un rôle, d’un contexte et d’interlocuteurs identifiés.",
+          "Une autre situation consiste à confier la réalisation d’un ensemble de livrables. Le cadrage porte alors sur le périmètre attendu, les dépendances, les validations et les conditions de réception. Ces deux formes répondent à des besoins différents ; leur comparaison commence par la répartition des décisions et responsabilités."
+        ],
+        "checklist": [
+          "Préciser qui pilote le travail et les priorités.",
+          "Identifier les décisions attendues du prestataire.",
+          "Définir les interlocuteurs métier et techniques."
+        ]
+      },
+      {
+        "title": "Qualifier une mission d’assistance technique",
+        "paragraphs": [
+          "Le brief doit préciser la compétence recherchée, l’environnement, le niveau d’autonomie attendu et les activités confiées. Les outils, les accès et les modalités de collaboration doivent être décrits pour apprécier l’adéquation d’un profil. La disponibilité est vérifiée avant proposition, avec les conditions de réalisation de la mission.",
+          "Le TJM, la durée et l’organisation sont convenus dans le cadre contractuel. Prévoyez un accueil technique, un point de suivi et les éléments à transmettre en fin de mission. Le renfort devient ainsi une intervention située dans votre fonctionnement, avec des attentes observables et des responsables capables de les suivre."
+        ],
+        "checklist": [
+          "Rédiger un brief fondé sur des activités concrètes.",
+          "Préparer l’accès aux outils et à la documentation.",
+          "Définir le suivi et les modalités de transmission."
+        ]
+      },
+      {
+        "title": "Préparer un projet au forfait",
+        "paragraphs": [
+          "Un forfait demande un périmètre suffisamment décrit pour convenir des livrables et du prix. Le dossier doit exposer les données disponibles, les interfaces, les contraintes et les responsabilités des parties. Les zones encore à préciser sont traitées pendant le cadrage afin de construire une proposition exploitable.",
+          "Les jalons et les critères de recette permettent de vérifier la réalisation. Une évolution de périmètre fait l’objet d’un arbitrage : impact sur les livrables, les dépendances, le calendrier et les conditions convenues. La clarté de cette organisation compte autant que la liste initiale des tâches techniques."
+        ],
+        "checklist": [
+          "Décrire les livrables et leurs critères de validation.",
+          "Lister les dépendances et contributions de vos équipes.",
+          "Convenir de la gestion des évolutions de périmètre."
+        ]
+      },
+      {
+        "title": "Comparer les propositions sur une base commune",
+        "paragraphs": [
+          "Une proposition d’assistance technique et une proposition de projet se lisent avec leurs hypothèses respectives. Pour une mission, examinez le rôle, la durée, l’organisation et le TJM. Pour un projet, examinez les livrables, les exclusions, les jalons, la recette et les conditions du forfait.",
+          "La comparaison doit aussi couvrir le pilotage et la transmission : qui prépare les réunions, fournit les données, ouvre les accès et réceptionne les travaux ? Une répartition écrite de ces contributions aide à anticiper les dépendances et à préparer une intervention cohérente avec les moyens de votre organisation."
+        ],
+        "checklist": [
+          "Comparer les hypothèses, les contributions et les livrables.",
+          "Vérifier les conditions de réception et de fin de mission.",
+          "Clarifier les points encore ouverts avant engagement."
+        ]
+      },
+      {
+        "title": "Préparer la suite de l’intervention",
+        "paragraphs": [
+          "Une mission technique peut déboucher sur un besoin d’exploitation, de support ou d’évolution. Identifiez la personne qui reprend les configurations, la documentation et les procédures. Si une prise en charge récurrente est envisagée, son périmètre, ses interlocuteurs et ses engagements sont définis dans un cadre adapté.",
+          "La Pépiite IT propose conseil et intégration, assistance technique, équipes projet au forfait, support et services managés. Le premier échange qualifie le besoin et le mode d’intervention pertinent. Préparez votre contexte, l’environnement concerné et la prochaine étape attendue pour construire cette discussion sur des éléments concrets."
+        ],
+        "checklist": [
+          "Identifier les éléments à transmettre après intervention.",
+          "Définir la responsabilité d’exploitation et de support.",
+          "Préparer le contexte et la prochaine étape du projet."
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "question": "Le TJM suffit-il pour choisir un consultant ?",
+        "answer": "Le TJM se lit avec la compétence, le rôle, la durée et l’organisation attendus. Le brief doit permettre de vérifier l’adéquation du profil et les conditions de mission avant proposition. La disponibilité fait également partie de cette qualification."
+      },
+      {
+        "question": "Comment préparer une demande de forfait ?",
+        "answer": "Réunissez les objectifs, les livrables attendus, l’existant, les interfaces et les contraintes. Définissez qui valide les travaux et quels critères constituent la recette. Le cadrage traite les points ouverts avant de convenir du périmètre et des conditions du projet."
+      },
+      {
+        "question": "La Pépiite IT peut-elle assurer la suite en services managés ?",
+        "answer": "Le support et les services managés font partie des modes proposés. Leur mise en place se qualifie avec le périmètre à prendre en charge, les interlocuteurs, les horaires, les exclusions et les engagements à convenir dans le contrat."
+      }
+    ],
+    "sources": [
+      {
+        "label": "La Pépiite IT — Conseil et intégration",
+        "url": "https://www.lapepiite.com/conseil-integration"
+      },
+      {
+        "label": "La Pépiite IT — Modes d’intervention et expertise",
+        "url": "https://www.lapepiite.com/a-propos"
+      }
+    ],
+    "seoTitle": "Consultant au TJM ou projet au forfait"
+  },
+  {
+    "slug": "securiser-microsoft-365-identites-terminaux",
+    "title": "Sécuriser Microsoft 365 : cadrer les identités et les terminaux",
+    "description": "Préparez un projet de sécurité Microsoft 365 : identités, accès conditionnel, terminaux, pilote, licences et critères de validation.",
+    "answer": "La préparation d’un projet de sécurité Microsoft 365 commence par les identités, les rôles et les appareils utilisés pour accéder aux ressources. Entra ID et Intune répondent à des besoins complémentaires : décisions d’accès, gestion des terminaux et protection des applications. Les règles doivent être définies, testées puis déployées dans un périmètre explicite.",
+    "service": "cybersecurite",
+    "cluster": "securite",
+    "category": "SÉCURITÉ & GOUVERNANCE",
+    "updatedAt": "2026-10-09",
+    "publishedAt": "2026-10-09",
+    "sections": [
+      {
+        "title": "Construire un état de départ exploitable",
+        "paragraphs": [
+          "Réunissez les populations d’utilisateurs, les comptes d’administration, les accès externes et les appareils utilisés. Les mêmes règles ne s’appliquent pas nécessairement à un poste géré, un terminal personnel et un compte invité. Les applications concernées et leurs contraintes doivent être identifiées pour préparer les décisions d’accès.",
+          "Cet inventaire sert à décrire le périmètre de la première étape. Les responsables des identités, des terminaux et des applications participent au cadrage pour expliciter l’existant et les dépendances. La restitution doit permettre de choisir une priorité et de savoir quelles équipes contribuent à sa mise en œuvre."
+        ],
+        "checklist": [
+          "Inventorier les comptes, rôles, applications et populations.",
+          "Identifier les terminaux et leurs modes de gestion.",
+          "Définir les responsables et le périmètre du pilote."
+        ]
+      },
+      {
+        "title": "Définir les décisions d’accès avec Entra ID",
+        "paragraphs": [
+          "L’accès conditionnel utilise des signaux pour appliquer une décision d’accès. Selon les règles retenues, cette décision peut exiger une authentification multifacteur, un appareil conforme ou d’autres conditions documentées. Les politiques se construisent à partir des usages et des ressources à protéger, avec des populations et exclusions explicitement définies.",
+          "Les fonctionnalités disponibles dépendent des licences applicables. Le cadrage vérifie les conditions requises avant de retenir les contrôles. Une politique doit être examinée avec des comptes représentatifs et les besoins d’administration afin de préparer un déploiement maîtrisé, ses validations et les modalités de reprise en cas de difficulté."
+        ],
+        "checklist": [
+          "Associer chaque règle à un besoin d’accès identifié.",
+          "Vérifier les conditions de licences avant déploiement.",
+          "Tester les effets sur les utilisateurs et administrateurs concernés."
+        ]
+      },
+      {
+        "title": "Organiser la gestion des appareils avec Intune",
+        "paragraphs": [
+          "Intune permet de gérer les appareils et les applications dans le périmètre défini par l’organisation. Le projet doit préciser les populations, les plateformes et les scénarios d’usage. Les appareils appartenant à l’entreprise et les appareils personnels demandent des choix de gestion adaptés et une information claire des utilisateurs.",
+          "Les politiques de conformité et les configurations se préparent avec les usages métier. Définissez ce qui est attendu d’un appareil, la façon dont une anomalie est traitée et les responsabilités du support. L’expérience de l’utilisateur pendant l’inscription, les changements de configuration et les demandes d’assistance fait partie du pilote."
+        ],
+        "checklist": [
+          "Qualifier les plateformes et les scénarios d’utilisation.",
+          "Définir les règles de gestion et de conformité retenues.",
+          "Préparer l’inscription et l’accompagnement des utilisateurs."
+        ]
+      },
+      {
+        "title": "Prévoir une recette avant généralisation",
+        "paragraphs": [
+          "La recette doit couvrir les situations prévues : utilisateur habituel, administrateur, accès externe, appareil géré et cas d’écart. Les résultats attendus sont écrits avant le test. Cette méthode permet de vérifier que les contrôles appliquent les règles choisies et que les parcours nécessaires au métier restent compréhensibles.",
+          "Préparez aussi la lecture des événements et la prise en charge d’un incident d’accès. Le support doit savoir quels éléments réunir, qui solliciter et dans quel cadre une modification est autorisée. Un pilote représentatif permet de traiter ces situations avant d’étendre les règles aux autres populations."
+        ],
+        "checklist": [
+          "Définir les comptes et appareils représentatifs des tests.",
+          "Vérifier les décisions et les événements disponibles.",
+          "Documenter le circuit de support et les changements autorisés."
+        ]
+      },
+      {
+        "title": "Transmettre une gouvernance utilisable",
+        "paragraphs": [
+          "Le livrable comprend l’inventaire du périmètre, les règles retenues, les conditions de licences vérifiées et les cas de recette. La documentation doit expliquer pourquoi un contrôle a été choisi, à qui il s’applique et comment il évolue. Les propriétaires des politiques et les circuits de validation sont identifiés.",
+          "La Pépiite IT accompagne le cadrage et l’intégration de ces dispositifs selon le contexte de votre organisation. Pour préparer un premier échange, réunissez les produits utilisés, les contraintes d’accès et le sujet prioritaire. Ces éléments permettent de discuter de la méthode, des livrables et des conditions d’intervention."
+        ],
+        "checklist": [
+          "Nommer les propriétaires des règles et des configurations.",
+          "Conserver les résultats de recette et les décisions de cadrage.",
+          "Prévoir les modalités de relecture et d’évolution."
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "question": "Faut-il traiter identités et terminaux dans le même projet ?",
+        "answer": "Ces sujets se coordonnent lorsque les décisions d’accès utilisent l’état des appareils. Le périmètre peut être organisé par étapes, avec les responsables des identités et des terminaux. Le cadrage identifie les dépendances et la première population à traiter."
+      },
+      {
+        "question": "Pourquoi commencer par un pilote ?",
+        "answer": "Un pilote permet de vérifier les règles avec des comptes, appareils et applications représentatifs. Il prépare les cas de support, les validations et les ajustements avant extension. Les résultats attendus et les responsables de recette sont définis à l’avance."
+      },
+      {
+        "question": "Quelles informations réunir avant un diagnostic ?",
+        "answer": "Préparez les produits et licences disponibles, les populations concernées, les règles d’accès existantes et les modes de gestion des appareils. Ajoutez les contraintes métier et les difficultés observées pour identifier un périmètre de travail concret."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Microsoft Learn — Accès conditionnel Microsoft Entra",
+        "url": "https://learn.microsoft.com/fr-fr/entra/identity/conditional-access/overview"
+      },
+      {
+        "label": "Microsoft Learn — Comprendre Microsoft Intune",
+        "url": "https://learn.microsoft.com/fr-fr/intune/fundamentals/what-is-intune"
+      }
+    ],
+    "seoTitle": "Sécuriser Microsoft 365 : identités et terminaux"
+  }
+]

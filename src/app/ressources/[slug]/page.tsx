@@ -3,9 +3,10 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Label, Button, Arrow } from '@/components/button';
 import { StructuredData } from '@/components/structured-data';
-import { findGuide, guides, guidePublicationDate } from '@/lib/guides';
+import { findGuide, guides } from '@/lib/guides';
 import { pageMetadata, site } from '@/lib/site';
 import { organizationId } from '@/lib/structured-data';
+import { relatedGuides } from '@/lib/editorial-plan';
 export const dynamicParams = false;
 export function generateStaticParams() {
   return guides.map((guide) => ({ slug: guide.slug }));
@@ -18,7 +19,7 @@ export async function generateMetadata({
   const guide = findGuide((await params).slug);
   if (!guide) notFound();
   const metadata = pageMetadata(
-    guide.title,
+    guide.seoTitle || guide.title,
     guide.description,
     '/ressources/' + guide.slug,
   );
@@ -29,8 +30,8 @@ export async function generateMetadata({
     openGraph: {
       ...metadata.openGraph,
       type: 'article',
-      publishedTime: guidePublicationDate,
-      modifiedTime: guidePublicationDate,
+      publishedTime: guide.publishedAt,
+      modifiedTime: guide.updatedAt,
       authors: [site.url + '/a-propos'],
       section: guide.category,
     },
@@ -52,8 +53,8 @@ export default async function GuidePage({
         '@id': site.url + path + '#article',
         headline: guide.title,
         description: guide.description,
-        datePublished: guidePublicationDate,
-        dateModified: guidePublicationDate,
+        datePublished: guide.publishedAt,
+        dateModified: guide.updatedAt,
         author: { '@id': organizationId },
         publisher: { '@id': organizationId },
         mainEntityOfPage: site.url + path,
@@ -93,9 +94,14 @@ export default async function GuidePage({
           <Label>{guide.category}</Label>
           <h1>{guide.title}</h1>
           <p className="guide-byline">
-            La Pépiite IT · Publié le{' '}
-            <time dateTime={guidePublicationDate}>9 octobre 2026</time> ·{' '}
-            {guide.readingTime}
+            La Pépiite IT · {guide.publishedAt ? 'Publié le' : 'Mis à jour le'}{' '}
+            <time dateTime={guide.publishedAt || guide.updatedAt}>
+              {new Intl.DateTimeFormat('fr-FR', {
+                dateStyle: 'long',
+                timeZone: 'UTC',
+              }).format(new Date(guide.publishedAt || guide.updatedAt))}
+            </time>{' '}
+            · {guide.readingTime}
           </p>
           <p className="guide-answer">{guide.answer}</p>
         </header>
@@ -167,7 +173,7 @@ export default async function GuidePage({
           ))}
         </section>
         <section className="guide-sources">
-          <h2>Sources et documentation Microsoft</h2>
+          <h2>Sources et documentation</h2>
           <ul>
             {guide.sources.map((source) => (
               <li key={source.url}>
@@ -183,6 +189,20 @@ export default async function GuidePage({
             proposition.
           </p>
         </section>
+        {relatedGuides(guide, guides).length > 0 && (
+          <section className="guide-related">
+            <h2>Pour approfondir ce sujet</h2>
+            <ul>
+              {relatedGuides(guide, guides).map((related) => (
+                <li key={related.slug}>
+                  <Link href={'/ressources/' + related.slug}>
+                    {related.title} <Arrow />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
         <aside className="guide-conversion">
           <Label>PASSER AU PROJET</Label>
           <h2>

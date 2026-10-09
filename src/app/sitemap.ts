@@ -19,6 +19,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'politique-de-confidentialite',
   ].map((slug) => ({
     url: `${site.url}/${slug}`,
+    lastModified: guides.find((guide) => 'ressources/' + guide.slug === slug)
+      ?.updatedAt,
     changeFrequency: 'monthly',
     priority: slug === '' ? 1 : 0.7,
   }));

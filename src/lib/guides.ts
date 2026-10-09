@@ -1,6 +1,8 @@
+import editorialArticles from '@/content/articles.json' with { type: 'json' };
 export type Guide = {
   slug: string;
   title: string;
+  seoTitle?: string;
   description: string;
   category: string;
   service: string;
@@ -10,9 +12,11 @@ export type Guide = {
   comparison?: { headers: string[]; rows: string[][] };
   questions: [string, string][];
   sources: { label: string; url: string }[];
+  publishedAt?: string;
+  updatedAt: string;
 };
 export const guidePublicationDate = '2026-10-09';
-export const guides: Guide[] = [
+const foundationalGuides: Omit<Guide, 'updatedAt'>[] = [
   {
     slug: 'preparer-projet-power-bi',
     title: 'Préparer un projet Power BI : données, indicateurs et accès',
@@ -318,6 +322,29 @@ export const guides: Guide[] = [
       },
     ],
   },
+];
+export const guides: Guide[] = [
+  ...foundationalGuides.map((guide) => ({
+    ...guide,
+    publishedAt: guidePublicationDate,
+    updatedAt: guidePublicationDate,
+  })),
+  ...editorialArticles.map((article): Guide => ({
+    ...article,
+    publishedAt: 'publishedAt' in article ? article.publishedAt : undefined,
+    readingTime: `${Math.max(
+      3,
+      Math.ceil(
+        article.sections
+          .flatMap((section) => section.paragraphs)
+          .join(' ')
+          .split(/\s+/).length / 220,
+      ),
+    )} min`,
+    questions: article.questions.map(
+      ({ question, answer }): [string, string] => [question, answer],
+    ),
+  })),
 ];
 export const findGuide = (slug: string) =>
   guides.find((guide) => guide.slug === slug);

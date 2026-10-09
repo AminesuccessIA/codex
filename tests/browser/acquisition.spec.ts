@@ -1,5 +1,5 @@
 import { test, expect, type Page } from '@playwright/test';
-import { guides, guidePublicationDate } from '../../src/lib/guides';
+import { guides } from '../../src/lib/guides';
 async function qualify(page: Page) {
   await page
     .locator('#project-context')
@@ -78,13 +78,20 @@ test('guides have article metadata, sources and qualified conversion links; disc
 }) => {
   for (const guide of guides) {
     await page.goto('/ressources/' + guide.slug);
+    await expect(page).toHaveTitle(
+      (guide.seoTitle || guide.title) + ' | La Pépiite IT',
+    );
     await expect(page.locator('meta[property="og:type"]')).toHaveAttribute(
       'content',
       'article',
     );
+    if (guide.publishedAt)
+      await expect(
+        page.locator('meta[property="article:published_time"]'),
+      ).toHaveAttribute('content', guide.publishedAt);
     await expect(
-      page.locator('meta[property="article:published_time"]'),
-    ).toHaveAttribute('content', guidePublicationDate);
+      page.locator('meta[property="article:modified_time"]'),
+    ).toHaveAttribute('content', guide.updatedAt);
     const graphs = await page
       .locator('script[type="application/ld+json"]')
       .evaluateAll((els) =>
@@ -99,7 +106,9 @@ test('guides have article metadata, sources and qualified conversion links; disc
       page.locator(`a[href^="/diagnostic?service=${guide.service}"]`),
     ).toHaveCount(1);
     for (const source of guide.sources)
-      await expect(page.locator(`a[href="${source.url}"]`)).toHaveCount(1);
+      await expect(
+        page.locator(`.guide-sources a[href="${source.url}"]`),
+      ).toHaveCount(1);
   }
   for (const guide of guides) {
     await page.goto('/' + guide.service);

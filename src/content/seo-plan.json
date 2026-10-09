@@ -1,0 +1,271 @@
+{
+  "version": 1,
+  "clusters": [
+    {
+      "id": "travail-ia",
+      "title": "Travail collaboratif & IA",
+      "description": "Microsoft 365, licences, collaboration et préparation des usages Copilot.",
+      "services": [
+        "microsoft-365",
+        "licences",
+        "copilot-ia",
+        "teams-telephonie",
+        "windows-365"
+      ]
+    },
+    {
+      "id": "data",
+      "title": "Données & pilotage",
+      "description": "Indicateurs, modèles de données, diffusion et architecture analytique.",
+      "services": ["power-bi", "microsoft-fabric"]
+    },
+    {
+      "id": "applications",
+      "title": "Applications & processus",
+      "description": "Automatisation, applications métier et intégration ERP/CRM.",
+      "services": [
+        "power-platform",
+        "power-apps",
+        "power-automate",
+        "dynamics-365",
+        "business-central"
+      ]
+    },
+    {
+      "id": "cloud",
+      "title": "Cloud & exploitation",
+      "description": "Migration, architecture Azure et organisation des déploiements.",
+      "services": ["azure-cloud", "azure-devops"]
+    },
+    {
+      "id": "securite",
+      "title": "Sécurité & gouvernance",
+      "description": "Identités, terminaux et règles de protection de l’environnement Microsoft.",
+      "services": ["cybersecurite", "intune"]
+    },
+    {
+      "id": "intervention",
+      "title": "Expertise & projets",
+      "description": "Choix du mode d’intervention, cadrage et passage en exploitation.",
+      "services": ["conseil-integration", "support-services-manages"]
+    }
+  ],
+  "topics": [
+    {
+      "slug": "licences-power-bi-auteurs-lecteurs",
+      "title": "Licences Power BI : distinguer auteurs, lecteurs et capacités",
+      "service": "power-bi",
+      "cluster": "data",
+      "intent": "Choisir le mode de diffusion et vérifier les droits nécessaires avant achat.",
+      "priority": 1,
+      "sources": [
+        {
+          "label": "Licences Power BI",
+          "url": "https://learn.microsoft.com/fr-fr/power-bi/fundamentals/service-features-license-type"
+        },
+        {
+          "label": "Diffusion Power BI",
+          "url": "https://learn.microsoft.com/fr-fr/power-bi/collaborate-share/service-share-dashboards"
+        }
+      ]
+    },
+    {
+      "slug": "copilot-permissions-sharepoint",
+      "title": "Copilot et SharePoint : préparer les permissions avant un pilote",
+      "service": "copilot-ia",
+      "cluster": "travail-ia",
+      "intent": "Comprendre la préparation des droits et le périmètre documentaire du pilote.",
+      "priority": 2,
+      "sources": [
+        {
+          "label": "Confidentialité Copilot",
+          "url": "https://learn.microsoft.com/fr-fr/copilot/microsoft-365/microsoft-365-copilot-privacy"
+        },
+        {
+          "label": "Partage SharePoint",
+          "url": "https://learn.microsoft.com/fr-fr/sharepoint/turn-external-sharing-on-or-off"
+        }
+      ]
+    },
+    {
+      "slug": "power-automate-erreurs-supervision",
+      "title": "Power Automate : prévoir les erreurs et la supervision des flux",
+      "service": "power-automate",
+      "cluster": "applications",
+      "intent": "Organiser les alertes, reprises et responsabilités après mise en production.",
+      "priority": 3,
+      "sources": [
+        {
+          "label": "Limites des flux",
+          "url": "https://learn.microsoft.com/fr-fr/power-automate/limits-and-config"
+        },
+        {
+          "label": "Démarrer Power Automate",
+          "url": "https://learn.microsoft.com/fr-fr/power-automate/getting-started"
+        }
+      ]
+    },
+    {
+      "slug": "azure-landing-zone-pme",
+      "title": "Landing zone Azure : les décisions à prendre avant la migration",
+      "service": "azure-cloud",
+      "cluster": "cloud",
+      "intent": "Qualifier le socle identités, réseau, gouvernance et coûts sans imposer un modèle unique.",
+      "priority": 4,
+      "sources": [
+        {
+          "label": "Landing zones Azure",
+          "url": "https://learn.microsoft.com/fr-fr/azure/cloud-adoption-framework/ready/landing-zone/"
+        },
+        {
+          "label": "Cloud Adoption Framework",
+          "url": "https://learn.microsoft.com/fr-fr/azure/cloud-adoption-framework/"
+        }
+      ]
+    },
+    {
+      "slug": "business-central-reprise-donnees",
+      "title": "Business Central : préparer la reprise des données et la recette",
+      "service": "business-central",
+      "cluster": "applications",
+      "intent": "Évaluer les données, interfaces et critères de réception d’un projet ERP.",
+      "priority": 5,
+      "sources": [
+        {
+          "label": "Business Central",
+          "url": "https://learn.microsoft.com/fr-fr/dynamics365/business-central/welcome"
+        },
+        {
+          "label": "Import de données",
+          "url": "https://learn.microsoft.com/fr-fr/dynamics365/business-central/across-import-data-configuration-packages"
+        }
+      ]
+    },
+    {
+      "slug": "intune-enrolement-terminaux",
+      "title": "Intune : préparer l’enrôlement des terminaux de l’entreprise",
+      "service": "intune",
+      "cluster": "securite",
+      "intent": "Définir les populations, les appareils et les responsabilités de gestion.",
+      "priority": 6,
+      "sources": [
+        {
+          "label": "Comprendre Intune",
+          "url": "https://learn.microsoft.com/fr-fr/intune/fundamentals/what-is-intune"
+        },
+        {
+          "label": "Enrôlement Intune",
+          "url": "https://learn.microsoft.com/fr-fr/intune/device-enrollment/guide"
+        }
+      ]
+    },
+    {
+      "slug": "fabric-ou-power-bi",
+      "title": "Microsoft Fabric et Power BI : répartir les rôles dans un projet data",
+      "service": "microsoft-fabric",
+      "cluster": "data",
+      "intent": "Distinguer les besoins de plateforme de données et de restitution.",
+      "priority": 7,
+      "sources": [
+        {
+          "label": "Microsoft Fabric",
+          "url": "https://learn.microsoft.com/fr-fr/fabric/fundamentals/microsoft-fabric-overview"
+        },
+        {
+          "label": "Power BI",
+          "url": "https://learn.microsoft.com/fr-fr/power-bi/fundamentals/power-bi-overview"
+        }
+      ]
+    },
+    {
+      "slug": "gouvernance-teams-sharepoint",
+      "title": "Teams et SharePoint : organiser les espaces et leur cycle de vie",
+      "service": "microsoft-365",
+      "cluster": "travail-ia",
+      "intent": "Cadrer la création, les accès, l’archivage et les propriétaires des espaces.",
+      "priority": 8,
+      "sources": [
+        {
+          "label": "Gouvernance Teams",
+          "url": "https://learn.microsoft.com/fr-fr/microsoftteams/teams-architecture-solutions-posters"
+        },
+        {
+          "label": "SharePoint",
+          "url": "https://learn.microsoft.com/fr-fr/sharepoint/introduction"
+        }
+      ]
+    },
+    {
+      "slug": "power-apps-ou-application-specifique",
+      "title": "Power Apps : évaluer un besoin d’application métier",
+      "service": "power-apps",
+      "cluster": "applications",
+      "intent": "Décider si Power Apps répond au besoin, aux données et aux contraintes d’intégration.",
+      "priority": 9,
+      "sources": [
+        {
+          "label": "Power Apps",
+          "url": "https://learn.microsoft.com/fr-fr/power-apps/powerapps-overview"
+        },
+        {
+          "label": "Power Platform",
+          "url": "https://learn.microsoft.com/fr-fr/power-platform/admin/admin-documentation"
+        }
+      ]
+    },
+    {
+      "slug": "services-manages-perimetre-contrat",
+      "title": "Services managés : définir le périmètre et les circuits d’escalade",
+      "service": "support-services-manages",
+      "cluster": "intervention",
+      "intent": "Préparer les responsabilités, exclusions et modalités de prise en charge.",
+      "priority": 10,
+      "sources": [
+        {
+          "label": "Offre de services managés",
+          "url": "https://www.lapepiite.com/support-services-manages"
+        },
+        {
+          "label": "Modes d’intervention",
+          "url": "https://www.lapepiite.com/a-propos"
+        }
+      ]
+    },
+    {
+      "slug": "azure-devops-pipeline-recette",
+      "title": "Azure DevOps : organiser un pipeline et ses validations",
+      "service": "azure-devops",
+      "cluster": "cloud",
+      "intent": "Préparer une livraison reproductible avec validations et responsabilités explicites.",
+      "priority": 11,
+      "sources": [
+        {
+          "label": "Azure Pipelines",
+          "url": "https://learn.microsoft.com/fr-fr/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops"
+        },
+        {
+          "label": "Azure DevOps",
+          "url": "https://learn.microsoft.com/fr-fr/azure/devops/user-guide/what-is-azure-devops?view=azure-devops"
+        }
+      ]
+    },
+    {
+      "slug": "dynamics-365-crm-donnees-commerciales",
+      "title": "Dynamics 365 CRM : préparer les données et le processus commercial",
+      "service": "dynamics-365",
+      "cluster": "applications",
+      "intent": "Qualifier le processus de vente et la qualité des données avant intégration.",
+      "priority": 12,
+      "sources": [
+        {
+          "label": "Dynamics 365 Sales",
+          "url": "https://learn.microsoft.com/fr-fr/dynamics365/sales/overview"
+        },
+        {
+          "label": "Dataverse",
+          "url": "https://learn.microsoft.com/fr-fr/power-apps/maker/data-platform/data-platform-intro"
+        }
+      ]
+    }
+  ]
+}
