@@ -34,7 +34,7 @@ export function SiteHeader() {
       }
     };
     const escape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
+      if (event.key === 'Escape' && (open || expertise)) {
         setOpen(false);
         setExpertise(false);
         (open ? toggle : expertToggle).current?.focus();
@@ -46,7 +46,7 @@ export function SiteHeader() {
       document.removeEventListener('pointerdown', close);
       document.removeEventListener('keydown', escape);
     };
-  }, [open]);
+  }, [open, expertise]);
   function close() {
     setOpen(false);
     setExpertise(false);

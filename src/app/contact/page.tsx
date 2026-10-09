@@ -53,8 +53,8 @@ export default async function Contact({
             </ol>
           </div>
           <p className="contact-security">
-            Ne transmettez aucun mot de passe, secret technique ou document
-            confidentiel dans ce formulaire.
+            Présentez votre besoin et vos échéances. Les documents techniques
+            utiles seront échangés dans le cadre de la mission.
           </p>
         </div>
         <ContactForm initialService={selected} enabled={formIsEnabled()} />
@@ -65,7 +65,7 @@ export default async function Contact({
           Précisez votre organisation, le contexte technique, le livrable
           attendu et vos contraintes de calendrier. Le premier échange sert à
           qualifier le besoin et les conditions d’une éventuelle intervention,
-          sans engagement de disponibilité.
+          avec un périmètre et des responsabilités définis.
         </p>
         <p>
           Les informations sur vos données sont regroupées dans la{' '}

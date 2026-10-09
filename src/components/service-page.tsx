@@ -1,3 +1,5 @@
+import { StructuredData } from './structured-data';
+import { serviceStructuredData } from '@/lib/structured-data';
 import { serviceDetails } from '@/lib/service-details';
 import Link from 'next/link';
 import { Button, Label, Arrow } from './button';
@@ -7,6 +9,7 @@ export function ServicePage({ service: s }: { service: Service }) {
   const detail = serviceDetails[s.slug];
   return (
     <main id="contenu">
+      <StructuredData data={serviceStructuredData(s)} />
       <section className="shell inner-hero">
         <div className="breadcrumb">
           <Link href="/">Accueil</Link>
@@ -43,29 +46,31 @@ export function ServicePage({ service: s }: { service: Service }) {
           </aside>
         </div>
       </section>
-      <section className="shell section context-section">
+      <nav className="shell service-toc" aria-label="Sommaire de l’expertise">
+        <a href="#enjeu">Votre enjeu</a>
+        <a href="#intervention">Accompagnement</a>
+        <a href="#livrables">Livrables</a>
+        <a href="#methode">Méthode</a>
+        <a href="#trajectoire">Bénéfices & suite</a>
+        <a href="#questions">Questions</a>
+      </nav>
+      <section id="enjeu" className="shell section context-section">
         <Label>VOTRE ENJEU</Label>
         <div className="section-heading">
           <h2>{s.problem}</h2>
           <p>{s.context}</p>
         </div>
       </section>
-      <section className="service-scope">
+      <section id="intervention" className="service-scope">
         <div className="shell section">
           <div className="section-heading">
             <div>
               <Label>NOTRE INTERVENTION</Label>
               <h2>{detail.scopeTitle}</h2>
             </div>
-            <p>
-              Les axes d’intervention sont définis au cadrage, selon votre
-              existant, vos ressources et vos priorités.
-            </p>
+            <p>{detail.scopeIntro}</p>
           </div>
-          <p className="service-example">
-            {detail.example} Ce scénario illustre un besoin possible ; il ne
-            décrit pas une mission réalisée.
-          </p>
+          <p className="service-example">{detail.example}</p>
           <div className="scope-list">
             {s.scope.map(([title, description], i) => (
               <article key={title}>
@@ -77,7 +82,7 @@ export function ServicePage({ service: s }: { service: Service }) {
           </div>
         </div>
       </section>
-      <section className="shell section deliverables-section">
+      <section id="livrables" className="shell section deliverables-section">
         <div>
           <Label>CE QUI RESTE ENTRE VOS MAINS</Label>
           <h2>{detail.deliverablesTitle}</h2>
@@ -95,6 +100,62 @@ export function ServicePage({ service: s }: { service: Service }) {
             </li>
           ))}
         </ul>
+      </section>
+      <section id="methode" className="shell section service-method">
+        <div className="service-method-heading">
+          <Label>COMMENT SE DÉROULE L’INTERVENTION</Label>
+          <h2>{detail.methodTitle}</h2>
+          <p>
+            Le calendrier et les accès sont convenus au cadrage. Chaque étape
+            prévoit une validation avec vos interlocuteurs.
+          </p>
+        </div>
+        <ol className="method-list">
+          {detail.method.map(([title, description], index) => (
+            <li key={title}>
+              <span className="mono">0{index + 1}</span>
+              <div>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+      <section id="trajectoire" className="service-outcomes">
+        <div className="shell section service-outcomes-grid">
+          <div>
+            <Label>VOTRE VALEUR MÉTIER</Label>
+            <h2>{detail.benefitsTitle}</h2>
+            <ul className="benefit-list">
+              {detail.benefits.map((benefit) => (
+                <li key={benefit}>{benefit}</li>
+              ))}
+            </ul>
+            <p className="outcomes-note">
+              Les objectifs et les critères d’évaluation sont définis avec vos
+              équipes au cadrage.
+            </p>
+          </div>
+          <div className="roadmap-outline">
+            <p className="eyebrow">VOTRE FEUILLE DE ROUTE</p>
+            <p className="roadmap-caption">
+              Des actions priorisées avec vos équipes.
+            </p>
+            <ol>
+              {detail.roadmap.map(([phase, action]) => (
+                <li key={phase}>
+                  <span>{phase}</span>
+                  <p>{action}</p>
+                </li>
+              ))}
+            </ol>
+            <Link href={'/contact?service=' + s.slug} className="text-link">
+              Cadrer votre prochaine étape
+              <Arrow diagonal />
+            </Link>
+          </div>
+        </div>
       </section>
       {s.slug === 'conseil-integration' && (
         <section id="audit-microsoft" className="audit-offer">
@@ -115,8 +176,8 @@ export function ServicePage({ service: s }: { service: Service }) {
               </p>
               <p>
                 À l’issue de l’analyse : une synthèse, des points d’attention et
-                une feuille de route priorisée. Le diagnostic n’implique ni
-                économies garanties ni déploiement obligatoire.
+                une feuille de route priorisée. La restitution vous permet de
+                choisir les actions à déployer et leur mode d’accompagnement.
               </p>
               <Button href="/contact?service=audit-microsoft">
                 Échanger sur un diagnostic
@@ -125,7 +186,7 @@ export function ServicePage({ service: s }: { service: Service }) {
           </div>
         </section>
       )}
-      <section className="shell section faq-section">
+      <section id="questions" className="shell section faq-section">
         <div>
           <Label>QUESTION DE CADRAGE</Label>
           <h2>Avant de commencer.</h2>
@@ -144,6 +205,13 @@ export function ServicePage({ service: s }: { service: Service }) {
               <span aria-hidden="true">+</span>
             </summary>
             <p>{detail.secondAnswer}</p>
+          </details>
+          <details>
+            <summary>
+              {detail.additionalQuestion}
+              <span aria-hidden="true">+</span>
+            </summary>
+            <p>{detail.additionalAnswer}</p>
           </details>
         </div>
       </section>

@@ -40,7 +40,9 @@ export function SiteFooter() {
               <br />
               mieux exploité.
             </p>
-            <span className="footer-position">ESN & INTÉGRATEUR MICROSOFT</span>
+            <span className="footer-position">
+              ESN · INTÉGRATEUR · PARTENAIRE MICROSOFT
+            </span>
           </div>
           <div className="footer-services">
             <p className="eyebrow">EXPERTISES</p>

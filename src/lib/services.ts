@@ -24,7 +24,7 @@ export const services: Service[] = [
     description:
       'Structurez Microsoft 365 autour de vos équipes : messagerie, collaboration, documents et gouvernance. La Pépiite IT vous accompagne du cadrage à l’adoption.',
     tech: ['Teams', 'SharePoint', 'Exchange Online', 'OneDrive'],
-    problem: 'Des outils communs. Des pratiques qui ne le sont pas toujours.',
+    problem: 'Des outils communs. Des pratiques à harmoniser.',
     context:
       'Des fichiers dispersés, des espaces Teams qui se multiplient, des droits difficiles à relire : la collaboration a besoin d’une architecture aussi claire que vos processus.',
     scope: [
@@ -50,7 +50,7 @@ export const services: Service[] = [
     question:
       'Peut-on améliorer un environnement Microsoft 365 déjà en place ?',
     answer:
-      'Oui. Le cadrage part de votre tenant, des usages existants et des difficultés rencontrées. Une refonte complète n’est pas systématique : les changements peuvent être ciblés et progressifs.',
+      'Oui. Le cadrage part de votre tenant, des usages existants et des difficultés rencontrées. Nous priorisons les changements utiles et organisons leur mise en œuvre progressivement.',
     related: ['licences', 'copilot-ia', 'cybersecurite'],
   },
   {
@@ -62,8 +62,7 @@ export const services: Service[] = [
     description:
       'Mettez en regard vos abonnements Microsoft, les profils de vos utilisateurs et vos contraintes contractuelles. Décidez sur la base d’un inventaire documenté.',
     tech: ['Microsoft 365', 'Microsoft Azure', 'Copilot', 'Power Platform'],
-    problem:
-      'Une licence choisie par habitude peut ne plus correspondre au besoin.',
+    problem: 'Vos licences évoluent avec les besoins de vos équipes.',
     context:
       'Les arrivées, départs et évolutions de métiers modifient votre parc. Nous rapprochons les affectations, les fonctionnalités nécessaires et les échéances pour éclairer vos arbitrages.',
     scope: [
@@ -86,9 +85,9 @@ export const services: Service[] = [
       'Scénarios d’allocation argumentés',
       'Calendrier des décisions et renouvellements',
     ],
-    question: 'L’analyse garantit-elle une réduction de coûts ?',
+    question: 'Comment évaluez-vous les coûts des licences ?',
     answer:
-      'Non. Les conclusions dépendent de votre parc, de vos contrats et des besoins de sécurité ou de conformité. L’objectif est une décision justifiée ; les économies éventuelles doivent être établies à partir de vos données.',
+      'Nous rapprochons le parc, les engagements contractuels et les besoins de sécurité ou de conformité. Les scénarios chiffrés précisent les hypothèses, les écarts et les échéances pour éclairer vos décisions budgétaires.',
     related: ['microsoft-365', 'azure-cloud', 'conseil-integration'],
   },
   {
@@ -100,7 +99,7 @@ export const services: Service[] = [
     description:
       'Architecture Azure, migration, environnements hybrides et maîtrise des coûts : construisez une infrastructure dont les choix sont explicites et les opérations documentées.',
     tech: ['Azure', 'Infrastructure as Code', 'Cloud hybride', 'FinOps'],
-    problem: 'Migrer ne suffit pas. Il faut pouvoir exploiter.',
+    problem: 'Une migration préparée pour une exploitation durable.',
     context:
       'Réseau, identités, résilience, sauvegardes et budgets se décident ensemble. Une architecture utile tient compte de vos applications existantes et de la capacité de vos équipes à la maintenir.',
     scope: [
@@ -125,7 +124,7 @@ export const services: Service[] = [
     ],
     question: 'Faut-il migrer toutes les applications dans Azure ?',
     answer:
-      'Non. Les contraintes de latence, de dépendances, de réglementation et de coûts peuvent justifier une architecture hybride. Chaque application doit être évaluée avant de choisir sa trajectoire.',
+      'Les contraintes de latence, de dépendances, de réglementation et de coûts orientent la trajectoire de chaque application. Une architecture hybride permet de combiner Azure et les composants à conserver dans votre environnement.',
     related: [
       'cybersecurite',
       'support-services-manages',
@@ -135,9 +134,9 @@ export const services: Service[] = [
   {
     slug: 'copilot-ia',
     name: 'Copilot & IA',
-    short: 'Des usages précis avant les promesses.',
+    short: 'Des usages métiers. Une IA maîtrisée.',
     eyebrow: 'INTELLIGENCE ARTIFICIELLE & USAGES',
-    title: 'L’IA commence par un cas d’usage. Pas par une licence.',
+    title: 'Copilot et l’IA au service de vos usages métiers.',
     description:
       'Préparez Copilot et vos projets IA avec des usages identifiés, des données accessibles aux bonnes personnes et un pilote mesurable.',
     tech: [
@@ -248,9 +247,9 @@ export const services: Service[] = [
       'Configurations et procédures documentées',
       'Scénarios de vérification des protections',
     ],
-    question: 'Un audit permet-il de garantir l’absence de risque ?',
+    question: 'Comment priorisez-vous les actions de sécurité ?',
     answer:
-      'Non. Une évaluation porte sur un périmètre et une date donnés. Elle permet de documenter les risques observés et les mesures recommandées ; la sécurité nécessite un suivi continu.',
+      'L’évaluation documente les risques observés et les mesures recommandées sur le périmètre convenu. Les priorités tiennent compte de leur impact, des dépendances techniques et des responsabilités ; un suivi permet de vérifier les mesures dans la durée.',
     related: ['azure-cloud', 'microsoft-365', 'support-services-manages'],
   },
   {
@@ -267,7 +266,7 @@ export const services: Service[] = [
       'Audit Microsoft',
       'Expertise technique',
     ],
-    problem: 'Votre projet ne commence pas avec le choix d’un outil.',
+    problem: 'Votre projet commence par des objectifs partagés.',
     context:
       'Il commence avec des objectifs, des dépendances et des contraintes. Le conseil doit relier cette réalité aux choix d’architecture, au budget et à une séquence de réalisation crédible.',
     scope: [
@@ -293,7 +292,7 @@ export const services: Service[] = [
     question:
       'Proposez-vous aussi un renfort d’expertise ou une équipe projet ?',
     answer:
-      'Oui : assistance technique et mise à disposition de consultants au TJM, équipe projet au forfait et intégration. Le profil, la disponibilité et les responsabilités sont qualifiés avant proposition. L’audit Microsoft reste une offre de diagnostic facultative, pas un préalable systématique.',
+      'Oui : assistance technique et mise à disposition de consultants au TJM, équipe projet au forfait et intégration. Le profil, la disponibilité et les responsabilités sont qualifiés avant proposition. L’audit Microsoft est une offre de diagnostic à sélectionner selon votre besoin.',
     related: ['azure-cloud', 'power-platform', 'licences'],
   },
   {
@@ -330,7 +329,7 @@ export const services: Service[] = [
     ],
     question: 'Proposez-vous une couverture permanente ?',
     answer:
-      'Les horaires, délais de prise en charge et engagements sont définis selon le périmètre et formalisés dans le contrat. Aucune couverture 24/7 ni aucun délai standard n’est présumé sur ce site.',
+      'Les horaires, délais de prise en charge et engagements sont définis selon le périmètre et formalisés dans le contrat. La proposition précise les engagements applicables à votre environnement.',
     related: ['microsoft-365', 'azure-cloud', 'cybersecurite'],
   },
 ];

@@ -1,9 +1,10 @@
 import { Label, Button } from '@/components/button';
 import { ContactBanner } from '@/components/site-footer';
 import { pageMetadata } from '@/lib/site';
+import { InterventionModes } from '@/components/intervention-modes';
 export const metadata = pageMetadata(
   'À propos',
-  'La Pépiite IT, ESN et intégrateur Microsoft. Découvrez notre approche du conseil, de l’intégration et de la transmission technique.',
+  'La Pépiite IT, ESN et intégrateur Microsoft : conseil, consultants au TJM, équipes projet au forfait et services managés pour les entreprises en Europe et Afrique.',
   '/a-propos',
 );
 export default function About() {
@@ -19,9 +20,9 @@ export default function About() {
           <span>fait avancer votre projet.</span>
         </h1>
         <p className="hero-description">
-          La Pépiite IT est une ESN et un intégrateur Microsoft. Notre rôle :
-          relier les besoins de votre organisation aux choix techniques, puis à
-          leur mise en œuvre.
+          La Pépiite IT est une ESN, un intégrateur et un partenaire Microsoft.
+          Notre rôle : relier les besoins de votre organisation aux choix
+          techniques, puis à leur mise en œuvre.
         </p>
       </section>
       <section className="about-manifesto">
@@ -55,7 +56,7 @@ export default function About() {
         <div className="principle-list">
           {[
             [
-              'Dire ce qui est possible. Et ce qui ne l’est pas.',
+              'Définir les objectifs et les conditions de réussite.',
               'Les contraintes, les dépendances et les limites sont posées avant de définir la solution.',
             ],
             [
@@ -87,8 +88,8 @@ export default function About() {
         <div>
           <p className="large-copy">
             Microsoft 365, Azure, Copilot, Power Platform, identités et sécurité
-            : les technologies se choisissent à partir du besoin. Elles ne le
-            définissent pas.
+            : les technologies se choisissent à partir du besoin. Nous les
+            relions à vos usages et à vos priorités.
           </p>
           <Button href="/#expertises">Explorer nos expertises</Button>
         </div>
@@ -110,17 +111,18 @@ export default function About() {
             l’expertise et de définir le livrable attendu.
           </p>
           <p>
-            Assistance technique de consultants au TJM, équipe projet au
-            forfait, intégration et services managés : les responsabilités,
-            l’organisation, les horaires et les modalités contractuelles sont
-            définis dans la proposition. Nous nous adressons aux entreprises en
-            Europe et en Afrique. Les conditions d’intervention sur site, les
-            horaires et les disponibilités sont qualifiés avant tout engagement.
+            Votre organisation, vos accès et vos échéances permettent de
+            préciser les responsabilités. L’intervention sur site et les
+            disponibilités sont confirmées avant engagement.
           </p>
           <Button href="/contact">Qualifier votre besoin</Button>
         </div>
       </section>
-      <section className="shell section engagement-section">
+      <InterventionModes />
+      <section
+        id="expertise-technique"
+        className="shell section engagement-section"
+      >
         <div>
           <Label>EXPERTISE TECHNIQUE</Label>
           <h2>
@@ -138,11 +140,9 @@ export default function About() {
             mise à disposition de consultants.
           </p>
           <p>
-            En assistance technique, le TJM et la durée encadrent
-            l’intervention. Au forfait, le périmètre, les livrables et les
-            critères de recette sont convenus. Le profil, sa disponibilité et le
-            mode d’intervention sont vérifiés avant proposition. Aucun CV,
-            parcours individuel ou certification n’est publié sans validation.
+            Les compétences et les conditions d’accès sont examinées avant la
+            mission. Nous précisons le rôle du consultant et les livrables
+            attendus pour votre équipe.
           </p>
           <Button href="/contact">Échanger sur un besoin d’expertise</Button>
         </div>

@@ -1,4 +1,5 @@
 # La Pépiite IT — site vitrine
+
 Site officiel : https://www.lapepiite.com
 
 Site français de La Pépiite IT, ESN et intégrateur Microsoft. Direction artistique issue de la référence `audit-microsoft.html` : fond minéral, encre sombre, accent citron, DM Sans et Space Grotesk hébergées localement. L’audit Microsoft reste une offre du conseil ; l’accueil couvre tout l’écosystème.
@@ -83,3 +84,11 @@ Activer et vérifier la réception e-mail, fournir les mentions légales et la p
 ## Audit de finalisation
 
 Voir [le bilan et les réglages bloquants](docs/audit-finalisation.md). Les pages légales sont des brouillons explicites et non indexables tant que les informations manquantes ne sont pas validées. Le formulaire est fermé par défaut : aucune modification de ce dépôt ne constitue une vérification de réception Gmail ou une publication sur Vercel.
+
+## Enrichissement éditorial et SEO
+
+Voir [l’audit des pages, la répartition de la référence HTML et la recette](docs/amelioration-site.md). Cette passe conserve la direction artistique et le fonctionnement du formulaire. Les modifications ne sont pas automatiquement publiées.
+
+## Corrections de publication
+
+Voir [le bilan de nettoyage et la configuration du contact](docs/corrections-publication.md) pour la livraison actuelle. La mention de partenariat Microsoft est confirmée par le responsable ; l’envoi automatique nécessite une autorisation Gmail utilisable et une réception validée.

@@ -4,6 +4,8 @@ import { site } from '@/lib/site';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import './globals.css';
+import { StructuredData } from '@/components/structured-data';
+import { websiteStructuredData } from '@/lib/structured-data';
 const sans = localFont({
   src: '../../node_modules/@fontsource-variable/dm-sans/files/dm-sans-latin-wght-normal.woff2',
   variable: '--font-body',
@@ -49,6 +51,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${sans.variable} ${display.variable}`}>
       <body>
+        <StructuredData data={websiteStructuredData()} />
         <a href="#contenu" className="skip-link">
           Aller au contenu
         </a>

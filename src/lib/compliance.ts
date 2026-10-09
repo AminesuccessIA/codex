@@ -9,6 +9,9 @@ export const verifiedLegalData: Record<string, string> = {
   LEGAL_CAPITAL: '2 000 €',
   LEGAL_VAT: 'FR10888294733',
   LEGAL_PUBLICATION_DIRECTOR: 'Julien Ezonga',
+  LEGAL_HOST_NAME: 'Vercel Inc.',
+  LEGAL_HOST_ADDRESS: '440 N Barranca Ave #4133, Covina, CA 91723, États-Unis',
+  LEGAL_HOST_CONTACT: 'https://vercel.com',
   PRIVACY_RETENTION:
     'Pour une demande qui ne donne pas lieu à un contrat : 12 mois à compter du dernier échange, puis suppression des messages et pièces associés. Si un contrat est conclu, les données nécessaires à son exécution et aux obligations légales relèvent de durées distinctes, précisées dans la documentation contractuelle.',
 };

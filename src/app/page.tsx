@@ -3,12 +3,14 @@ import { Button, Arrow, Label } from '@/components/button';
 import { Ecosystem } from '@/components/ecosystem';
 import { ContactBanner } from '@/components/site-footer';
 import { services } from '@/lib/services';
+import { InterventionModes } from '@/components/intervention-modes';
 export default function Home() {
   return (
     <main id="contenu">
       <section className="home-hero shell">
         <div className="hero-copy">
           <Label>ESN & INTÉGRATEUR MICROSOFT</Label>
+          <p className="partner-mention">Partenaire Microsoft</p>
           <h1>
             Conseil.
             <br />
@@ -17,9 +19,9 @@ export default function Home() {
             <span>Expertise Microsoft.</span>
           </h1>
           <p className="hero-description">
-            Conseiller, intégrer, faire évoluer. La Pépiite IT accompagne vos
-            projets Microsoft, des premiers choix d’architecture à
-            l’exploitation au quotidien.
+            La Pépiite IT, ESN et intégrateur Microsoft, accompagne vos projets
+            et renforce vos équipes : conseil, intégration, consultants et
+            services managés, du cadrage à l’exploitation.
           </p>
           <div className="hero-actions">
             <Button href="/contact">Parler de votre projet</Button>
@@ -109,6 +111,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+      <InterventionModes compact />
       <section className="approach-section">
         <div className="shell approach-grid">
           <div>
@@ -121,9 +124,9 @@ export default function Home() {
               <span>la bonne question.</span>
             </h2>
             <p>
-              Un outil ne résout pas un besoin mal défini. Nous partons de votre
-              organisation, de vos usages et de vos contraintes pour construire
-              une trajectoire qui tient dans la durée.
+              Nous partons de votre organisation, de vos usages et de vos
+              contraintes pour construire une trajectoire qui tient dans la
+              durée.
             </p>
             <Button href="/conseil-integration" variant="lime">
               Découvrir notre accompagnement
@@ -171,8 +174,8 @@ export default function Home() {
           <p>
             Licences, collaboration, sécurité, préparation à Copilot : l’audit
             Microsoft met vos usages et vos priorités en perspective. Il
-            débouche sur une feuille de route argumentée, pas sur une liste
-            d’outils à acheter.
+            débouche sur une feuille de route argumentée, avec priorités,
+            prérequis et actions à engager.
           </p>
           <Link
             href="/conseil-integration#audit-microsoft"
@@ -206,10 +209,6 @@ export default function Home() {
             <strong>Votre trajectoire</strong>
             <small>Actions & dépendances</small>
           </div>
-          <p>
-            Structure indicative des livrables · Aucun résultat client
-            représenté
-          </p>
         </div>
       </section>
       <section className="section shell engagement-section">

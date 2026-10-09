@@ -58,6 +58,33 @@ export function ContactForm({
       setBusy(false);
     }
   }
+  if (!enabled) {
+    return (
+      <section
+        className="contact-direct-panel"
+        aria-labelledby="direct-contact-title"
+      >
+        <span className="eyebrow">PREMIER ÉCHANGE</span>
+        <h2 id="direct-contact-title">Échangeons sur votre projet.</h2>
+        <p>
+          Présentez votre environnement, vos priorités et vos échéances. Notre
+          équipe vous accompagne pour définir la prochaine étape.
+        </p>
+        <a
+          className="button button-primary"
+          href="mailto:contact@lapepiite.com?subject=Projet%20La%20P%C3%A9piite%20IT"
+        >
+          Écrire à notre équipe
+          <Arrow diagonal />
+        </a>
+        <p>
+          <a href="mailto:contact@lapepiite.com" className="text-link">
+            contact@lapepiite.com
+          </a>
+        </p>
+      </section>
+    );
+  }
   return (
     <form
       onSubmit={submit}
@@ -70,12 +97,6 @@ export function ContactForm({
         <h2>Présentez-nous votre besoin.</h2>
         <p>Les champs marqués d’un * sont obligatoires.</p>
       </div>
-      {!enabled && (
-        <p className="form-status error" role="status">
-          L’envoi automatique n’est pas ouvert. Vous pouvez nous écrire à{' '}
-          <a href="mailto:contact@lapepiite.com">contact@lapepiite.com</a>.
-        </p>
-      )}
       <fieldset disabled={!enabled || busy} className="contact-fields">
         <legend className="sr-only">Votre demande professionnelle</legend>
         <div className="form-grid">
@@ -152,7 +173,7 @@ export function ContactForm({
         <Link href="/politique-de-confidentialite">
           politique de confidentialité
         </Link>
-        . Aucune inscription à une newsletter n’est effectuée.
+        .
       </p>
       <button
         disabled={!enabled || busy}
