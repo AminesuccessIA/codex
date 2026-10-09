@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Button, Arrow, Label } from '@/components/button';
-import { Ecosystem } from '@/components/ecosystem';
+import { ExpertiseVisual } from '@/components/expertise-visual';
 import { ContactBanner } from '@/components/site-footer';
 import { services } from '@/lib/services';
 import { InterventionModes } from '@/components/intervention-modes';
@@ -37,7 +37,7 @@ export default function Home() {
             Services managés
           </div>
         </div>
-        <Ecosystem />
+        <ExpertiseVisual hero />
       </section>
       <div className="shell">
         <div className="technology-strip">
