@@ -12,6 +12,27 @@ export function websiteStructuredData() {
         legalName: 'LA PEPIITE',
         url: site.url,
         description: site.description,
+        email: 'contact@lapepiite.com',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: '32 boulevard du Port',
+          postalCode: '95000',
+          addressLocality: 'Cergy',
+          addressCountry: 'FR',
+        },
+        identifier: {
+          '@type': 'PropertyValue',
+          propertyID: 'SIREN',
+          value: '888294733',
+        },
+        vatID: 'FR10888294733',
+        contactPoint: {
+          '@type': 'ContactPoint',
+          contactType: 'Demandes professionnelles',
+          email: 'contact@lapepiite.com',
+          availableLanguage: 'French',
+        },
+        areaServed: ['Europe', 'Africa'],
       },
       {
         '@type': 'WebSite',
@@ -37,6 +58,7 @@ export function serviceStructuredData(service: Service) {
         description: service.description,
         url,
         provider: { '@id': organizationId },
+        areaServed: ['Europe', 'Africa'],
       },
       {
         '@type': 'BreadcrumbList',

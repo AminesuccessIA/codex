@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { services } from '../../src/lib/services';
+import { guides } from '../../src/lib/guides';
 const paths = [
   '/',
   ...services.map((s) => '/' + s.slug),
@@ -11,6 +12,9 @@ const paths = [
   '/politique-de-confidentialite',
   '/a-propos',
   '/contact',
+  '/diagnostic',
+  '/ressources',
+  ...guides.map((g) => '/ressources/' + g.slug),
 ];
 for (const width of [360, 390, 768, 1024, 1440]) {
   test(`${paths.length} pages: layout, navigation and SEO at ${width}px`, async ({

@@ -9,7 +9,7 @@ if (['lapepiite.com', 'www.lapepiite.com'].includes(canonical.hostname)) {
 export const site = {
   name: 'La Pépiite IT',
   description:
-    'ESN et intégrateur Microsoft : conseil, Microsoft 365, Azure, licences, Copilot, Power Platform, cybersécurité et services managés.',
+    'ESN partenaire Microsoft : conseil, Microsoft 365, Azure, Power BI, Dynamics 365, IA et cybersécurité. Intégration, consultants et services managés.',
   url: canonical.origin,
 };
 export function pageMetadata(

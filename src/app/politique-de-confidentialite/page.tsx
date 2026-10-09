@@ -41,6 +41,19 @@ export default function Privacy() {
       <section>
         <h2>Finalités et base juridique</h2>
         <p>
+          Le parcours de qualification recueille le sujet, le mode
+          d’intervention envisagé, l’échéance, le contexte et vos coordonnées
+          professionnelles. Les éléments saisis restent dans la mémoire de votre
+          navigateur pendant la préparation. Ils ne sont pas enregistrés dans un
+          cookie ni dans le stockage local. Si vous choisissez l’e-mail préparé,
+          vous vérifiez et envoyez le message depuis votre messagerie.
+          L’ouverture de la messagerie ou la copie du texte ne transmet pas une
+          demande à notre équipe. Lorsque l’envoi automatique est disponible, la
+          demande est adressée à notre équipe uniquement après votre action
+          d’envoi. La page d’origine peut être jointe à la demande pour en
+          comprendre le contexte ; elle ne sert pas à suivre votre navigation.
+        </p>
+        <p>
           Les données servent à qualifier votre besoin professionnel, préparer
           une réponse et organiser les échanges associés. Ce traitement repose
           sur notre intérêt légitime à répondre aux sollicitations B2B et à

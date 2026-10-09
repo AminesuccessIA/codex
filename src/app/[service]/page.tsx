@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { services, findService } from '@/lib/services';
 import { pageMetadata } from '@/lib/site';
+import { serviceSeoDescriptions } from '@/lib/seo-descriptions';
 import { ServicePage } from '@/components/service-page';
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -14,7 +15,11 @@ export async function generateMetadata({
   const { service } = await params;
   const s = findService(service);
   if (!s) notFound();
-  return pageMetadata(s.name, s.description, '/' + s.slug);
+  return pageMetadata(
+    s.name,
+    serviceSeoDescriptions[s.slug] || s.description,
+    '/' + s.slug,
+  );
 }
 export default async function Page({
   params,

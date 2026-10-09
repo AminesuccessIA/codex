@@ -23,7 +23,7 @@ export function ServicePage({ service: s }: { service: Service }) {
             <Label>{s.eyebrow}</Label>
             <h1>{s.title}</h1>
             <p className="hero-description">{s.description}</p>
-            <Button href={'/contact?service=' + s.slug}>
+            <Button href={`/diagnostic?service=${s.slug}&source=/${s.slug}`}>
               Parlons de{' '}
               {s.name === 'Licences' ? 'vos licences' : 'votre projet'}
             </Button>
@@ -165,7 +165,10 @@ export function ServicePage({ service: s }: { service: Service }) {
                 </li>
               ))}
             </ol>
-            <Link href={'/contact?service=' + s.slug} className="text-link">
+            <Link
+              href={`/diagnostic?service=${s.slug}&source=/${s.slug}`}
+              className="text-link"
+            >
               Cadrer votre prochaine étape
               <Arrow diagonal />
             </Link>

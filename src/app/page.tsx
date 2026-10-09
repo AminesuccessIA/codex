@@ -27,7 +27,7 @@ export default function Home() {
             services managés, du cadrage à l’exploitation.
           </p>
           <div className="hero-actions">
-            <Button href="/contact">Parler de votre projet</Button>
+            <Button href="/diagnostic?source=/">Parler de votre projet</Button>
             <Link className="text-link" href="#expertises">
               Explorer nos expertises <Arrow />
             </Link>
@@ -245,6 +245,32 @@ export default function Home() {
           </p>
           <Link href="/a-propos" className="text-link">
             Notre façon de travailler <Arrow diagonal />
+          </Link>
+        </div>
+      </section>
+      <section className="shell section home-resources">
+        <div className="section-heading">
+          <div>
+            <Label>PRÉPARER VOTRE PROJET</Label>
+            <h2>
+              Des questions concrètes.
+              <br />
+              <span>Avant les choix techniques.</span>
+            </h2>
+          </div>
+          <Link className="text-link" href="/ressources">
+            Tous les guides <Arrow />
+          </Link>
+        </div>
+        <div className="home-guide-links">
+          <Link href="/ressources/preparer-projet-power-bi">
+            Cadrer vos indicateurs Power BI <Arrow diagonal />
+          </Link>
+          <Link href="/ressources/preparer-microsoft-365-copilot">
+            Préparer les usages de Copilot <Arrow diagonal />
+          </Link>
+          <Link href="/ressources/checklist-migration-azure">
+            Préparer une migration Azure <Arrow diagonal />
           </Link>
         </div>
       </section>

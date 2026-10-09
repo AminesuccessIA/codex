@@ -103,9 +103,15 @@ export function SiteHeader() {
                 <Link href="/partenaire-microsoft" onClick={close}>
                   Partenaire Microsoft <Arrow diagonal />
                 </Link>
+                <Link href="/ressources" onClick={close}>
+                  Guides & ressources <Arrow />
+                </Link>
               </div>
               <div className="mega-groups">
                 <div className="mega-catalog-links">
+                  <Link href="/ressources" onClick={close}>
+                    Guides & ressources <Arrow />
+                  </Link>
                   <Link href="/solutions-microsoft" onClick={close}>
                     Toutes les solutions Microsoft <Arrow />
                   </Link>
@@ -167,10 +173,10 @@ export function SiteHeader() {
             À propos
           </Link>
           <Link
-            href="/contact"
+            href="/diagnostic"
             className="button button-primary nav-contact"
             onClick={close}
-            aria-current={pathname === '/contact' ? 'page' : undefined}
+            aria-current={pathname === '/diagnostic' ? 'page' : undefined}
           >
             Parlons de votre projet <Arrow diagonal />
           </Link>

@@ -18,7 +18,7 @@ export function ContactBanner() {
             Partons de votre environnement, de vos contraintes et de ce que vous
             souhaitez faire évoluer.
           </p>
-          <Button href="/contact" variant="lime">
+          <Button href="/diagnostic" variant="lime">
             Échanger sur votre projet
           </Button>
         </div>
@@ -59,6 +59,8 @@ export function SiteFooter() {
             <Link href="/a-propos">À propos</Link>
             <Link href="/partenaire-microsoft">Partenaire Microsoft</Link>
             <Link href="/solutions-microsoft">Solutions Microsoft</Link>
+            <Link href="/ressources">Guides & ressources</Link>
+            <Link href="/diagnostic">Cadrer un projet</Link>
             <Link href="/references">Références clients</Link>
             <Link href="/cas-d-usage">Cas d’usage</Link>
             <Link href="/contact">Contact</Link>
