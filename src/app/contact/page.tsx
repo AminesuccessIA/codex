@@ -80,7 +80,7 @@ export default async function Contact({
             .
           </p>
         </div>
-        <ExpertiseVisual kind="accompagnement" inline />
+        <ExpertiseVisual page="contact" inline />
       </section>
     </main>
   );

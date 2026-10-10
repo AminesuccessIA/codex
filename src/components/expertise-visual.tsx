@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { editorialVisuals } from '@/lib/editorial-visuals';
 
 const visuals = {
   collaboration: {
@@ -15,50 +16,26 @@ const visuals = {
   },
 };
 
-export function serviceVisualKind(service: string): keyof typeof visuals {
-  if (
-    [
-      'azure-cloud',
-      'cybersecurite',
-      'intune',
-      'support-services-manages',
-      'windows-365',
-      'azure-devops',
-    ].includes(service)
-  )
-    return 'expertise';
-  if (
-    [
-      'copilot-ia',
-      'power-platform',
-      'power-bi',
-      'microsoft-fabric',
-      'power-apps',
-      'power-automate',
-      'dynamics-365',
-      'business-central',
-    ].includes(service)
-  )
-    return 'accompagnement';
-  return 'collaboration';
-}
-
 export function ExpertiseVisual({
   kind = 'collaboration',
+  page,
   hero = false,
   fullWidth = false,
   inline = false,
   sizes,
 }: {
   kind?: keyof typeof visuals;
+  page?: string;
   hero?: boolean;
   fullWidth?: boolean;
   inline?: boolean;
   sizes?: string;
 }) {
-  const visual = visuals[kind];
+  const visual = page ? editorialVisuals[page] : visuals[kind];
+  if (!visual) throw new Error(`Visuel éditorial manquant : ${page}`);
   return (
     <figure
+      data-visual-key={page ?? `accueil-${kind}`}
       className={
         inline
           ? 'human-media'
@@ -68,6 +45,7 @@ export function ExpertiseVisual({
       <Image
         src={visual.src}
         alt={visual.alt}
+        style={page ? { objectPosition: 'center 25%' } : undefined}
         width={1440}
         height={960}
         sizes={sizes ?? (fullWidth ? '100vw' : '(max-width: 850px) 90vw, 48vw')}

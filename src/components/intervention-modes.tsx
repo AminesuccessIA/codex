@@ -5,9 +5,11 @@ import { ExpertiseVisual } from './expertise-visual';
 export function InterventionModes({
   compact = false,
   illustrated = false,
+  visualPage,
 }: {
   compact?: boolean;
   illustrated?: boolean;
+  visualPage?: string;
 }) {
   return (
     <section
@@ -31,7 +33,9 @@ export function InterventionModes({
         </p>
       </div>
       <div className={illustrated ? 'human-interventions-body' : undefined}>
-        {illustrated && <ExpertiseVisual kind="expertise" inline />}
+        {illustrated && (
+          <ExpertiseVisual kind="expertise" page={visualPage} inline />
+        )}
         <div className="intervention-list">
           {interventionModes.map((mode, index) => (
             <article key={mode.name}>

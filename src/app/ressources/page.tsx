@@ -53,7 +53,7 @@ export default function Resources() {
           sources officielles utiles.
         </p>
       </section>
-      <ExpertiseVisual kind="accompagnement" fullWidth />
+      <ExpertiseVisual page="ressources" fullWidth />
       <nav
         className="shell resource-topics"
         aria-label="Explorer les guides par sujet"

@@ -30,7 +30,7 @@ export default function Projects() {
           projet avec nos équipes.
         </p>
       </section>
-      <ExpertiseVisual kind="accompagnement" fullWidth />
+      <ExpertiseVisual page="cas-d-usage" fullWidth />
       <section className="shell project-list">
         {useCases.map((p, index) => (
           <article className="project-row" key={p.slug}>

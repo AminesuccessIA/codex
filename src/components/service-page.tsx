@@ -8,7 +8,9 @@ import { ContactBanner } from './site-footer';
 import { findService, type Service } from '@/lib/services';
 import { solutionCoverage } from '@/lib/solution-catalog';
 import { microsoftProductSources } from '@/lib/microsoft-offers';
-import { ExpertiseVisual, serviceVisualKind } from './expertise-visual';
+import { ExpertiseVisual } from './expertise-visual';
+import { TopicDiagram } from './topic-diagram';
+import { serviceDiagrams } from '@/lib/visual-diagrams';
 export function ServicePage({ service: s }: { service: Service }) {
   const detail = serviceDetails[s.slug];
   const relatedGuides = guides.filter(
@@ -55,7 +57,7 @@ export function ServicePage({ service: s }: { service: Service }) {
           </aside>
         </div>
       </section>
-      <ExpertiseVisual kind={serviceVisualKind(s.slug)} fullWidth />
+      <ExpertiseVisual page={s.slug} fullWidth />
       <nav className="shell service-toc" aria-label="Sommaire de l’expertise">
         <a href="#enjeu">Votre enjeu</a>
         <a href="#intervention">Accompagnement</a>
@@ -132,13 +134,9 @@ export function ServicePage({ service: s }: { service: Service }) {
             Le calendrier et les accès sont convenus au cadrage. Chaque étape
             prévoit une validation avec vos interlocuteurs.
           </p>
-          <ExpertiseVisual
-            kind={
-              serviceVisualKind(s.slug) === 'accompagnement'
-                ? 'collaboration'
-                : 'accompagnement'
-            }
-            inline
+          <TopicDiagram
+            id={`methode-${s.slug}`}
+            diagram={serviceDiagrams[s.slug]}
           />
         </div>
         <ol className="method-list">

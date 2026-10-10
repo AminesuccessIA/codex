@@ -42,7 +42,7 @@ export default function MicrosoftSolutions() {
           <Button href="/contact">Définir votre périmètre</Button>
         </div>
       </section>
-      <ExpertiseVisual kind="collaboration" fullWidth />
+      <ExpertiseVisual page="solutions-microsoft" fullWidth />
       <nav
         className="shell solution-jump-links"
         aria-label="Familles de solutions Microsoft"

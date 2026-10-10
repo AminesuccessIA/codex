@@ -69,7 +69,7 @@ export default async function Diagnostic({
         className="shell qualification-visual"
         aria-label="Accompagnement de votre projet"
       >
-        <ExpertiseVisual kind="collaboration" inline />
+        <ExpertiseVisual page="diagnostic" inline />
       </section>
     </main>
   );

@@ -1,7 +1,5 @@
-import {
-  ExpertiseVisual,
-  serviceVisualKind,
-} from '@/components/expertise-visual';
+import { TopicDiagram } from '@/components/topic-diagram';
+import { guideDiagram } from '@/lib/visual-diagrams';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -109,10 +107,9 @@ export default async function GuidePage({
           </p>
           <p className="guide-answer">{guide.answer}</p>
         </header>
-        <ExpertiseVisual
-          kind={serviceVisualKind(guide.service)}
-          inline
-          sizes="(max-width: 1100px) 90vw, 1000px"
+        <TopicDiagram
+          id={`guide-${guide.slug}`}
+          diagram={guideDiagram(guide)}
         />
         <nav className="guide-toc" aria-label="Sommaire du guide">
           {guide.sections.map((section, i) => (

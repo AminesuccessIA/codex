@@ -3866,3 +3866,16 @@ svg {
     margin-top: 24px;
   }
 }
+
+/* Schémas de contenu propres à chaque offre et à chaque guide. */
+.topic-diagram svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.service-method-heading .topic-diagram {
+  margin-top: 30px;
+}
+.guide-article > .topic-diagram {
+  margin-block: 30px;
+}

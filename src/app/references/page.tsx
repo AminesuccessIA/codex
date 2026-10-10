@@ -33,7 +33,7 @@ export default function References() {
       <ClientReferences />
       <section className="shell section">
         <ExpertiseVisual
-          kind="collaboration"
+          page="references"
           inline
           sizes="(max-width: 1300px) 90vw, 1224px"
         />

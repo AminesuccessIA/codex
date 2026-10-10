@@ -55,7 +55,7 @@ export default function MicrosoftPartner() {
           <Ecosystem compact />
         </div>
       </section>
-      <ExpertiseVisual kind="accompagnement" fullWidth />
+      <ExpertiseVisual page="partenaire-microsoft" fullWidth />
       <section className="partner-position">
         <div className="shell">
           <p className="eyebrow">ESN. INTÉGRATEUR. PARTENAIRE MICROSOFT.</p>
@@ -111,7 +111,7 @@ export default function MicrosoftPartner() {
           ))}
         </div>
       </section>
-      <InterventionModes illustrated />
+      <InterventionModes illustrated visualPage="partenaire-interventions" />
       <section className="shell section partner-resources">
         <div>
           <Label>MICROSOFT · LIENS OFFICIELS</Label>

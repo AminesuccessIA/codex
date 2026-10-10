@@ -3,6 +3,11 @@ const config: NextConfig = {
   poweredByHeader: false,
   async redirects() {
     return [
+      {
+        source: '/downloads/apercu-accueil.html',
+        destination: '/',
+        permanent: false,
+      },
       { source: '/realisations', destination: '/cas-d-usage', permanent: true },
       {
         source: '/:path*',

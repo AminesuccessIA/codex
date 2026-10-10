@@ -34,7 +34,7 @@ export default function About() {
           Notre accompagnement Microsoft <Arrow diagonal />
         </Link>
       </section>
-      <ExpertiseVisual kind="collaboration" fullWidth />
+      <ExpertiseVisual page="a-propos" fullWidth />
       <section className="about-manifesto">
         <div className="shell section">
           <span className="mono">NOTRE POSITIONNEMENT /</span>
@@ -102,7 +102,7 @@ export default function About() {
             relions à vos usages et à vos priorités.
           </p>
           <Button href="/#expertises">Explorer nos expertises</Button>
-          <ExpertiseVisual kind="accompagnement" inline />
+          <ExpertiseVisual page="a-propos-transmission" inline />
         </div>
       </section>
       <section className="shell section engagement-section">
@@ -129,7 +129,7 @@ export default function About() {
           <Button href="/contact">Qualifier votre besoin</Button>
         </div>
       </section>
-      <InterventionModes illustrated />
+      <InterventionModes illustrated visualPage="a-propos-expertises" />
       <section
         id="expertise-technique"
         className="shell section engagement-section"
