@@ -84,7 +84,7 @@ export function TopicDiagram({
     <figure className="human-media topic-diagram" data-visual-key={id}>
       <svg viewBox="0 0 1200 800" role="img" aria-labelledby={titleId}>
         <title id={titleId}>
-          Schéma : {diagram.title}. {labels.join(', ')}.
+          {`Schéma : ${diagram.title}. ${labels.join(', ')}.`}
         </title>
         <rect width={1200} height={800} fill="#edf1e7" />
         <path d="M60 160 H1140" stroke="#687861" strokeWidth={2} />

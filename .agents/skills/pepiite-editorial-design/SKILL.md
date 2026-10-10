@@ -26,6 +26,9 @@ Produire une page lisible et commerciale dans l’identité existante. Les préf
 
 ## Images et responsive
 
+- Réserver chaque photo éditoriale à une seule page. Les trois scènes de l’accueil sont réservées à l’accueil ; ne pas reprendre une photo générique comme solution de remplacement. Choisir une scène propre au sujet et vérifier les doublons par fichier et par contenu. Les logos et éléments d’identité partagés restent communs.
+- Pour les méthodes et les guides, un schéma explicatif doit reprendre les concepts de la page concernée. Ne pas recopier le même schéma ou une fausse capture produit sur plusieurs pages. Les futurs guides utilisent leurs propres sections et passent le contrôle d’unicité avant publication.
+
 - Conserver par défaut l’ouverture avec image pleine largeur adoptée sur ce site. La figure se place hors de la grille de texte ; les contenus textuels gardent leurs marges de lecture.
 - Retirer le cadre, l’ombre et la légende lorsque leur suppression suffit à donner de l’espace à l’image. Ne pas agrandir un visuel sans examiner sa netteté, son poids et son sujet.
 - Préserver les éléments importants lors du cadrage desktop ; permettre un ratio différent sur mobile. Ne pas choisir object-fit: cover sans vérifier ce qu’il coupe.

@@ -1,4 +1,4 @@
-import jobs from '../../docs/design/visual-jobs.json';
+import jobs from '../../docs/design/visual-jobs.json' with { type: 'json' };
 
 export const editorialVisuals: Record<string, { src: string; alt: string }> =
   Object.fromEntries(

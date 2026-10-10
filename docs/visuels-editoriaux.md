@@ -47,3 +47,9 @@ Les méthodes des 18 expertises et les 8 guides disposent de schémas propres à
 Les 32 photos du site, comprenant les 3 photos de l’accueil, ne sont pas réutilisées sur une autre page. Les 26 schémas ont également un contenu distinct. Le test navigateur vérifie leurs affectations, l’absence de contenu d’image identique et la disponibilité des fichiers. Les marques, les logos clients confirmés et les éléments de navigation partagés restent des éléments d’identité communs.
 
 L’ancienne adresse de maquette `/downloads/apercu-accueil.html` redirige vers l’accueil désormais publié : le lien partagé avec l’équipe demeure utile et n’expose plus une copie des visuels. Le formulaire, ses paramètres et ses destinataires sont conservés.
+
+### Recette des visuels uniques
+
+Une compilation propre passe, ainsi que TypeScript, ESLint et Prettier. Les 22 tests navigateur passent, dont le contrôle des fichiers et des doublons ; les 37 pages sont examinées à 360, 390, 768, 1 024 et 1 440 px sans débordement ni erreur console. Les nouvelles galeries ont été relues visuellement. Une passe complémentaire décode les images et examine 16 pages représentatives à 390 et 1 440 px : aucun problème n’est détecté par les règles axe WCAG A/AA sélectionnées, sans constituer une certification complète. Les titres accessibles des SVG sont rendus comme une chaîne unique pour assurer une hydratation React cohérente. La redirection temporaire de la maquette renvoie bien un statut 307 vers l’accueil.
+
+Le diff confirme que l’accueil, les composants de formulaire et de qualification, l’API de contact et les paramètres de conformité sont inchangés.

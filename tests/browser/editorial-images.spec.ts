@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { test, expect } from '@playwright/test';
 import { services } from '../../src/lib/services';
 import { guides } from '../../src/lib/guides';
+import { editorialVisuals } from '../../src/lib/editorial-visuals';
 
 const pages = [
   '/',
@@ -67,6 +68,7 @@ test('editorial imagery is distinct on every page and assets resolve', async ({
       }
     }
   }
-  expect(contents.size).toBe(32);
-  expect(used.size).toBe(58);
+  const photos = Object.keys(editorialVisuals).length + 3;
+  expect(contents.size).toBe(photos);
+  expect(used.size).toBe(photos + services.length + guides.length);
 });
