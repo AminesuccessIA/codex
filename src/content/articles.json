@@ -388,5 +388,102 @@
     ],
     "updatedAt": "2026-10-09",
     "publishedAt": "2026-10-09"
+  },
+  {
+    "slug": "copilot-permissions-sharepoint",
+    "service": "copilot-ia",
+    "cluster": "travail-ia",
+    "category": "TRAVAIL COLLABORATIF & IA",
+    "title": "Copilot et SharePoint : préparer les permissions avant un pilote",
+    "seoTitle": "Copilot : revoir les permissions SharePoint",
+    "description": "Préparez votre pilote Microsoft 365 Copilot : inventaire SharePoint, groupes, liens de partage, corrections des accès et tests avec les métiers.",
+    "answer": "Avant un pilote Microsoft 365 Copilot, vérifiez qui peut accéder aux documents SharePoint, par quels groupes et quels liens. Copilot respecte les autorisations existantes ; des accès trop larges peuvent donc rendre des informations sensibles plus faciles à retrouver. La préparation consiste à faire valider les droits, corriger les écarts puis tester avec des comptes représentatifs.",
+    "sections": [
+      {
+        "title": "Distinguer accès autorisé et information facile à retrouver",
+        "paragraphs": [
+          "Une permission SharePoint autorise un utilisateur à consulter ou modifier un contenu. La découverte désigne la possibilité de retrouver ce contenu dans une recherche ou une réponse assistée. Microsoft 365 Copilot s’appuie sur les droits de l’utilisateur : son déploiement ne remplace pas la revue de ces droits.",
+          "Exemple hypothétique : une bibliothèque de négociation commerciale est accessible à un groupe trop large depuis un ancien projet. Le problème existe avant Copilot, même si personne ne recherche habituellement ces documents. La priorité est de confirmer le public légitime avec le propriétaire métier, puis de corriger l’accès à la source."
+        ],
+        "checklist": []
+      },
+      {
+        "title": "Inventorier les espaces et les chemins d’autorisation",
+        "paragraphs": [
+          "Commencez par les équipes du pilote, leurs documents utiles et les contenus sensibles qu’elles pourraient rencontrer. Pour chaque site, consignez le propriétaire, les groupes, les membres et les invités. Examinez les bibliothèques, dossiers ou fichiers dont les permissions diffèrent du niveau parent : une liste des propriétaires de sites ne suffit pas à expliquer tous les accès.",
+          "Pour un site connecté à Teams, vérifiez les appartenances dans Teams et dans le groupe Microsoft 365 associé. Les canaux privés et partagés disposent de sites SharePoint distincts ; leurs permissions se gèrent dans Teams. Intégrez-les à l’inventaire pour éviter qu’un contrôle du seul site principal laisse un périmètre sans examen."
+        ],
+        "checklist": [
+          "Associer chaque espace sensible à un propriétaire métier.",
+          "Relever les groupes et les autorisations particulières.",
+          "Identifier les sites des canaux privés et partagés."
+        ]
+      },
+      {
+        "title": "Relire les liens et le partage externe séparément",
+        "paragraphs": [
+          "Un lien destiné à des personnes spécifiques ne vise pas le même public qu’un lien destiné aux personnes de l’organisation. Un lien Tout le monde peut permettre un accès sans authentification. Ne déduisez toutefois pas d’un type de lien qu’un document sera automatiquement présenté par Copilot : examinez les permissions et le scénario réel de consultation.",
+          "Le partage externe se règle au niveau de l’organisation et de chaque site ; un site ne peut pas être plus permissif que l’organisation. Vérifiez les invités et les besoins de collaboration avant toute restriction. Désactiver le partage externe ne corrige pas, à lui seul, les droits internes accordés à un groupe trop étendu."
+        ],
+        "checklist": []
+      },
+      {
+        "title": "Corriger les écarts sans bloquer les usages légitimes",
+        "paragraphs": [
+          "Classez les anomalies selon la sensibilité, le public réellement autorisé et les dépendances métier. Un accès anonyme injustifié ou un dossier confidentiel partagé trop largement mérite une correction prioritaire. Faites approuver chaque changement par le propriétaire concerné ; documentez les droits retirés, le résultat attendu et la procédure de rétablissement si un accès nécessaire disparaît.",
+          "Une restriction de découverte ne doit pas être confondue avec une correction des autorisations. La documentation Microsoft indique que les nouvelles activations de la recherche SharePoint restreinte sont bloquées depuis le 31 juillet 2026 et que cette fonctionnalité est en cours de retrait. Ne bâtissez pas un nouveau pilote sur cette ancienne mesure temporaire ; vérifiez les contrôles actuels, leur portée et leurs conditions avant de les retenir."
+        ],
+        "checklist": []
+      },
+      {
+        "title": "Tester avec les comptes des utilisateurs concernés",
+        "paragraphs": [
+          "Préparez une matrice de recette : profil, document, droit attendu et résultat observé. Utilisez des comptes représentatifs du périmètre, plutôt qu’un compte administrateur. Pour un responsable commercial, un contributeur et un collaborateur hors périmètre, vérifiez directement l’ouverture des documents autorisés et le refus d’accès aux documents exclus.",
+          "Testez ensuite les tâches Copilot retenues et contrôlez les sources des réponses. Une réponse absente ne prouve pas qu’un accès est interdit : le test direct des permissions reste nécessaire. Inversement, une réponse pertinente ne dispense pas de vérifier son exactitude. Conservez les résultats et reprenez la recette après une correction des droits."
+        ],
+        "checklist": []
+      },
+      {
+        "title": "Décider du pilote avec des livrables vérifiables",
+        "paragraphs": [
+          "Le dossier de préparation rassemble l’inventaire, la matrice des accès, les écarts priorisés, les corrections approuvées et les résultats de recette. Une décision de lancement explicite les anomalies encore ouvertes, leurs responsables et les conditions d’extension. Le contrôle d’un périmètre pilote ne constitue pas une validation de tous les espaces du tenant.",
+          "Vérifiez également les licences, les rôles d’administration et les fonctionnalités effectivement disponibles pour les utilisateurs et les contrôles envisagés. La Pépiite IT, ESN et partenaire Microsoft, accompagne la préparation des usages Copilot, des données et des permissions. Pour cadrer cette étape, réunissez vos populations, vos espaces documentaires, vos licences et un exemple de tâche métier ; le diagnostic permet de discuter du périmètre à examiner."
+        ],
+        "checklist": []
+      }
+    ],
+    "questions": [
+      {
+        "question": "Limiter le pilote à une équipe limite-t-il tous ses accès documentaires ?",
+        "answer": "Non. Choisir les participants ne réduit pas automatiquement leurs permissions SharePoint existantes. Il faut examiner les espaces et documents auxquels ces utilisateurs ont accès, puis faire valider les corrections nécessaires."
+      },
+      {
+        "question": "L’absence d’un document dans une réponse Copilot prouve-t-elle sa protection ?",
+        "answer": "Non. Une réponse ne constitue pas un audit des permissions. Vérifiez directement l’accès avec le compte concerné, puis testez séparément les usages Copilot et les sources des réponses obtenues."
+      },
+      {
+        "question": "Quels livrables demander pour préparer les permissions avant Copilot ?",
+        "answer": "Demandez un inventaire des espaces et propriétaires, une matrice des accès attendus, un registre des écarts et corrections, ainsi que des tests par profil. Le dossier doit préciser le périmètre couvert et les risques qui restent à traiter."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Confidentialité Copilot",
+        "url": "https://learn.microsoft.com/fr-fr/copilot/microsoft-365/microsoft-365-copilot-privacy"
+      },
+      {
+        "label": "Partage SharePoint",
+        "url": "https://learn.microsoft.com/fr-fr/sharepoint/turn-external-sharing-on-or-off"
+      },
+      {
+        "label": "Microsoft Learn — Partage et autorisations SharePoint",
+        "url": "https://learn.microsoft.com/fr-fr/sharepoint/modern-experience-sharing-permissions"
+      },
+      {
+        "label": "Microsoft Learn — Retrait de la recherche SharePoint restreinte",
+        "url": "https://learn.microsoft.com/fr-fr/sharepoint/restricted-sharepoint-search"
+      }
+    ],
+    "updatedAt": "2026-10-16"
   }
 ]
