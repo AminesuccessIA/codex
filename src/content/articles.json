@@ -400,7 +400,7 @@
     "answer": "Avant un pilote Microsoft 365 Copilot, vérifiez qui peut accéder aux documents SharePoint, par quels groupes et quels liens. Copilot respecte les autorisations existantes ; des accès trop larges peuvent donc rendre des informations sensibles plus faciles à retrouver. La préparation consiste à faire valider les droits, corriger les écarts puis tester avec des comptes représentatifs.",
     "sections": [
       {
-        "title": "Distinguer accès autorisé et information facile à retrouver",
+        "title": "Distinguer accès et découverte",
         "paragraphs": [
           "Une permission SharePoint autorise un utilisateur à consulter ou modifier un contenu. La découverte désigne la possibilité de retrouver ce contenu dans une recherche ou une réponse assistée. Microsoft 365 Copilot s’appuie sur les droits de l’utilisateur : son déploiement ne remplace pas la revue de ces droits.",
           "Exemple hypothétique : une bibliothèque de négociation commerciale est accessible à un groupe trop large depuis un ancien projet. Le problème existe avant Copilot, même si personne ne recherche habituellement ces documents. La priorité est de confirmer le public légitime avec le propriétaire métier, puis de corriger l’accès à la source."
@@ -408,7 +408,7 @@
         "checklist": []
       },
       {
-        "title": "Inventorier les espaces et les chemins d’autorisation",
+        "title": "Cartographier les accès",
         "paragraphs": [
           "Commencez par les équipes du pilote, leurs documents utiles et les contenus sensibles qu’elles pourraient rencontrer. Pour chaque site, consignez le propriétaire, les groupes, les membres et les invités. Examinez les bibliothèques, dossiers ou fichiers dont les permissions diffèrent du niveau parent : une liste des propriétaires de sites ne suffit pas à expliquer tous les accès.",
           "Pour un site connecté à Teams, vérifiez les appartenances dans Teams et dans le groupe Microsoft 365 associé. Les canaux privés et partagés disposent de sites SharePoint distincts ; leurs permissions se gèrent dans Teams. Intégrez-les à l’inventaire pour éviter qu’un contrôle du seul site principal laisse un périmètre sans examen."
@@ -420,7 +420,7 @@
         ]
       },
       {
-        "title": "Relire les liens et le partage externe séparément",
+        "title": "Vérifier le partage",
         "paragraphs": [
           "Un lien destiné à des personnes spécifiques ne vise pas le même public qu’un lien destiné aux personnes de l’organisation. Un lien Tout le monde peut permettre un accès sans authentification. Ne déduisez toutefois pas d’un type de lien qu’un document sera automatiquement présenté par Copilot : examinez les permissions et le scénario réel de consultation.",
           "Le partage externe se règle au niveau de l’organisation et de chaque site ; un site ne peut pas être plus permissif que l’organisation. Vérifiez les invités et les besoins de collaboration avant toute restriction. Désactiver le partage externe ne corrige pas, à lui seul, les droits internes accordés à un groupe trop étendu."
@@ -428,7 +428,7 @@
         "checklist": []
       },
       {
-        "title": "Corriger les écarts sans bloquer les usages légitimes",
+        "title": "Corriger les droits",
         "paragraphs": [
           "Classez les anomalies selon la sensibilité, le public réellement autorisé et les dépendances métier. Un accès anonyme injustifié ou un dossier confidentiel partagé trop largement mérite une correction prioritaire. Faites approuver chaque changement par le propriétaire concerné ; documentez les droits retirés, le résultat attendu et la procédure de rétablissement si un accès nécessaire disparaît.",
           "Une restriction de découverte ne doit pas être confondue avec une correction des autorisations. La documentation Microsoft indique que les nouvelles activations de la recherche SharePoint restreinte sont bloquées depuis le 31 juillet 2026 et que cette fonctionnalité est en cours de retrait. Ne bâtissez pas un nouveau pilote sur cette ancienne mesure temporaire ; vérifiez les contrôles actuels, leur portée et leurs conditions avant de les retenir."
