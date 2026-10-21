@@ -486,5 +486,122 @@
     ],
     "updatedAt": "2026-10-19",
     "publishedAt": "2026-10-19"
+  },
+  {
+    "slug": "power-automate-erreurs-supervision",
+    "service": "power-automate",
+    "cluster": "applications",
+    "category": "APPLICATIONS & PROCESSUS",
+    "title": "Power Automate : prévoir les erreurs et la supervision des flux",
+    "seoTitle": "Power Automate : superviser les erreurs",
+    "description": "Organisez la supervision Power Automate : alertes utiles, reprises sans doublon, responsables, historique et recette des flux en production.",
+    "answer": "Superviser un flux Power Automate consiste à détecter les échecs, retrouver leur cause, décider d’une reprise et vérifier le résultat métier. La préparation doit distinguer les incidents transitoires des erreurs de données, limiter les nouvelles tentatives et attribuer chaque alerte à un responsable. Une reprise n’est sûre que si elle évite de répéter une opération déjà réalisée.",
+    "sections": [
+      {
+        "title": "Définir les incidents utiles",
+        "paragraphs": [
+          "Commencez par les conséquences métier, pas par une liste générique d’erreurs. Un flux peut échouer avant toute écriture, après avoir créé un enregistrement ou uniquement lors de la notification finale. Ces trois situations n’appellent pas la même réponse. Pour chaque étape critique, définissez le résultat attendu, la preuve disponible et le délai acceptable avant intervention.",
+          "Classez les incidents selon leur origine : connexion expirée, indisponibilité temporaire d’un service, limite de débit, donnée invalide ou règle métier non satisfaite. Une erreur transitoire peut justifier une nouvelle tentative ; une référence client absente exige plutôt une correction de donnée. Cette qualification évite de relancer automatiquement un traitement qui ne peut pas réussir sans décision humaine."
+        ],
+        "checklist": [
+          "Associer chaque étape critique à un résultat métier vérifiable.",
+          "Distinguer erreur transitoire, erreur de donnée et décision métier.",
+          "Définir le délai de prise en charge selon l’impact."
+        ]
+      },
+      {
+        "title": "Structurer la gestion d’erreur",
+        "paragraphs": [
+          "Power Automate permet de configurer Exécuter après selon qu’une action réussit, échoue, expire ou est ignorée. Regrouper les actions dans des étendues facilite un modèle de traitement principal et de traitement d’erreur. Le chemin d’erreur peut consigner le contexte, identifier l’exécution concernée et transmettre une alerte exploitable sans masquer l’échec initial.",
+          "Dans l’historique, recherchez la première action en échec. Les actions suivantes peuvent être ignorées ou apparaître en échec par dépendance : elles ne sont pas nécessairement la cause racine. Le journal utile indique le flux, l’environnement, l’identifiant métier du dossier, l’étape fautive, l’heure et les informations nécessaires au diagnostic, en évitant de recopier des données sensibles sans besoin."
+        ],
+        "checklist": [
+          "Regrouper les étapes dont l’échec doit être traité ensemble.",
+          "Conserver l’identifiant de l’exécution et la référence métier.",
+          "Tester les chemins réussite, échec, expiration et action ignorée."
+        ]
+      },
+      {
+        "title": "Encadrer les reprises",
+        "paragraphs": [
+          "Une stratégie de nouvelle tentative convient aux défaillances temporaires, avec des intervalles fixes ou exponentiels selon l’action. Chaque tentative consomme néanmoins des actions et sollicite le service connecté. Le nombre de tentatives, leur délai et l’escalade finale doivent donc être adaptés à l’impact métier, aux limites applicables et au comportement réel du connecteur.",
+          "Avant une relance complète, vérifiez l’idempotence : une opération idempotente peut être rejouée sans produire un second effet métier. Utilisez une clé stable, contrôlez l’état déjà atteint et séparez les étapes rejouables de celles qui demandent une validation. Par exemple hypothétique, si une commande a été créée mais que l’e-mail final échoue, la reprise doit notifier sans créer une deuxième commande."
+        ],
+        "checklist": [
+          "Définir les actions qui peuvent être rejouées automatiquement.",
+          "Contrôler l’état cible avec une clé métier stable.",
+          "Prévoir une reprise manuelle pour les opérations non idempotentes."
+        ]
+      },
+      {
+        "title": "Organiser les alertes",
+        "paragraphs": [
+          "Ne considérez pas l’e-mail natif comme une couverture exhaustive. La documentation Microsoft précise que certaines alertes par exécution visent des problèmes connus et réparables, tandis que les autres échecs restent visibles dans l’historique et les vues de surveillance. Le circuit de production doit donc préciser où l’équipe consulte tous les échecs et comment elle repère un flux silencieusement dégradé.",
+          "Une alerte utile indique l’impact, le flux, le dossier concerné, la première action en échec et la prochaine décision attendue. Évitez une notification à chaque étape : le bruit retarde le traitement et augmente le nombre d’actions. Pour un portefeuille de flux, convenez d’une vue de suivi, d’une fréquence de revue et de seuils adaptés, sans supposer que les analyses intégrées sont disponibles en temps réel."
+        ],
+        "checklist": [
+          "Nommer le canal de surveillance de tous les échecs.",
+          "Définir les destinataires et l’escalade de chaque niveau d’impact.",
+          "Vérifier périodiquement les flux sans alerte individuelle."
+        ]
+      },
+      {
+        "title": "Attribuer les responsabilités de production",
+        "paragraphs": [
+          "Le responsable métier décide du résultat attendu et de la correction fonctionnelle ; le propriétaire technique analyse l’exécution, les connexions et les limites ; le support applique la procédure convenue. Les propriétaires et copropriétaires doivent être adaptés au modèle d’exploitation. Prévoyez aussi le remplacement d’un compte, le renouvellement d’une connexion et le départ d’un propriétaire.",
+          "Le runbook précise comment qualifier l’incident, suspendre une reprise risquée, corriger la cause, relancer le bon périmètre et confirmer le résultat. Il mentionne les dépendances externes et les personnes habilitées à modifier le flux. La Pépiite IT, ESN et partenaire Microsoft, peut cadrer l’intégration et l’exploitation de flux Power Automate dans le périmètre d’accompagnement présenté sur le site."
+        ],
+        "checklist": [
+          "Nommer responsable métier, propriétaire technique et support.",
+          "Documenter connexions, dépendances et accès nécessaires.",
+          "Prévoir la continuité en cas de changement de propriétaire."
+        ]
+      },
+      {
+        "title": "Recetter la supervision avant la mise en production",
+        "paragraphs": [
+          "La recette provoque volontairement plusieurs scénarios : donnée obligatoire absente, connexion indisponible, réponse trop lente et échec après une écriture réussie. Pour chacun, vérifiez le statut final, le journal, l’alerte, le destinataire, la reprise et l’absence de doublon. Contrôlez également le comportement quand les volumes ou la fréquence approchent les hypothèses du projet.",
+          "Le dossier de livraison rassemble la matrice des incidents, les paramètres de nouvelles tentatives, les alertes, le runbook, les responsabilités et les preuves de recette. Les limites dépendent du profil, des connecteurs et des licences applicables ; elles doivent être vérifiées pour le flux réel. Pour cadrer le diagnostic, préparez un flux représentatif, ses données, ses exceptions, ses interfaces et son propriétaire."
+        ],
+        "checklist": []
+      }
+    ],
+    "questions": [
+      {
+        "question": "Faut-il relancer automatiquement chaque action Power Automate en échec ?",
+        "answer": "Non. Une nouvelle tentative convient surtout à une erreur transitoire. Une donnée invalide, une permission absente ou une opération non idempotente demande une correction ou une décision avant reprise."
+      },
+      {
+        "question": "Un e-mail d’échec Power Automate suffit-il pour superviser un flux ?",
+        "answer": "Non. Certaines exécutions en échec peuvent ne pas produire d’alerte individuelle. Consultez l’historique ou la vue de surveillance convenue, puis organisez les alertes et revues selon l’impact du flux."
+      },
+      {
+        "question": "Comment éviter un doublon lors de la reprise d’un flux ?",
+        "answer": "Utilisez une clé métier stable, vérifiez l’état déjà atteint et rendez les opérations rejouables lorsque c’est possible. Si une action produit un effet irréversible, prévoyez une reprise ciblée ou une validation humaine."
+      },
+      {
+        "question": "Quels livrables demander pour exploiter un flux Power Automate ?",
+        "answer": "Demandez une matrice des incidents, les paramètres de reprise, le circuit d’alerte, un runbook, les rôles de production et les preuves de recette couvrant les erreurs avant et après une écriture."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Limites des flux",
+        "url": "https://learn.microsoft.com/fr-fr/power-automate/limits-and-config"
+      },
+      {
+        "label": "Démarrer Power Automate",
+        "url": "https://learn.microsoft.com/fr-fr/power-automate/getting-started"
+      },
+      {
+        "label": "Microsoft Learn — Gestion robuste des erreurs",
+        "url": "https://learn.microsoft.com/fr-fr/power-automate/guidance/coding-guidelines/error-handling"
+      },
+      {
+        "label": "Microsoft Learn — Notifications d’échec de flux",
+        "url": "https://learn.microsoft.com/fr-fr/power-automate/understand-flow-failure-notifications"
+      }
+    ],
+    "updatedAt": "2026-10-21"
   }
 ]
