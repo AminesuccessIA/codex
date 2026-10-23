@@ -604,5 +604,122 @@
     ],
     "updatedAt": "2026-10-21",
     "publishedAt": "2026-10-21"
+  },
+  {
+    "slug": "azure-landing-zone-pme",
+    "service": "azure-cloud",
+    "cluster": "cloud",
+    "category": "CLOUD & EXPLOITATION",
+    "title": "Landing zone Azure : les décisions à prendre avant la migration",
+    "seoTitle": "Landing zone Azure : décisions avant migration",
+    "description": "Préparez une landing zone Azure proportionnée : abonnements, identités, réseau, gouvernance, exploitation et critères de validation avant migration.",
+    "answer": "Une landing zone Azure est le socle dans lequel les équipes déploient et exploitent leurs charges de travail avec des règles communes. Avant une migration, décidez comment organiser les abonnements, les identités, le réseau, la gouvernance et l’exploitation. Le bon périmètre dépend des applications, des exigences et des responsabilités de l’entreprise ; il ne se résume pas à déployer un modèle standard.",
+    "sections": [
+      {
+        "title": "Définir le rôle du socle",
+        "paragraphs": [
+          "Microsoft distingue la landing zone de plateforme, qui porte les fonctions communes de l’organisation, et les landing zones de charge de travail, dans lesquelles les équipes déploient leurs applications. Cette séparation évite de confondre les règles partagées avec les ressources propres à une application. Elle aide aussi à attribuer les responsabilités entre équipe plateforme, sécurité et propriétaires des charges.",
+          "Avant de choisir une architecture, décrivez la trajectoire : applications concernées, environnements, dépendances locales, contraintes de sécurité, exigences de reprise et capacité d’exploitation. Une première migration limitée peut nécessiter un socle simple, à condition que les décisions prises n’empêchent pas l’ajout de nouvelles charges. La landing zone prépare l’accueil des applications ; elle ne remplace ni leur analyse ni leur plan de bascule."
+        ],
+        "checklist": [
+          "Lister les charges et environnements à accueillir.",
+          "Nommer l’équipe plateforme et les propriétaires applicatifs.",
+          "Distinguer décisions communes et exigences propres à chaque charge."
+        ]
+      },
+      {
+        "title": "Organiser les abonnements",
+        "paragraphs": [
+          "Les abonnements constituent une limite d’organisation, de gestion et de facturation dans Azure. Leur découpage doit refléter les responsabilités, les environnements et les besoins d’isolation utiles, sans reproduire mécaniquement l’organigramme. Les groupes d’administration servent ensuite à appliquer des règles communes aux abonnements placés dans leur hiérarchie.",
+          "Décidez qui peut demander un abonnement, qui l’approuve, qui attribue les rôles et qui suit les dépenses. Pour chaque périmètre, consignez le propriétaire métier, le responsable technique et les accès administratifs. Les droits reposent sur le contrôle d’accès en fonction du rôle Azure ; Azure Policy répond à un autre besoin, celui d’auditer ou d’imposer des configurations. Une permission ne constitue donc pas, à elle seule, une règle de gouvernance."
+        ],
+        "checklist": [
+          "Définir les critères de séparation des abonnements.",
+          "Documenter les rôles et le processus d’attribution des accès.",
+          "Associer budgets, étiquettes et responsables aux périmètres concernés."
+        ]
+      },
+      {
+        "title": "Arbitrer identités et réseau",
+        "paragraphs": [
+          "Le locataire Microsoft Entra, les comptes administratifs, les identités des applications et les accès d’urgence doivent être cadrés avant l’arrivée des charges. Le principe est de limiter les privilèges et de rendre leur attribution explicite. Si une application dépend encore d’un annuaire local ou de services d’identité existants, cette dépendance influence le réseau, les flux autorisés et la séquence de migration.",
+          "La topologie réseau part des communications nécessaires : utilisateurs, datacenter, services Azure, partenaires et Internet. Une architecture en étoile ou Azure Virtual WAN n’est pas un choix automatique. Elle se justifie par les flux, les régions, l’exploitation et les fonctions centralisées attendues. Documentez les plages d’adresses, la résolution de noms, les sorties Internet, les connexions hybrides et la responsabilité des règles réseau avant de provisionner les environnements."
+        ],
+        "checklist": [
+          "Inventorier identités humaines, techniques et dépendances locales.",
+          "Cartographier les flux nécessaires et leur sens.",
+          "Valider l’adressage, la résolution de noms et la connectivité hybride."
+        ]
+      },
+      {
+        "title": "Choisir les garde-fous utiles",
+        "paragraphs": [
+          "Les domaines de conception Microsoft couvrent notamment organisation des ressources, identité, réseau, sécurité, gouvernance, gestion et automatisation. Ils constituent une grille de décisions, pas l’obligation de déployer immédiatement tous les composants d’une architecture de référence. Chaque écart à un principe doit toutefois être explicite, car il peut augmenter la charge d’exploitation ou compliquer une évolution future.",
+          "Partez des exigences vérifiables : régions autorisées, journaux à conserver, configurations interdites, conventions de nommage ou protection attendue. Classez ensuite les règles entre audit, correction et blocage. Une stratégie bloquante déployée trop tôt peut empêcher une migration ; une simple alerte peut laisser persister un risque. Testez les affectations Azure Policy sur un abonnement pilote et prévoyez la gestion documentée des exceptions."
+        ],
+        "checklist": [
+          "Relier chaque garde-fou à une exigence métier ou de sécurité.",
+          "Distinguer audit, correction automatique et refus de déploiement.",
+          "Tester les règles et leur procédure d’exception sur un périmètre pilote."
+        ]
+      },
+      {
+        "title": "Préparer exploitation et déploiement",
+        "paragraphs": [
+          "Un socle exploitable prévoit les journaux, alertes, sauvegardes, mises à jour, coûts et responsabilités de support. Définissez ce qui est centralisé par la plateforme et ce qui reste à la charge de l’équipe applicative. Les objectifs de reprise et les contrôles de restauration appartiennent au contexte de chaque charge ; la présence d’un service de sauvegarde ne prouve pas qu’un scénario de reprise fonctionne.",
+          "Microsoft propose des accélérateurs fondés sur l’infrastructure en tant que code, mais une accélération de déploiement ne remplace pas les arbitrages. Choisissez l’option après avoir défini les domaines de conception et les compétences de maintenance. Les livrables attendus sont un dossier de décisions, une architecture cible, un référentiel de rôles, des règles de gouvernance testées, un socle de déploiement reproductible et des procédures d’exploitation."
+        ],
+        "checklist": [
+          "Répartir supervision, sauvegarde, sécurité et suivi des coûts.",
+          "Choisir une méthode de déploiement maintenable par les équipes.",
+          "Prévoir les preuves de recette et les procédures de transmission."
+        ]
+      },
+      {
+        "title": "Valider avant le premier lot",
+        "paragraphs": [
+          "Exemple hypothétique : une entreprise prépare la migration d’une application interne reliée à une base locale. Le pilote vérifie l’abonnement cible, les rôles, la résolution de noms, les flux hybrides, les journaux, les alertes, la sauvegarde et le suivi des dépenses. La recette inclut un déploiement reproductible, un refus attendu par une stratégie et une restauration sur le périmètre convenu.",
+          "La décision de lancer le lot s’appuie sur des critères observables et sur une liste d’écarts acceptés avec leurs responsables. La Pépiite IT, ESN et partenaire Microsoft, présente un accompagnement Azure couvrant architecture, landing zone, migration et exploitation. Pour cadrer le besoin, réunissez l’inventaire applicatif, les flux, les identités, les exigences de reprise et les responsabilités actuelles ; le diagnostic permet de préciser le socle à préparer."
+        ],
+        "checklist": []
+      }
+    ],
+    "questions": [
+      {
+        "question": "Une landing zone Azure est-elle nécessaire pour une seule application ?",
+        "answer": "Il faut au minimum décider des abonnements, accès, réseau, gouvernance et responsabilités d’exploitation. Le socle peut rester proportionné à une première application, tout en prévoyant les évolutions plausibles sans reproduire toute l’architecture de référence."
+      },
+      {
+        "question": "Faut-il déployer l’architecture de référence Azure à l’identique ?",
+        "answer": "Non. Elle sert de point de départ et Microsoft prévoit des options d’implémentation ou une construction personnalisée. Les écarts doivent être documentés avec leurs conséquences sur la sécurité, la gouvernance et l’exploitation."
+      },
+      {
+        "question": "Quelle différence entre Azure Policy et les rôles Azure ?",
+        "answer": "Les rôles Azure déterminent les actions qu’une identité autorisée peut effectuer dans un périmètre. Azure Policy évalue ou impose l’état des ressources selon des règles. Les deux mécanismes sont complémentaires et doivent être testés dans le contexte du projet."
+      },
+      {
+        "question": "Quels livrables demander avant la migration ?",
+        "answer": "Demandez un dossier de décisions, l’architecture cible, la matrice des rôles, les règles de gouvernance, le socle de déploiement reproductible, les résultats de recette et les procédures d’exploitation avec les écarts restant à traiter."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Microsoft Learn — Zones d’atterrissage Azure",
+        "url": "https://learn.microsoft.com/fr-fr/azure/cloud-adoption-framework/ready/landing-zone/"
+      },
+      {
+        "label": "Microsoft Learn — Cloud Adoption Framework",
+        "url": "https://learn.microsoft.com/fr-fr/azure/cloud-adoption-framework/"
+      },
+      {
+        "label": "Microsoft Learn — Domaines de conception des zones d’atterrissage",
+        "url": "https://learn.microsoft.com/fr-fr/azure/cloud-adoption-framework/ready/landing-zone/design-areas"
+      },
+      {
+        "label": "Microsoft Learn — Topologie et connectivité du réseau",
+        "url": "https://learn.microsoft.com/fr-fr/azure/cloud-adoption-framework/ready/landing-zone/design-area/network-topology-and-connectivity"
+      }
+    ],
+    "updatedAt": "2026-10-23"
   }
 ]
